@@ -55,15 +55,6 @@ const projects: Project[] = [
   },
   {
     id: "project-5",
-    title: "True Tenant",
-    category: "business",
-    image: "/True_Tenant.png",
-    description: "TruTenant helps landlords make informed decisions with tenant reviews and community feedback.",
-    tags: ["Business", "React", "GSAP"],
-    url: "https://www.trutenant.com/"
-  },
-  {
-    id: "project-6",
     title: "Nurture Track",
     category: "business",
     image: "/nurture-track.png",
@@ -72,7 +63,7 @@ const projects: Project[] = [
     url: "https://www.nurturetrack.app/"
   },
   {
-    id: "project-7",
+    id: "project-6",
     title: "88 Transpoort LLC",
     category: "landing-page",
     image: "/88transpoort-logo.jpeg",
