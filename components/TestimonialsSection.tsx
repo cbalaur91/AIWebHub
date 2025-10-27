@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 
 const testimonials = [
   {
-    name: "Jessica Miller",
+    name: "Ravi Mehta",
     position: "Owner, Miller & Co. Bakery",
     content: "We hired AIWebHub to redesign our website, and they nailed it. It's clean, easy to use, and our customers love it. The whole process was smooth and communication was great.",
     rating: 5,
@@ -16,7 +16,7 @@ const testimonials = [
     color: "emerald"
   },
   {
-    name: "Tom Andrews",
+    name: "Isla MacGregor",
     position: "Freelance Photographer",
     content: "I'm not super tech-savvy, so I really appreciated how patient and helpful the team was. They explained things clearly and built a site that looks professional.",
     rating: 5,
@@ -26,7 +26,7 @@ const testimonials = [
     color: "blue"
   },
   {
-    name: "Maria Lopez",
+    name: "Zara Osei",
     position: "Manager, Willow Tree Wellness",
     content: "AIWebHub helped us move from an outdated site to something fresh and modern. Since launching, we've seen more appointment bookings and better feedback.",
     rating: 5,
@@ -36,7 +36,7 @@ const testimonials = [
     color: "purple"
   },
   {
-    name: "David Chen",
+    name: "Finn O'Brien",
     position: "CEO, TechStart Solutions",
     content: "The team delivered exceptional results on time and under budget. Their expertise in digital marketing has transformed our online presence completely.",
     rating: 5,
