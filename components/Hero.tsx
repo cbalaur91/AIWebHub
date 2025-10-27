@@ -90,7 +90,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Elevate Your Digital Vision
+            Complete PR Solutions for Small Businesses
           </motion.h1>
           <motion.p
             className="mt-6 text-lg text-gray-300 md:text-xl"
@@ -98,8 +98,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            We combine cutting-edge AI with exceptional design to create websites that stand out
-            from the competition. Bring your brand to life with AIWebHub.
+            From stunning websites to comprehensive digital marketing, we provide everything your small business needs to thrive online. One partner for your complete digital presence.
           </motion.p>
           <motion.div
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"

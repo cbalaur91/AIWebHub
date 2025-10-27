@@ -8,9 +8,9 @@ import { Toaster } from '@/components/ui/sonner'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AIWebHub - Modern Web Agency',
-  description: 'We build beautiful, high-performing websites with AI-powered precision. Innovative web solutions for landing pages, portfolios, and business websites.',
-  keywords: 'web design, web development, agency, website, landing page, portfolio, business website, AI-powered, modern web solutions',
+  title: 'AIWebHub - Complete PR & Digital Marketing Solutions for Small Business',
+  description: 'Full-service digital marketing and PR solutions for small businesses. Website development, SEO, listings management, online reviews, Google Ads, and social media marketing - all in one place.',
+  keywords: 'digital marketing, PR services, small business marketing, website development, SEO, listings management, online reviews, Google Ads, social media marketing, reputation management',
   authors: [{ name: 'AIWebHub' }],
   creator: 'AIWebHub',
   publisher: 'AIWebHub',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'AIWebHub - Innovative Web Solutions',
-    description: 'Transform your digital presence with AI-powered web design. We create stunning landing pages, portfolios, and business websites that convert.',
+    title: 'AIWebHub - Complete PR & Digital Marketing Solutions',
+    description: 'Transform your small business with comprehensive PR and digital marketing services. One partner for your complete digital presence.',
     url: 'https://www.aiwebhub.io',
     siteName: 'AIWebHub',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: 'https://www.aiwebhub.io/thumbnails/logo-thumbnail.png',
         width: 1200,
         height: 630,
-        alt: 'AIWebHub - Innovative Web Solutions',
+        alt: 'AIWebHub - Complete PR & Digital Marketing Solutions',
       },
     ],
     locale: 'en_US',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AIWebHub - Modern Web Agency',
-    description: 'Build beautiful, high-performing websites with AI-powered precision. Professional web solutions for your business.',
+    title: 'AIWebHub - Complete PR & Digital Marketing Solutions',
+    description: 'Full-service digital marketing for small businesses. Website development, SEO, Google Ads, social media, and more.',
     images: ['https://www.aiwebhub.io/thumbnails/logo-thumbnail.png'],
     creator: '@aiwebhub',
   },
@@ -97,11 +97,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "AIWebHub",
-              "alternateName": "AIWebHub - Innovative Web Solutions",
+              "alternateName": "AIWebHub - Complete PR & Digital Marketing Solutions",
               "url": "https://www.aiwebhub.io",
               "logo": "https://www.aiwebhub.io/logo/logo.png",
               "image": "https://www.aiwebhub.io/thumbnails/logo-thumbnail.png",
-              "description": "Modern web agency building beautiful, high-performing websites with AI-powered precision",
+              "description": "Full-service digital marketing agency providing comprehensive PR solutions for small businesses",
               "sameAs": [
                 "https://twitter.com/aiwebhub"
               ],
@@ -113,11 +113,14 @@ export default function RootLayout({
               "foundingDate": "2024",
               "areaServed": "Worldwide",
               "serviceType": [
-                "Web Design",
-                "Web Development",
-                "Landing Pages",
-                "Portfolio Websites",
-                "Business Websites"
+                "Digital Marketing",
+                "Public Relations",
+                "Website Development",
+                "Search Engine Optimization",
+                "Listings Management",
+                "Online Reviews Management",
+                "Google Ads Management",
+                "Social Media Marketing"
               ]
             })
           }}

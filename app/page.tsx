@@ -12,7 +12,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "AIWebHub",
     "url": "https://aiwebhub.io",
-    "description": "Modern web agency specializing in AI-powered web solutions",
+    "description": "Full-service digital marketing and PR solutions for small businesses including website development, SEO, listings management, online reviews, Google Ads, and social media marketing",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -50,10 +50,10 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Ready to transform your digital presence?
+              Ready to grow your small business online?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-400 mb-8">
-              Let's create something amazing together. Contact us today to get started.
+              Get everything you need in one place - from websites to digital marketing. Contact us today for a free consultation.
             </p>
             <Link href="/contact">
               <Button 

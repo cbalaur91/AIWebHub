@@ -1,16 +1,16 @@
-import { CheckCircle, Code, Globe, LineChart, Palette, Smartphone } from 'lucide-react'
+import { CheckCircle, Code, Globe, MapPin, Search, Star, Megaphone, Share2, Monitor } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Services - AIWebHub | Professional Web Design & Development',
-  description: 'Discover our professional web design and development services including landing pages, portfolio sites, and business websites. Get a custom quote for your project.',
-  keywords: 'web design services, web development, landing pages, portfolio websites, business websites, custom web applications, SEO optimization',
+  title: 'Services - AIWebHub | Complete Digital Marketing & PR Solutions',
+  description: 'Full-service digital marketing and PR solutions for small businesses. Website development, SEO, listings management, online reviews, Google Ads, and social media marketing.',
+  keywords: 'digital marketing, PR services, website development, SEO, listings management, online reviews, Google Ads, social media marketing, small business marketing',
   openGraph: {
-    title: 'Professional Web Services - AIWebHub',
-    description: 'Transform your business with our professional web design services. Landing pages, portfolios, and business websites that convert.',
+    title: 'Complete Digital Marketing & PR Solutions - AIWebHub',
+    description: 'Transform your small business with our comprehensive PR and digital marketing services. From websites to social media, we have you covered.',
     url: 'https://aiwebhub.io/services',
     siteName: 'AIWebHub',
     images: [
@@ -18,15 +18,15 @@ export const metadata: Metadata = {
         url: 'https://aiwebhub.io/AiWebHubLogo.jpg',
         width: 1200,
         height: 630,
-        alt: 'AIWebHub Services - Professional Web Solutions',
+        alt: 'AIWebHub Services - Complete PR Solutions',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Professional Web Services - AIWebHub',
-    description: 'Transform your business with our professional web design services. Landing pages, portfolios, and business websites.',
+    title: 'Complete Digital Marketing & PR Solutions - AIWebHub',
+    description: 'Full-service digital marketing for small businesses. Website development, SEO, Google Ads, social media, and more.',
     images: ['https://aiwebhub.io/AiWebHubLogo.jpg'],
   },
   alternates: {
@@ -51,47 +51,91 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: "landing-pages",
-    title: "Landing Pages",
-    description: "Conversion-focused landing pages designed to turn visitors into customers.",
-    icon: LineChart,
+    id: "website-development",
+    title: "Website Development",
+    description: "Professional, conversion-focused websites that establish credibility and turn visitors into customers.",
+    icon: Globe,
     features: [
-      { title: "Custom Design", description: "Tailored to your brand identity and marketing goals" },
-      { title: "Mobile Optimization", description: "Looks and works perfectly on all devices" },
-      { title: "A/B Testing", description: "Test different versions to maximize conversion rates" },
-      { title: "Lead Capture", description: "Built-in forms and CTAs to collect leads" },
-      { title: "Analytics Integration", description: "Track performance with detailed metrics" },
+      { title: "Custom Design", description: "Tailored to your brand identity and business goals" },
+      { title: "Mobile Responsive", description: "Perfect experience on all devices" },
+      { title: "SEO Foundation", description: "Built with search engine optimization in mind" },
+      { title: "Fast Loading", description: "Optimized for speed and performance" },
+      { title: "Easy Updates", description: "Simple content management system" },
     ],
-    price: "From $500",
+    price: "From $1,500",
     popular: true,
   },
   {
-    id: "portfolio-sites",
-    title: "Portfolio Sites",
-    description: "Showcase your work with elegantly designed portfolio websites that highlight your skills, achievements and professional journey.",
-    icon: Palette,
+    id: "listings-management",
+    title: "Listings Management",
+    description: "Ensure your business information is accurate and consistent across all online directories and platforms.",
+    icon: MapPin,
     features: [
-      { title: "Project Showcase", description: "Beautifully display your work with custom galleries" },
-      { title: "Personal Branding", description: "Design that reflects your personal brand" },
-      { title: "Contact Form", description: "Make it easy for potential clients to reach you" },
-      { title: "Responsive Design", description: "Looks great on desktops, tablets and phones" },
-      { title: "SEO Optimization", description: "Get found by potential clients online" },
+      { title: "Directory Sync", description: "Consistent information across 50+ directories" },
+      { title: "Real-Time Updates", description: "Changes reflected across all platforms instantly" },
+      { title: "Duplicate Removal", description: "Clean up conflicting business listings" },
+      { title: "Performance Reports", description: "Track your local visibility and engagement" },
+      { title: "Citation Building", description: "Improve local SEO with quality citations" },
     ],
-    price: "From $1,000",
+    price: "From $99/month",
   },
   {
-    id: "business-websites",
-    title: "Business Websites",
-    description: "Professional business websites that establish credibility and drive growth.",
-    icon: Globe,
+    id: "seo",
+    title: "Search Engine Optimization",
+    description: "Get found by more customers with comprehensive SEO strategies that improve your visibility in search results.",
+    icon: Search,
     features: [
-      { title: "Multi-Page Design", description: "Comprehensive site structure for your business" },
-      { title: "Content Management", description: "Easy-to-use CMS to update your content" },
-      { title: "SEO Strategy", description: "Optimized for search engines from the ground up" },
-      { title: "Integration", description: "Connect with your tools and business systems" },
-      { title: "Analytics Dashboard", description: "Track performance and user behavior" },
+      { title: "Keyword Research", description: "Target the right terms for your business" },
+      { title: "On-Page Optimization", description: "Technical SEO and content optimization" },
+      { title: "Local SEO", description: "Dominate local search results in your area" },
+      { title: "Link Building", description: "Quality backlinks to boost authority" },
+      { title: "Monthly Reports", description: "Track rankings and traffic growth" },
     ],
-    price: "From $2,500",
+    price: "From $499/month",
+    popular: true,
+  },
+  {
+    id: "online-reviews",
+    title: "Online Reviews",
+    description: "Build trust and credibility with strategic review management that showcases your reputation.",
+    icon: Star,
+    features: [
+      { title: "Review Monitoring", description: "Track reviews across all platforms" },
+      { title: "Review Generation", description: "Automated requests to satisfied customers" },
+      { title: "Response Management", description: "Professional responses to all reviews" },
+      { title: "Reputation Dashboard", description: "Monitor your online reputation in real-time" },
+      { title: "Feedback Insights", description: "Learn from customer feedback" },
+    ],
+    price: "From $149/month",
+  },
+  {
+    id: "google-ads",
+    title: "Google Ads",
+    description: "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns.",
+    icon: Megaphone,
+    features: [
+      { title: "Campaign Strategy", description: "Custom campaigns for your business goals" },
+      { title: "Keyword Targeting", description: "Reach customers searching for your services" },
+      { title: "Ad Copywriting", description: "Compelling ads that drive clicks" },
+      { title: "Budget Management", description: "Maximize ROI with smart spending" },
+      { title: "Performance Tracking", description: "Detailed reports on campaign success" },
+    ],
+    price: "From $299/month + ad spend",
+    popular: true,
+  },
+  {
+    id: "social-media",
+    title: "Social Media Marketing",
+    description: "Engage your audience and grow your brand with strategic social media campaigns across all platforms.",
+    icon: Share2,
+    features: [
+      { title: "Content Strategy", description: "Planned content that resonates with your audience" },
+      { title: "Post Creation", description: "Professional graphics and engaging copy" },
+      { title: "Community Management", description: "Respond to comments and messages" },
+      { title: "Paid Social Ads", description: "Targeted advertising on social platforms" },
+      { title: "Analytics Reports", description: "Track engagement and growth metrics" },
+    ],
+    price: "From $399/month",
   },
 ]
 
@@ -100,55 +144,58 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Services - AIWebHub",
-    "description": "Professional web design and development services including landing pages, portfolio sites, and business websites.",
+    "description": "Complete digital marketing and PR solutions for small businesses including website development, SEO, listings management, online reviews, Google Ads, and social media marketing.",
     "url": "https://aiwebhub.io/services",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
       "url": "https://aiwebhub.io",
-      "description": "Modern web agency specializing in AI-powered web solutions",
+      "description": "Full-service digital marketing agency specializing in PR solutions for small businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Web Design Services",
+        "name": "Digital Marketing Services",
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Landing Pages",
-            "description": "Conversion-focused landing pages designed to turn visitors into customers",
-            "price": "500",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "500",
-              "priceCurrency": "USD",
-              "valueAddedTaxIncluded": false
-            }
+            "name": "Website Development",
+            "description": "Professional, conversion-focused websites that establish credibility and turn visitors into customers",
+            "price": "1500",
+            "priceCurrency": "USD"
           },
           {
             "@type": "Offer",
-            "name": "Portfolio Sites",
-            "description": "Showcase your work with elegantly designed portfolio websites",
-            "price": "1000",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "1000",
-              "priceCurrency": "USD",
-              "valueAddedTaxIncluded": false
-            }
+            "name": "Listings Management",
+            "description": "Ensure your business information is accurate and consistent across all online directories",
+            "price": "99",
+            "priceCurrency": "USD"
           },
           {
             "@type": "Offer",
-            "name": "Business Websites",
-            "description": "Professional business websites that establish credibility and drive growth",
-            "price": "2500",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "price": "2500",
-              "priceCurrency": "USD",
-              "valueAddedTaxIncluded": false
-            }
+            "name": "Search Engine Optimization",
+            "description": "Comprehensive SEO strategies that improve your visibility in search results",
+            "price": "499",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Online Reviews Management",
+            "description": "Build trust and credibility with strategic review management",
+            "price": "149",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Google Ads Management",
+            "description": "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns",
+            "price": "299",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "name": "Social Media Marketing",
+            "description": "Engage your audience and grow your brand with strategic social media campaigns",
+            "price": "399",
+            "priceCurrency": "USD"
           }
         ]
       }
@@ -166,10 +213,10 @@ export default function ServicesPage() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-            Our Services
+            Complete PR & Digital Marketing Solutions
           </h1>
           <p className="mt-6 text-lg text-gray-300">
-            We offer a range of web design and development services to help your business thrive online.
+            Everything your small business needs to succeed online - one partner, one solution, complete results.
           </p>
         </div>
       </div>
@@ -235,30 +282,30 @@ export default function ServicesPage() {
       <section className="relative py-20 bg-black overflow-hidden">
         {/* Background gradient accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
+
         <div className="container relative mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white">Additional Services</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white">Website Types We Build</h2>
             <p className="mt-4 text-gray-400">
-              Beyond our core services, we offer these additional solutions to enhance your web presence.
+              As part of our website development service, we create custom websites for various business needs.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "E-commerce Solutions",
-                description: "Complete online store setup with secure payment processing, inventory management, and seamless customer experience.",
-                icon: <Smartphone className="h-10 w-10 text-blue-500" />,
+                title: "Landing Pages",
+                description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
+                icon: <Monitor className="h-10 w-10 text-blue-500" />,
               },
               {
-                title: "SEO & Content Marketing",
-                description: "Comprehensive SEO strategies and content creation to improve your site's visibility and attract more organic traffic.",
-                icon: <LineChart className="h-10 w-10 text-purple-500" />,
+                title: "E-commerce Stores",
+                description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
+                icon: <Code className="h-10 w-10 text-purple-500" />,
               },
               {
-                title: "Custom Web Applications",
-                description: "Bespoke web applications tailored to your specific business needs and workflows.",
-                icon: <Code className="h-10 w-10 text-pink-500" />,
+                title: "Multi-Page Business Sites",
+                description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
+                icon: <Globe className="h-10 w-10 text-pink-500" />,
               },
             ].map((service, index) => (
               <div

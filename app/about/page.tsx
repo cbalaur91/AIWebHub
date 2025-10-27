@@ -11,7 +11,7 @@ export default function AboutPage() {
             About AIWebHub
           </h1>
           <p className="mt-6 text-lg text-gray-300">
-            We're a team of passionate designers, developers, and strategists dedicated to crafting exceptional digital experiences.
+            We're your complete PR and digital marketing partner, dedicated to helping small businesses thrive online with comprehensive solutions.
           </p>
         </div>
       </div>
@@ -26,10 +26,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-white mb-6">Our Mission</h2>
               <p className="text-gray-300 mb-6">
-                At AIWebHub, our mission is to harness the power of AI and human creativity to deliver websites that not only look stunning but also perform exceptionally well. We believe that great design should be accessible to businesses of all sizes.
+                At AIWebHub, our mission is to provide small businesses with complete PR and digital marketing solutions that drive real results. We believe that every business deserves access to professional marketing services without the complexity of managing multiple vendors.
               </p>
               <p className="text-gray-300">
-                Every project we undertake is approached with meticulous attention to detail, ensuring that each website we create is not just a digital presence, but a powerful business tool that drives growth and engagement.
+                From building your website to managing your online reputation, running your Google Ads campaigns, and creating engaging social media content - we handle it all. One partner, one solution, complete peace of mind.
               </p>
             </div>
             <div className="relative">

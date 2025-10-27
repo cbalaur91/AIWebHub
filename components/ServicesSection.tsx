@@ -1,34 +1,52 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Monitor, Palette, BarChart3 } from 'lucide-react'
+import { Globe, MapPin, Search, Star, Megaphone, Share2 } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Vortex } from '@/components/ui/vortex'
 
 const services = [
   {
-    title: "Landing Pages",
-    description: "Conversion-focused landing pages designed to turn visitors into customers with compelling CTAs and optimized user journeys.",
-    icon: Monitor,
+    title: "Website Development",
+    description: "Professional, conversion-focused websites that establish credibility and turn visitors into customers.",
+    icon: Globe,
     delay: 0.1,
   },
   {
-    title: "Portfolio Sites",
-    description: "Showcase your work with elegantly designed portfolio websites that highlight your skills and achievements.",
-    icon: Palette,
+    title: "Listings Management",
+    description: "Ensure your business information is accurate and consistent across all online directories and platforms.",
+    icon: MapPin,
+    delay: 0.15,
+  },
+  {
+    title: "Search Engine Optimization",
+    description: "Get found by more customers with comprehensive SEO strategies that improve your visibility in search results.",
+    icon: Search,
     delay: 0.2,
   },
   {
-    title: "Business Websites",
-    description: "Professional business websites that establish credibility, communicate your value proposition, and drive growth.",
-    icon: BarChart3,
+    title: "Online Reviews",
+    description: "Build trust and credibility with strategic review management that showcases your reputation.",
+    icon: Star,
+    delay: 0.25,
+  },
+  {
+    title: "Google Ads",
+    description: "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns.",
+    icon: Megaphone,
     delay: 0.3,
+  },
+  {
+    title: "Social Media Marketing",
+    description: "Engage your audience and grow your brand with strategic social media campaigns across all platforms.",
+    icon: Share2,
+    delay: 0.35,
   },
 ]
 
 export const ServicesSection = () => {
   return (
-    <div className="w-full h-[1000px] sm:h-[800px] md:h-[800px] overflow-hidden">
+    <div className="w-full h-[1200px] sm:h-[1000px] md:h-[1000px] overflow-hidden">
       <Vortex
         backgroundColor="black"
         particleCount={300}
@@ -41,15 +59,15 @@ export const ServicesSection = () => {
         className="flex items-center flex-col justify-center px-4 md:px-10 py-8 md:py-4 w-full h-full"
       >
         <div className="container mx-auto">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Our Services
+              Complete Digital Marketing Solutions
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-              We offer comprehensive web solutions tailored to your specific needs and objectives.
+              Everything your small business needs to succeed online - from website development to digital marketing and reputation management.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 pb-8 md:pb-0">
             {services.map((service, index) => (
               <motion.div
