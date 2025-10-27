@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Code2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
+import { GradientButton } from '@/components/ui/gradient-button'
+import { Logo } from '@/components/Logo'
 
 const NavLinks = [
   { href: '/', label: 'Home' },
@@ -16,20 +16,6 @@ const NavLinks = [
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -40,7 +26,6 @@ export const Navbar = () => {
 
     if (isMenuOpen) {
       document.addEventListener('keydown', handleEscape)
-      // Prevent body scroll when menu is open
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
@@ -53,45 +38,14 @@ export const Navbar = () => {
   }, [isMenuOpen])
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-black/80 backdrop-blur-md py-2 shadow-lg'
-          : 'bg-transparent py-4'
-      )}
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
-              <Code2 className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white">
-              AIWebHub
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {NavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                prefetch={true}
-                className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+    <header className="relative z-10 sm:px-6 md:px-10 animate-slideDown bg-zinc-950 w-full max-w-7xl border-white/10 border rounded-3xl mt-6 mx-auto px-4 py-4">
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="flex items-center gap-3 w-full md:w-auto justify-between">
+          <Logo />
 
           {/* Mobile Menu Button */}
           <button
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "md:hidden text-white"
-            )}
+            className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -101,33 +55,54 @@ export const Navbar = () => {
             )}
           </button>
         </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 text-sm text-neutral-300">
+          {NavLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="hover:text-white transition-colors hover:scale-105 duration-200 font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <GradientButton href="/contact" variant="primary">
+            Get Started
+          </GradientButton>
+        </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <>
-          {/* Backdrop overlay */}
-          <div 
+          <div
             className="fixed inset-0 bg-black/50 z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
-          
-          {/* Mobile Menu */}
-          <div className="md:hidden flex flex-col bg-black/95 backdrop-blur-md px-4 py-8 border-t border-gray-800 relative z-50">
+
+          <div className="md:hidden flex flex-col bg-zinc-900/95 backdrop-blur-md px-4 py-6 mt-4 rounded-2xl border border-white/10 relative z-50">
             {NavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                prefetch={true}
-                className="text-lg font-medium text-white/80 hover:text-white py-3 transition-colors"
+                className="text-base font-medium text-neutral-300 hover:text-white py-3 transition-colors border-b border-white/5 last:border-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
+            <div className="pt-4">
+              <GradientButton href="/contact" variant="primary" className="w-full">
+                Get Started
+              </GradientButton>
+            </div>
           </div>
         </>
       )}
-    </nav>
+    </header>
   )
 }

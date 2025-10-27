@@ -1,203 +1,95 @@
-import { CheckCircle, Code, Globe, MapPin, Search, Star, Megaphone, Share2, Monitor } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Metadata } from 'next'
+"use client"
 
-export const metadata: Metadata = {
-  title: 'Services - AIWebHub | Complete Digital Marketing & PR Solutions',
-  description: 'Full-service digital marketing and PR solutions for small businesses. Website development, SEO, listings management, online reviews, Google Ads, and social media marketing.',
-  keywords: 'digital marketing, PR services, website development, SEO, listings management, online reviews, Google Ads, social media marketing, small business marketing',
-  openGraph: {
-    title: 'Complete Digital Marketing & PR Solutions - AIWebHub',
-    description: 'Transform your small business with our comprehensive PR and digital marketing services. From websites to social media, we have you covered.',
-    url: 'https://aiwebhub.io/services',
-    siteName: 'AIWebHub',
-    images: [
-      {
-        url: 'https://aiwebhub.io/AiWebHubLogo.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'AIWebHub Services - Complete PR Solutions',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Complete Digital Marketing & PR Solutions - AIWebHub',
-    description: 'Full-service digital marketing for small businesses. Website development, SEO, Google Ads, social media, and more.',
-    images: ['https://aiwebhub.io/AiWebHubLogo.jpg'],
-  },
-  alternates: {
-    canonical: '/services',
-  },
-}
+import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target } from 'lucide-react'
+import { GradientButton } from '@/components/ui/gradient-button'
 
-interface ServiceFeature {
-  title: string;
-  description: string;
-}
-
-interface Service {
+interface PricingPlan {
   id: string;
-  title: string;
-  description: string;
-  icon: React.ElementType;
-  features: ServiceFeature[];
+  name: string;
   price: string;
+  priceMonthly: number;
+  description: string;
+  features: string[];
   popular?: boolean;
 }
 
-const services: Service[] = [
+const pricingPlans: PricingPlan[] = [
   {
-    id: "website-development",
-    title: "Website Development",
-    description: "Professional, conversion-focused websites that establish credibility and turn visitors into customers.",
-    icon: Globe,
+    id: "starter",
+    name: "Starter",
+    price: "$99",
+    priceMonthly: 99,
+    description: "Perfect for small businesses getting started with their online presence.",
     features: [
-      { title: "Custom Design", description: "Tailored to your brand identity and business goals" },
-      { title: "Mobile Responsive", description: "Perfect experience on all devices" },
-      { title: "SEO Foundation", description: "Built with search engine optimization in mind" },
-      { title: "Fast Loading", description: "Optimized for speed and performance" },
-      { title: "Easy Updates", description: "Simple content management system" },
+      "Basic listings management across major directories",
+      "Website hosting & maintenance",
+      "Review monitoring dashboard",
+      "Monthly performance report",
+      "Email support",
     ],
-    price: "From $1,500",
+  },
+  {
+    id: "essentials",
+    name: "Essentials",
+    price: "$399",
+    priceMonthly: 399,
+    description: "Comprehensive marketing solution for growing businesses ready to scale.",
+    features: [
+      "Everything in Starter",
+      "SEO optimization & local SEO",
+      "Social media management (2 platforms)",
+      "Online review management with responses",
+      "Quarterly website updates",
+      "Priority email & phone support",
+    ],
     popular: true,
   },
   {
-    id: "listings-management",
-    title: "Listings Management",
-    description: "Ensure your business information is accurate and consistent across all online directories and platforms.",
-    icon: MapPin,
+    id: "professional",
+    name: "Professional",
+    price: "$899",
+    priceMonthly: 899,
+    description: "Full-service digital marketing for businesses serious about growth.",
     features: [
-      { title: "Directory Sync", description: "Consistent information across 50+ directories" },
-      { title: "Real-Time Updates", description: "Changes reflected across all platforms instantly" },
-      { title: "Duplicate Removal", description: "Clean up conflicting business listings" },
-      { title: "Performance Reports", description: "Track your local visibility and engagement" },
-      { title: "Citation Building", description: "Improve local SEO with quality citations" },
+      "Everything in Essentials",
+      "Google Ads campaign management",
+      "Advanced SEO with link building",
+      "Social media management (all platforms)",
+      "Weekly content creation",
+      "Bi-weekly performance reports",
+      "Dedicated account manager",
     ],
-    price: "From $99/month",
   },
-  {
-    id: "seo",
-    title: "Search Engine Optimization",
-    description: "Get found by more customers with comprehensive SEO strategies that improve your visibility in search results.",
-    icon: Search,
-    features: [
-      { title: "Keyword Research", description: "Target the right terms for your business" },
-      { title: "On-Page Optimization", description: "Technical SEO and content optimization" },
-      { title: "Local SEO", description: "Dominate local search results in your area" },
-      { title: "Link Building", description: "Quality backlinks to boost authority" },
-      { title: "Monthly Reports", description: "Track rankings and traffic growth" },
-    ],
-    price: "From $499/month",
-    popular: true,
-  },
-  {
-    id: "online-reviews",
-    title: "Online Reviews",
-    description: "Build trust and credibility with strategic review management that showcases your reputation.",
-    icon: Star,
-    features: [
-      { title: "Review Monitoring", description: "Track reviews across all platforms" },
-      { title: "Review Generation", description: "Automated requests to satisfied customers" },
-      { title: "Response Management", description: "Professional responses to all reviews" },
-      { title: "Reputation Dashboard", description: "Monitor your online reputation in real-time" },
-      { title: "Feedback Insights", description: "Learn from customer feedback" },
-    ],
-    price: "From $149/month",
-  },
-  {
-    id: "google-ads",
-    title: "Google Ads",
-    description: "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns.",
-    icon: Megaphone,
-    features: [
-      { title: "Campaign Strategy", description: "Custom campaigns for your business goals" },
-      { title: "Keyword Targeting", description: "Reach customers searching for your services" },
-      { title: "Ad Copywriting", description: "Compelling ads that drive clicks" },
-      { title: "Budget Management", description: "Maximize ROI with smart spending" },
-      { title: "Performance Tracking", description: "Detailed reports on campaign success" },
-    ],
-    price: "From $299/month + ad spend",
-    popular: true,
-  },
-  {
-    id: "social-media",
-    title: "Social Media Marketing",
-    description: "Engage your audience and grow your brand with strategic social media campaigns across all platforms.",
-    icon: Share2,
-    features: [
-      { title: "Content Strategy", description: "Planned content that resonates with your audience" },
-      { title: "Post Creation", description: "Professional graphics and engaging copy" },
-      { title: "Community Management", description: "Respond to comments and messages" },
-      { title: "Paid Social Ads", description: "Targeted advertising on social platforms" },
-      { title: "Analytics Reports", description: "Track engagement and growth metrics" },
-    ],
-    price: "From $399/month",
-  },
+]
+
+const stats = [
+  { value: '3', label: 'Flexible Plans', icon: Target },
+  { value: '$99', label: 'Starting From', icon: Zap },
+  { value: '100%', label: 'Satisfaction', icon: TrendingUp }
 ]
 
 export default function ServicesPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Services - AIWebHub",
-    "description": "Complete digital marketing and PR solutions for small businesses including website development, SEO, listings management, online reviews, Google Ads, and social media marketing.",
-    "url": "https://aiwebhub.io/services",
+    "name": "Pricing Plans - AIWebHub",
+    "description": "Choose from our flexible pricing plans for complete digital marketing and PR solutions. Starter, Essentials, and Professional plans to fit your business needs.",
+    "url": "https://www.aiwebhub.io/services",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://aiwebhub.io",
+      "url": "https://www.aiwebhub.io",
       "description": "Full-service digital marketing agency specializing in PR solutions for small businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Digital Marketing Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Website Development",
-            "description": "Professional, conversion-focused websites that establish credibility and turn visitors into customers",
-            "price": "1500",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Listings Management",
-            "description": "Ensure your business information is accurate and consistent across all online directories",
-            "price": "99",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Search Engine Optimization",
-            "description": "Comprehensive SEO strategies that improve your visibility in search results",
-            "price": "499",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Online Reviews Management",
-            "description": "Build trust and credibility with strategic review management",
-            "price": "149",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Google Ads Management",
-            "description": "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns",
-            "price": "299",
-            "priceCurrency": "USD"
-          },
-          {
-            "@type": "Offer",
-            "name": "Social Media Marketing",
-            "description": "Engage your audience and grow your brand with strategic social media campaigns",
-            "price": "399",
-            "priceCurrency": "USD"
-          }
-        ]
+        "name": "Pricing Plans",
+        "itemListElement": pricingPlans.map((plan) => ({
+          "@type": "Offer",
+          "name": plan.name,
+          "description": plan.description,
+          "price": plan.priceMonthly.toString(),
+          "priceCurrency": "USD"
+        }))
       }
     }
   }
@@ -208,150 +100,202 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="bg-[#111111] pt-32 pb-20">
+
       {/* Hero Section */}
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-            Complete PR & Digital Marketing Solutions
-          </h1>
-          <p className="mt-6 text-lg text-gray-300">
-            Everything your small business needs to succeed online - one partner, one solution, complete results.
-          </p>
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute left-0 top-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-br from-white/5 to-transparent blur-3xl" />
         </div>
-      </div>
 
-      {/* Featured Services Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {services.map((service) => (
-              <Card
-                key={service.id}
-                className={`overflow-hidden border-0 bg-[#1a1a1a] transition-all duration-200 hover:shadow-xl hover:shadow-blue-900/10 ${
-                  service.popular ? 'relative border-t-2 border-t-pink-500' : ''
-                }`}
-              >
-                {service.popular && (
-                  <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 px-3 py-1 text-xs font-medium text-white">
-                    Popular
-                  </div>
-                )}
-                <CardHeader className="pb-4">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
-                    <service.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-white">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-gray-400">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mt-2 space-y-4">
-                    {service.features.map((feature, index) => (
-                      <div key={index} className="flex gap-3">
-                        <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                        <div>
-                          <p className="font-medium text-white">{feature.title}</p>
-                          <p className="text-sm text-gray-400">{feature.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8 space-y-4">
-                    <p className="text-xl font-bold text-white">{service.price}</p>
-                    <Link href="/contact">
-                      <Button className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90">
-                        Get Started
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Pricing</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">flexible plans for every business</span>
         </div>
-      </section>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-      {/* Additional Services Section */}
-      <section className="relative py-20 bg-black overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white">Website Types We Build</h2>
-            <p className="mt-4 text-gray-400">
-              As part of our website development service, we create custom websites for various business needs.
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start mt-6 sm:mt-8">
+          {/* Left copy */}
+          <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
+            <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
+              Simple pricing, powerful results
+            </h1>
+            <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
+              Choose the perfect plan for your business. All plans include our complete suite of digital marketing and PR solutions designed to help small businesses thrive online.
             </p>
+            <div className="flex gap-4 mt-6 items-center flex-wrap">
+              <GradientButton href="#pricing" variant="primary">
+                View Plans
+              </GradientButton>
+              <GradientButton href="/contact" variant="secondary">
+                Contact Sales
+              </GradientButton>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Landing Pages",
-                description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
-                icon: <Monitor className="h-10 w-10 text-blue-500" />,
-              },
-              {
-                title: "E-commerce Stores",
-                description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
-                icon: <Code className="h-10 w-10 text-purple-500" />,
-              },
-              {
-                title: "Multi-Page Business Sites",
-                description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
-                icon: <Globe className="h-10 w-10 text-pink-500" />,
-              },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-[#1a1a1a] rounded-xl p-8 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="mb-3 text-xl font-bold text-white">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-0.5">
-            <div className="rounded-2xl bg-[#1a1a1a] px-6 py-12 sm:px-12 sm:py-16">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
-                  Ready to start your project?
-                </h2>
-                <p className="mt-4 text-lg text-gray-300">
-                  Contact us today to discuss your requirements and get a personalized quote.
-                </p>
-                <div className="mt-8">
-                  <Link href="/contact">
-                    <Button
-                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90 px-8 py-6"
-                      size="lg"
-                    >
-                      Get in Touch
-                    </Button>
-                  </Link>
+          {/* Right stats */}
+          <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
+            <div className="grid grid-cols-1 gap-4 stagger-animation">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="sm:p-6 hover-lift bg-zinc-900/60 border-white/10 border rounded-2xl p-5 flex items-center gap-4"
+                >
+                  <div className="p-3 rounded-xl bg-white/5">
+                    <stat.icon className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-zinc-400 mt-0.5">{stat.label}</div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-      </div>
+
+      {/* Pricing Plans Section */}
+      <section id="pricing" className="relative z-10 sm:p-8 animate-scaleIn animation-delay-300 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Plans</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">choose what fits your needs</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 stagger-animation">
+          {pricingPlans.map((plan) => (
+            <article
+              key={plan.id}
+              className={`relative overflow-hidden rounded-3xl border bg-zinc-900/60 backdrop-blur hover-lift transition-all duration-300 ${
+                plan.popular
+                  ? 'border-white/20 scale-[1.02] shadow-xl shadow-white/5'
+                  : 'border-white/10'
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute right-4 top-4 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-medium text-white border border-white/10">
+                  Most Popular
+                </div>
+              )}
+
+              <div className="p-8">
+                <div>
+                  <h2 className="text-2xl font-light text-white tracking-tight">
+                    {plan.name}
+                  </h2>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-5xl font-light text-white tracking-tighter">{plan.price}</span>
+                    <span className="text-sm text-zinc-400">/month</span>
+                  </div>
+                  <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
+                    {plan.description}
+                  </p>
+                </div>
+
+                <div className="h-px bg-white/10 my-6" />
+
+                <div className="space-y-3">
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex gap-3 items-start">
+                      <CheckCircle className="h-4 w-4 flex-shrink-0 text-green-400 mt-0.5" strokeWidth={1.5} />
+                      <p className="text-sm text-zinc-300 leading-relaxed">{feature}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <GradientButton href="/contact" variant={plan.popular ? "primary" : "secondary"} className="w-full">
+                    Get Started
+                  </GradientButton>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Website Types Section */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-400 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute right-0 bottom-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-tl from-white/5 to-transparent blur-3xl" />
+        </div>
+
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Services</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">website types we build</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="mt-8">
+          <h2 className="text-[44px] sm:text-5xl md:text-6xl leading-[1.05] font-light text-zinc-100 tracking-tighter animate-fadeInUp animation-delay-200 max-w-3xl">
+            Custom websites for various business needs
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl animate-fadeInUp animation-delay-300">
+            As part of our website development service, we create tailored solutions that convert visitors into customers.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 stagger-animation">
+          {[
+            {
+              title: "Landing Pages",
+              description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
+              icon: Monitor,
+              gradient: "from-blue-500/20 to-cyan-500/20",
+              iconColor: "text-blue-400"
+            },
+            {
+              title: "E-commerce Stores",
+              description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
+              icon: Code,
+              gradient: "from-purple-500/20 to-pink-500/20",
+              iconColor: "text-purple-400"
+            },
+            {
+              title: "Multi-Page Business Sites",
+              description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
+              icon: Globe,
+              gradient: "from-emerald-500/20 to-green-500/20",
+              iconColor: "text-emerald-400"
+            },
+          ].map((service, index) => (
+            <article
+              key={index}
+              className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift"
+            >
+              <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${service.gradient}`}>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2.5 backdrop-blur">
+                    <service.icon className={`w-3.5 h-3.5 ${service.iconColor}`} strokeWidth={1.5} />
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-medium text-white tracking-tight">{service.title}</h3>
+                <p className="text-sm text-neutral-400 mt-2 leading-relaxed">{service.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
     </>
   )
 }

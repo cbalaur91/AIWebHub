@@ -1,10 +1,9 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { GradientButton } from '@/components/ui/gradient-button'
+import { Target, Filter, TrendingUp, ExternalLink } from 'lucide-react'
 
 interface Project {
   id: string
@@ -30,7 +29,7 @@ const projects: Project[] = [
     id: "project-2",
     title: "Quality Work Granite",
     category: "portfolio",
-    image: "/kitchen.jpg",
+    image: "/qwgranite-logo.png",
     description: "Crafting exceptional stone surfaces for discerning homeowners.",
     tags: ["Portfolio", "Gatsby", "Animation"],
     url: "https://www.qwgranite.com/"
@@ -39,7 +38,7 @@ const projects: Project[] = [
     id: "project-3",
     title: "Romanian Food Festival",
     category: "landing-page",
-    image: "/RFF.png",
+    image: "/rff.png",
     description: "Experience authentic Romanian cuisine and culture in Rochester Hills, Michigan.",
     tags: ["Landing Page", "Next.js", "Dashboard"],
     url: "https://www.romanianfoodfestival.org/"
@@ -54,22 +53,13 @@ const projects: Project[] = [
     url: "https://fundraising-pogorarea-sfantului-duh.vercel.app/"
   },
   {
-    id: "project-5",
-    title: "Nurture Track",
-    category: "business",
-    image: "/nurture-track.png",
-    description: "Track development, plan vaccinations, and access expert guidance—all in one beautifully designed, easy-to-use platform.",
-    tags: ["Business", "Security", "Dashboard"],
-    url: "https://www.nurturetrack.app/"
-  },
-  {
     id: "project-6",
     title: "88 Transpoort LLC",
     category: "landing-page",
-    image: "/88transpoort-logo.jpeg",
+    image: "/88transpoort-logonew.png",
     description: " Join Chicago's premier car hauling company as an owner operator. Competitive rates, consistent loads, and unmatched support.",
     tags: ["Landing Page", "Car Hauling", "Transportation"],
-    url: "https://www.88transpoortllc.com/" 
+    url: "https://www.88transpoortllc.com/"
   },
 ]
 
@@ -80,127 +70,214 @@ const categories = [
   { label: "Business Sites", value: "business" },
 ]
 
+const stats = [
+  { value: '6', label: 'Projects Delivered', icon: Target },
+  { value: '4', label: 'Categories', icon: Filter },
+  { value: '100%', label: 'Success Rate', icon: TrendingUp }
+]
+
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("all")
-  
-  const filteredProjects = activeCategory === "all" 
-    ? projects 
+
+  const filteredProjects = activeCategory === "all"
+    ? projects
     : projects.filter(project => project.category === activeCategory)
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio - AIWebHub",
+    "description": "Explore our latest projects and see how we've helped businesses achieve their digital goals with exceptional website development and digital marketing solutions.",
+    "url": "https://www.aiwebhub.io/portfolio",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": projects.map((project, index) => ({
+        "@type": "CreativeWork",
+        "position": index + 1,
+        "name": project.title,
+        "description": project.description,
+        "url": project.url,
+        "keywords": project.tags.join(", ")
+      }))
+    }
+  }
+
   return (
-    <div className="bg-[#111111] pt-32 pb-20">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-            Our Portfolio
-          </h1>
-          <p className="mt-6 text-lg text-gray-300">
-            Explore our latest projects and see how we've helped businesses achieve their digital goals.
-          </p>
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute left-0 top-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-br from-white/5 to-transparent blur-3xl" />
         </div>
-      </div>
 
-      {/* Portfolio Filter */}
-      <section className="relative py-12 overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.value}
-                variant={activeCategory === category.value ? "default" : "outline"}
-                className={
-                  activeCategory === category.value
-                    ? "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white"
-                    : "border-gray-700 bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white"
-                }
-                onClick={() => setActiveCategory(category.value)}
-              >
-                {category.label}
-              </Button>
-            ))}
-          </div>
-
-          <motion.div 
-            layout
-            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Card className="group overflow-hidden border-0 bg-[#1a1a1a] hover:shadow-xl transition-all duration-300">
-                  <div 
-                    className="aspect-video w-full overflow-hidden cursor-pointer"
-                    onClick={() => window.open(project.url, '_blank')}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 
-                          className="text-xl font-bold text-white cursor-pointer hover:text-blue-500 transition-colors"
-                          onClick={() => window.open(project.url, '_blank')}
-                        >
-                          {project.title}
-                        </h3>
-                        <p className="mt-2 text-gray-400">{project.description}</p>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          className="inline-flex rounded-full bg-gray-800 px-2.5 py-0.5 text-xs font-medium text-gray-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Portfolio</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">our latest work</span>
         </div>
-      </section>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-      {/* CTA Section */}
-      <section className="relative py-20 bg-black overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white">
-              Have a project in mind?
-            </h2>
-            <p className="mt-4 text-lg text-gray-300 mb-8">
-              Let's discuss how we can help you achieve your digital goals.
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start mt-6 sm:mt-8">
+          {/* Left copy */}
+          <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
+            <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
+              Transforming ideas into exceptional <span className="text-white/90">digital experiences</span>
+            </h1>
+            <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
+              Explore our portfolio of successful projects. From landing pages to complete business solutions, each project showcases our commitment to quality and innovation.
             </p>
-            <Button
-              className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90 px-8 py-6"
-              size="lg"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Start a Project
-            </Button>
+            <div className="flex gap-4 mt-6 items-center flex-wrap">
+              <GradientButton href="#projects" variant="primary">
+                View Projects
+              </GradientButton>
+              <GradientButton href="/contact" variant="secondary">
+                Start Project
+              </GradientButton>
+            </div>
+          </div>
+
+          {/* Right stats */}
+          <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
+            <div className="grid grid-cols-1 gap-4 stagger-animation">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="sm:p-6 hover-lift bg-zinc-900/60 border-white/10 border rounded-2xl p-5 flex items-center gap-4"
+                >
+                  <div className="p-3 rounded-xl bg-white/5">
+                    <stat.icon className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-zinc-400 mt-0.5">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Filter Section */}
+      <section id="projects" className="relative z-10 sm:p-8 animate-scaleIn animation-delay-300 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Filter</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">browse by category</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        {/* Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mt-6 animate-fadeInUp animation-delay-200">
+          {categories.map((category) => (
+            <button
+              key={category.value}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+                activeCategory === category.value
+                  ? "bg-white/10 border-white/20 text-white"
+                  : "bg-white/5 border-white/10 text-zinc-400 hover:bg-white/10 hover:text-white"
+              }`}
+              onClick={() => setActiveCategory(category.value)}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Grid */}
+      <section className="relative z-10 w-full max-w-7xl mx-auto px-6 mt-8">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-animation"
+        >
+          {filteredProjects.map((project) => (
+            <motion.article
+              key={project.id}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden rounded-3xl border bg-zinc-900/60 backdrop-blur hover-lift transition-all duration-300 border-white/10 hover:border-white/20 group"
+            >
+              {/* Image Container */}
+              <div
+                className="aspect-video w-full overflow-hidden cursor-pointer relative"
+                onClick={() => window.open(project.url, '_blank')}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
+
+                {/* Category Badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-3 backdrop-blur">
+                    {categories.find(c => c.value === project.category)?.label || project.category}
+                  </span>
+                </div>
+
+                {/* External Link Icon */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="p-2 rounded-full bg-white/10 backdrop-blur border border-white/15">
+                    <ExternalLink className="w-4 h-4 text-white" strokeWidth={1.5} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3
+                  className="text-xl font-medium text-white tracking-tight cursor-pointer hover:text-white/90 transition-colors"
+                  onClick={() => window.open(project.url, '_blank')}
+                >
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* Empty State */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-20 animate-fadeInUp">
+            <p className="text-zinc-400 text-sm">No projects found in this category.</p>
+          </div>
+        )}
+      </section>
+    </>
   )
 }

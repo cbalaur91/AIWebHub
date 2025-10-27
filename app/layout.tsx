@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { AnimatedLines } from '@/components/AnimatedLines'
 import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -126,9 +127,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-[#111111] min-h-screen`}>
+      <body className={`${inter.className} bg-neutral-950 min-h-screen antialiased text-neutral-100 relative overflow-x-hidden`}>
+        <AnimatedLines />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen relative">{children}</main>
         <Footer />
         <Toaster position="top-right" />
       </body>
