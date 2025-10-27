@@ -1,38 +1,7 @@
-import { CheckCircle, Code, Globe, Monitor } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Metadata } from 'next'
+"use client"
 
-export const metadata: Metadata = {
-  title: 'Pricing Plans - AIWebHub | Flexible Digital Marketing Solutions',
-  description: 'Choose from three flexible pricing plans: Starter ($99/mo), Essentials ($399/mo), or Professional ($899/mo). Complete digital marketing and PR solutions for small businesses.',
-  keywords: 'digital marketing pricing, PR services pricing, marketing packages, small business marketing plans, SEO pricing, social media marketing packages',
-  openGraph: {
-    title: 'Flexible Pricing Plans - AIWebHub',
-    description: 'Choose the perfect plan for your business. Starter, Essentials, or Professional - all with complete digital marketing and PR solutions.',
-    url: 'https://aiwebhub.io/services',
-    siteName: 'AIWebHub',
-    images: [
-      {
-        url: 'https://aiwebhub.io/AiWebHubLogo.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'AIWebHub Pricing Plans - Choose Your Perfect Plan',
-      },
-    ],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Flexible Pricing Plans - AIWebHub',
-    description: 'Starter ($99/mo), Essentials ($399/mo), or Professional ($899/mo). Complete digital marketing solutions for small businesses.',
-    images: ['https://aiwebhub.io/AiWebHubLogo.jpg'],
-  },
-  alternates: {
-    canonical: '/services',
-  },
-}
+import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target } from 'lucide-react'
+import { GradientButton } from '@/components/ui/gradient-button'
 
 interface PricingPlan {
   id: string;
@@ -93,17 +62,23 @@ const pricingPlans: PricingPlan[] = [
   },
 ]
 
+const stats = [
+  { value: '3', label: 'Flexible Plans', icon: Target },
+  { value: '$99', label: 'Starting From', icon: Zap },
+  { value: '100%', label: 'Satisfaction', icon: TrendingUp }
+]
+
 export default function ServicesPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing Plans - AIWebHub",
     "description": "Choose from our flexible pricing plans for complete digital marketing and PR solutions. Starter, Essentials, and Professional plans to fit your business needs.",
-    "url": "https://aiwebhub.io/services",
+    "url": "https://www.aiwebhub.io/services",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://aiwebhub.io",
+      "url": "https://www.aiwebhub.io",
       "description": "Full-service digital marketing agency specializing in PR solutions for small businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -125,147 +100,202 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="bg-[#111111] pt-32 pb-20">
+
       {/* Hero Section */}
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl">
-            Simple Pricing, Powerful Results
-          </h1>
-          <p className="mt-6 text-lg text-gray-300">
-            Choose the perfect plan for your business. All plans include our complete suite of digital marketing and PR solutions.
-          </p>
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute left-0 top-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-br from-white/5 to-transparent blur-3xl" />
         </div>
-      </div>
 
-      {/* Pricing Plans Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {pricingPlans.map((plan) => (
-              <Card
-                key={plan.id}
-                className={`overflow-hidden border-0 bg-[#1a1a1a] transition-all duration-200 hover:shadow-xl hover:shadow-blue-900/10 ${
-                  plan.popular ? 'relative border-2 border-pink-500 scale-105' : ''
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute right-4 top-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 px-3 py-1 text-xs font-medium text-white">
-                    Most Popular
-                  </div>
-                )}
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-2xl font-bold text-white">
-                    {plan.name}
-                  </CardTitle>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-gray-400">/month</span>
-                  </div>
-                  <CardDescription className="mt-4 text-gray-400">
-                    {plan.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mt-2 space-y-3">
-                    {plan.features.map((feature, index) => (
-                      <div key={index} className="flex gap-3">
-                        <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-500" />
-                        <p className="text-gray-300">{feature}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <Link href="/contact">
-                      <Button className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90">
-                        Get Started
-                      </Button>
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Pricing</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">flexible plans for every business</span>
         </div>
-      </section>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-      {/* Additional Services Section */}
-      <section className="relative py-20 bg-black overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white">Website Types We Build</h2>
-            <p className="mt-4 text-gray-400">
-              As part of our website development service, we create custom websites for various business needs.
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start mt-6 sm:mt-8">
+          {/* Left copy */}
+          <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
+            <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
+              Simple pricing, powerful results
+            </h1>
+            <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
+              Choose the perfect plan for your business. All plans include our complete suite of digital marketing and PR solutions designed to help small businesses thrive online.
             </p>
+            <div className="flex gap-4 mt-6 items-center flex-wrap">
+              <GradientButton href="#pricing" variant="primary">
+                View Plans
+              </GradientButton>
+              <GradientButton href="/contact" variant="secondary">
+                Contact Sales
+              </GradientButton>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Landing Pages",
-                description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
-                icon: <Monitor className="h-10 w-10 text-blue-500" />,
-              },
-              {
-                title: "E-commerce Stores",
-                description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
-                icon: <Code className="h-10 w-10 text-purple-500" />,
-              },
-              {
-                title: "Multi-Page Business Sites",
-                description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
-                icon: <Globe className="h-10 w-10 text-pink-500" />,
-              },
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="bg-[#1a1a1a] rounded-xl p-8 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="mb-3 text-xl font-bold text-white">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background gradient accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-96 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl rounded-full opacity-30"></div>
-        
-        <div className="container relative mx-auto px-4 md:px-6">
-          <div className="rounded-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-0.5">
-            <div className="rounded-2xl bg-[#1a1a1a] px-6 py-12 sm:px-12 sm:py-16">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-white">
-                  Ready to start your project?
-                </h2>
-                <p className="mt-4 text-lg text-gray-300">
-                  Contact us today to discuss your requirements and get a personalized quote.
-                </p>
-                <div className="mt-8">
-                  <Link href="/contact">
-                    <Button
-                      className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90 px-8 py-6"
-                      size="lg"
-                    >
-                      Get in Touch
-                    </Button>
-                  </Link>
+          {/* Right stats */}
+          <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
+            <div className="grid grid-cols-1 gap-4 stagger-animation">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="sm:p-6 hover-lift bg-zinc-900/60 border-white/10 border rounded-2xl p-5 flex items-center gap-4"
+                >
+                  <div className="p-3 rounded-xl bg-white/5">
+                    <stat.icon className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-zinc-400 mt-0.5">{stat.label}</div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-      </div>
+
+      {/* Pricing Plans Section */}
+      <section id="pricing" className="relative z-10 sm:p-8 animate-scaleIn animation-delay-300 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Plans</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">choose what fits your needs</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 stagger-animation">
+          {pricingPlans.map((plan) => (
+            <article
+              key={plan.id}
+              className={`relative overflow-hidden rounded-3xl border bg-zinc-900/60 backdrop-blur hover-lift transition-all duration-300 ${
+                plan.popular
+                  ? 'border-white/20 scale-[1.02] shadow-xl shadow-white/5'
+                  : 'border-white/10'
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute right-4 top-4 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-medium text-white border border-white/10">
+                  Most Popular
+                </div>
+              )}
+
+              <div className="p-8">
+                <div>
+                  <h2 className="text-2xl font-light text-white tracking-tight">
+                    {plan.name}
+                  </h2>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-5xl font-light text-white tracking-tighter">{plan.price}</span>
+                    <span className="text-sm text-zinc-400">/month</span>
+                  </div>
+                  <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
+                    {plan.description}
+                  </p>
+                </div>
+
+                <div className="h-px bg-white/10 my-6" />
+
+                <div className="space-y-3">
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex gap-3 items-start">
+                      <CheckCircle className="h-4 w-4 flex-shrink-0 text-green-400 mt-0.5" strokeWidth={1.5} />
+                      <p className="text-sm text-zinc-300 leading-relaxed">{feature}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <GradientButton href="/contact" variant={plan.popular ? "primary" : "secondary"} className="w-full">
+                    Get Started
+                  </GradientButton>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Website Types Section */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-400 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute right-0 bottom-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-tl from-white/5 to-transparent blur-3xl" />
+        </div>
+
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Services</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">website types we build</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="mt-8">
+          <h2 className="text-[44px] sm:text-5xl md:text-6xl leading-[1.05] font-light text-zinc-100 tracking-tighter animate-fadeInUp animation-delay-200 max-w-3xl">
+            Custom websites for various business needs
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl animate-fadeInUp animation-delay-300">
+            As part of our website development service, we create tailored solutions that convert visitors into customers.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 stagger-animation">
+          {[
+            {
+              title: "Landing Pages",
+              description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
+              icon: Monitor,
+              gradient: "from-blue-500/20 to-cyan-500/20",
+              iconColor: "text-blue-400"
+            },
+            {
+              title: "E-commerce Stores",
+              description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
+              icon: Code,
+              gradient: "from-purple-500/20 to-pink-500/20",
+              iconColor: "text-purple-400"
+            },
+            {
+              title: "Multi-Page Business Sites",
+              description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
+              icon: Globe,
+              gradient: "from-emerald-500/20 to-green-500/20",
+              iconColor: "text-emerald-400"
+            },
+          ].map((service, index) => (
+            <article
+              key={index}
+              className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift"
+            >
+              <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${service.gradient}`}>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2.5 backdrop-blur">
+                    <service.icon className={`w-3.5 h-3.5 ${service.iconColor}`} strokeWidth={1.5} />
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-medium text-white tracking-tight">{service.title}</h3>
+                <p className="text-sm text-neutral-400 mt-2 leading-relaxed">{service.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
     </>
   )
 }

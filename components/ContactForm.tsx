@@ -82,7 +82,7 @@ export function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#1a1a1a] rounded-xl p-6 shadow-xl md:p-8"
+      className="bg-zinc-900/60 border-white/10 border rounded-2xl p-6 md:p-8 hover-lift"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -91,80 +91,113 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Name</FormLabel>
+                <FormLabel className="text-white font-medium tracking-tight">Name</FormLabel>
                 <FormControl>
-                  <Input 
-                    placeholder="Your name" 
-                    className="bg-gray-800 border-gray-700 text-white"
-                    {...field} 
+                  <Input
+                    placeholder="Your name"
+                    className="bg-zinc-800/60 border-white/10 text-white placeholder:text-zinc-500 focus:border-white/20 transition-colors"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Email</FormLabel>
+                <FormLabel className="text-white font-medium tracking-tight">Email</FormLabel>
                 <FormControl>
-                  <Input 
-                    placeholder="your.email@example.com" 
-                    className="bg-gray-800 border-gray-700 text-white"
-                    {...field} 
+                  <Input
+                    placeholder="your.email@example.com"
+                    className="bg-zinc-800/60 border-white/10 text-white placeholder:text-zinc-500 focus:border-white/20 transition-colors"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Company (Optional)</FormLabel>
+                <FormLabel className="text-white font-medium tracking-tight">Company (Optional)</FormLabel>
                 <FormControl>
-                  <Input 
-                    placeholder="Your company" 
-                    className="bg-gray-800 border-gray-700 text-white"
-                    {...field} 
+                  <Input
+                    placeholder="Your company"
+                    className="bg-zinc-800/60 border-white/10 text-white placeholder:text-zinc-500 focus:border-white/20 transition-colors"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Message</FormLabel>
+                <FormLabel className="text-white font-medium tracking-tight">Message</FormLabel>
                 <FormControl>
-                  <Textarea 
-                    placeholder="Tell us about your project" 
-                    className="min-h-32 bg-gray-800 border-gray-700 text-white"
-                    {...field} 
+                  <Textarea
+                    placeholder="Tell us about your project"
+                    className="min-h-32 bg-zinc-800/60 border-white/10 text-white placeholder:text-zinc-500 focus:border-white/20 transition-colors resize-none"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
-          <Button 
-            type="submit" 
-            className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:opacity-90"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </Button>
+
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              style={{
+                alignItems: 'center',
+                backgroundImage: 'linear-gradient(144deg, rgb(175, 64, 255), rgb(91, 66, 243) 50%, rgb(0, 221, 235))',
+                border: '0px',
+                borderRadius: '8px',
+                boxShadow: 'rgba(151, 65, 252, 0.2) 0px 15px 30px -5px',
+                color: 'rgb(255, 255, 255)',
+                display: 'flex',
+                fontSize: '14px',
+                justifyContent: 'center',
+                lineHeight: '1em',
+                width: '100%',
+                padding: '3px',
+                textDecoration: 'none',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                height: '50px',
+                transition: 'transform 0.1s ease, opacity 0.2s ease',
+                opacity: isSubmitting ? 0.7 : 1,
+              }}
+              className="hover:scale-[0.98] active:scale-95"
+            >
+              <span style={{
+                background: isSubmitting ? 'none' : 'rgb(5, 6, 45)',
+                padding: '16px 24px',
+                borderRadius: '6px',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'background 0.2s ease'
+              }}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </span>
+            </button>
+          </div>
         </form>
       </Form>
     </motion.div>
