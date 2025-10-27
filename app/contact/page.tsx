@@ -91,20 +91,28 @@ export default function ContactPage() {
             <div className="space-y-6">
               {[
                 {
-                  question: "How long does it take to complete a website?",
-                  answer: "Project timelines vary depending on complexity and scope. A simple landing page might take 2-3 weeks, while a complex business website could take 6-8 weeks. During our initial consultation, we'll provide you with a more accurate timeline based on your specific requirements."
+                  question: "What's included in each pricing plan?",
+                  answer: "Our Starter plan ($99/mo) includes listings management, website hosting, and review monitoring. Essentials ($399/mo) adds SEO, social media management, and review responses. Professional ($899/mo) includes everything plus Google Ads management, advanced SEO, and a dedicated account manager. All plans include monthly reporting and support."
+                },
+                {
+                  question: "Can I switch between plans or cancel anytime?",
+                  answer: "Yes! You can upgrade or downgrade your plan at any time. While we don't require long-term contracts, we recommend staying with a plan for at least 3 months to see meaningful results from SEO and digital marketing efforts. You can cancel with 30 days notice."
+                },
+                {
+                  question: "How long does it take to see results from PR and digital marketing?",
+                  answer: "Results vary by service. You'll see immediate improvements in listings management and review monitoring. SEO typically shows results in 3-6 months. Social media engagement builds over 2-3 months. Google Ads can drive traffic immediately. We provide regular reports so you can track progress across all services."
                 },
                 {
                   question: "What information do you need to get started?",
-                  answer: "To get started, we'll need information about your business, your target audience, your objectives for the website, any design preferences, and examples of websites you like. The more information you provide, the better we can tailor our solution to your needs."
+                  answer: "To get started, we'll need access to your current online profiles (website, Google Business, social media), information about your business goals, target audience, and any current marketing materials. We'll guide you through the onboarding process and make it as simple as possible."
                 },
                 {
-                  question: "Do you provide ongoing support after launch?",
-                  answer: "Yes, we offer various maintenance and support packages to keep your website running smoothly after launch. These can include regular updates, security monitoring, content updates, and performance optimization."
+                  question: "Do I need to have a website to use your services?",
+                  answer: "Not at all! If you don't have a website, we can build one for you as part of your plan. All our monthly plans include website hosting and maintenance. We can create a professional website that integrates seamlessly with your other digital marketing efforts."
                 },
                 {
-                  question: "How much does a website cost?",
-                  answer: "Website costs vary based on complexity, features, and scope. Our landing pages start at $500, portfolio sites at $1,000, and business websites at $2,500. We provide detailed quotes after understanding your specific requirements."
+                  question: "Can I customize a plan to fit my specific needs?",
+                  answer: "Absolutely! While our three standard plans work great for most small businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package that includes exactly the services you need at a price that fits your budget."
                 },
               ].map((faq, index) => (
                 <div
