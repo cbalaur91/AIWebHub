@@ -22,7 +22,7 @@ export const Hero = () => {
         {/* Brand watermark positioned at left */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute bottom-6 left-6 animate-fadeIn animation-delay-600"
+          className="pointer-events-none select-none absolute bottom-10 left-6 animate-fadeIn animation-delay-600"
           style={{ letterSpacing: '-0.02em' }}
         >
           <span
