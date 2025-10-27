@@ -257,21 +257,21 @@ export default function ServicesPage() {
               title: "Landing Pages",
               description: "Conversion-focused pages designed to turn visitors into leads with compelling CTAs and optimized user journeys.",
               icon: Monitor,
-              gradient: "from-blue-500/20 to-cyan-500/20",
+              image: "/services/landing.jpg",
               iconColor: "text-blue-400"
             },
             {
               title: "E-commerce Stores",
               description: "Complete online stores with secure payment processing, inventory management, and seamless customer experience.",
               icon: Code,
-              gradient: "from-purple-500/20 to-pink-500/20",
+              image: "/services/ecomm.jpg",
               iconColor: "text-purple-400"
             },
             {
               title: "Multi-Page Business Sites",
               description: "Comprehensive websites with multiple pages to showcase all aspects of your business and services.",
               icon: Globe,
-              gradient: "from-emerald-500/20 to-green-500/20",
+              image: "/services/business.jpg",
               iconColor: "text-emerald-400"
             },
           ].map((service, index) => (
@@ -279,7 +279,12 @@ export default function ServicesPage() {
               key={index}
               className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift"
             >
-              <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${service.gradient}`}>
+              <div className="aspect-[16/10] relative overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2.5 backdrop-blur">

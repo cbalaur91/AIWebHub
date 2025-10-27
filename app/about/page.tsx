@@ -96,14 +96,11 @@ export default function AboutPage() {
           {/* Right visual */}
           <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
             <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60 relative group hover-lift">
-              {/* Placeholder gradient - replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 via-purple-500/20 to-pink-500/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <p className="text-sm text-zinc-400">Image placeholder</p>
-                  <p className="text-xs text-zinc-500 mt-2">Replace with your team photo or brand visual</p>
-                </div>
-              </div>
+              <img
+                src="/logo/AiWebHubLogo.jpg"
+                alt="AIWebHub Logo"
+                className="absolute inset-0 w-full h-full object-contain p-8 opacity-70 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
+              />
             </div>
           </div>
         </div>

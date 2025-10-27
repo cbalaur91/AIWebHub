@@ -94,7 +94,12 @@ export const PortfolioSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 stagger-animation">
             {/* Large featured */}
             <div className="md:col-span-2 relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
-              <div className="aspect-[16/10] relative overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
+              <div className="aspect-[16/10] relative overflow-hidden">
+                <img
+                  src="/services/web.jpg"
+                  alt="Website Development"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
@@ -111,7 +116,12 @@ export const PortfolioSection = () => {
 
             {/* Small cards */}
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
-              <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+              <div className="aspect-square relative overflow-hidden">
+                <img
+                  src="/services/seonew.jpg"
+                  alt="SEO"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
@@ -126,7 +136,12 @@ export const PortfolioSection = () => {
             </div>
 
             <div className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift">
-              <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-amber-500/20 to-orange-500/20">
+              <div className="aspect-square relative overflow-hidden">
+                <img
+                  src="/services/ads.jpg"
+                  alt="Google Ads"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
@@ -141,7 +156,12 @@ export const PortfolioSection = () => {
             </div>
 
             <div className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift">
-              <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-green-500/20 to-emerald-500/20">
+              <div className="aspect-square relative overflow-hidden">
+                <img
+                  src="/services/social.jpg"
+                  alt="Social Media"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
@@ -156,7 +176,12 @@ export const PortfolioSection = () => {
             </div>
 
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
-              <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
+              <div className="aspect-square relative overflow-hidden">
+                <img
+                  src="/services/review.jpg"
+                  alt="Reviews"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
