@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /private/
-Disallow: /favicons/
-
-Sitemap: https://www.aiwebhub.io/sitemap.xml

@@ -4,6 +4,33 @@ import { ContactForm } from '@/components/ContactForm'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Mail, Phone, MessageSquare } from 'lucide-react'
 
+const faqs = [
+  {
+    question: "What's included in each pricing plan?",
+    answer: "Our Starter plan ($99/mo) includes listings management, website hosting, and review monitoring. Essentials ($399/mo) adds SEO, social media management, and review responses. Professional ($899/mo) includes everything plus Google Ads management, advanced SEO, and a dedicated account manager."
+  },
+  {
+    question: "Can I switch between plans or cancel anytime?",
+    answer: "Yes! You can upgrade or downgrade your plan at any time. While we don't require long-term contracts, we recommend staying with a plan for at least 3 months to see meaningful results. You can cancel with 30 days notice."
+  },
+  {
+    question: "How long does it take to see results?",
+    answer: "Results vary by service. You'll see immediate improvements in listings management and review monitoring. SEO typically shows results in 3-6 months. Social media engagement builds over 2-3 months. Google Ads can drive traffic immediately."
+  },
+  {
+    question: "What information do you need to get started?",
+    answer: "To get started, we'll need access to your current online profiles (website, Google Business, social media), information about your business goals, target audience, and any current marketing materials. We'll guide you through the onboarding process."
+  },
+  {
+    question: "Do I need to have a website to use your services?",
+    answer: "Not at all! If you don't have a website, we can build one for you as part of your plan. All our monthly plans include website hosting and maintenance. We can create a professional website that integrates seamlessly with your other digital marketing efforts."
+  },
+  {
+    question: "Can I customize a plan to fit my specific needs?",
+    answer: "Absolutely! While our three standard plans work great for most small businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package at a price that fits your budget."
+  }
+]
+
 export default function ContactPage() {
   const structuredData = {
     "@context": "https://schema.org",
@@ -13,11 +40,41 @@ export default function ContactPage() {
     "url": "https://www.aiwebhub.io/contact"
   }
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.aiwebhub.io/contact" }
+    ]
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Hero Section */}
@@ -181,32 +238,7 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 stagger-animation">
-          {[
-            {
-              question: "What's included in each pricing plan?",
-              answer: "Our Starter plan ($99/mo) includes listings management, website hosting, and review monitoring. Essentials ($399/mo) adds SEO, social media management, and review responses. Professional ($899/mo) includes everything plus Google Ads management, advanced SEO, and a dedicated account manager."
-            },
-            {
-              question: "Can I switch between plans or cancel anytime?",
-              answer: "Yes! You can upgrade or downgrade your plan at any time. While we don't require long-term contracts, we recommend staying with a plan for at least 3 months to see meaningful results. You can cancel with 30 days notice."
-            },
-            {
-              question: "How long does it take to see results?",
-              answer: "Results vary by service. You'll see immediate improvements in listings management and review monitoring. SEO typically shows results in 3-6 months. Social media engagement builds over 2-3 months. Google Ads can drive traffic immediately."
-            },
-            {
-              question: "What information do you need to get started?",
-              answer: "To get started, we'll need access to your current online profiles (website, Google Business, social media), information about your business goals, target audience, and any current marketing materials. We'll guide you through the onboarding process."
-            },
-            {
-              question: "Do I need to have a website to use your services?",
-              answer: "Not at all! If you don't have a website, we can build one for you as part of your plan. All our monthly plans include website hosting and maintenance. We can create a professional website that integrates seamlessly with your other digital marketing efforts."
-            },
-            {
-              question: "Can I customize a plan to fit my specific needs?",
-              answer: "Absolutely! While our three standard plans work great for most small businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package at a price that fits your budget."
-            },
-          ].map((faq, index) => (
+          {faqs.map((faq, index) => (
             <article
               key={index}
               className="bg-zinc-900/60 border-white/10 border rounded-2xl p-6 hover-lift"
