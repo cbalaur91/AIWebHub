@@ -3,6 +3,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy | AIWebHub',
   description: 'Privacy Policy for AIWebHub - Learn how we collect, use, and protect your information.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicy() {

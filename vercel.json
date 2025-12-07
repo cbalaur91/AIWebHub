@@ -3,6 +3,14 @@
   "outputDirectory": "out",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "aiwebhub.io" }],
+      "destination": "https://www.aiwebhub.io/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/robots.txt",

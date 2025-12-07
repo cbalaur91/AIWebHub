@@ -3,5 +3,6 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
+Disallow: /favicons/
 
-Sitemap: https://aiwebhub.io/sitemap.xml
+Sitemap: https://www.aiwebhub.io/sitemap.xml

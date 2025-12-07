@@ -3,6 +3,9 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service | AIWebHub',
   description: 'Terms of Service for AIWebHub - Read our terms and conditions for using our services.',
+  alternates: {
+    canonical: '/terms-of-service',
+  },
 }
 
 export default function TermsOfService() {
