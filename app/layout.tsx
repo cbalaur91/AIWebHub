@@ -117,7 +117,7 @@ export default function RootLayout({
               },
               "foundingDate": "2024",
               "areaServed": "Worldwide",
-              "serviceType": [
+              "knowsAbout": [
                 "Digital Marketing",
                 "Public Relations",
                 "Website Development",
