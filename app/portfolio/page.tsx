@@ -61,6 +61,15 @@ const projects: Project[] = [
     tags: ["Landing Page", "Car Hauling", "Transportation"],
     url: "https://www.88transpoortllc.com/"
   },
+  {
+    id: "project-7",
+    title: "Divine Retreat Salon",
+    category: "business",
+    image: "/DivineRetreatLogo.jpg",
+    description: "A sanctuary for rejuvenation in Utica, Michigan offering premium hair services and therapeutic massage in an intimate, peaceful environment.",
+    tags: ["Business Site", "Next.js", "Salon & Spa"],
+    url: "https://www.divineretreatsalon.com/"
+  },
 ]
 
 const categories = [
@@ -71,7 +80,7 @@ const categories = [
 ]
 
 const stats = [
-  { value: '6', label: 'Projects Delivered', icon: Target },
+  { value: '7', label: 'Projects Delivered', icon: Target },
   { value: '4', label: 'Categories', icon: Filter },
   { value: '100%', label: 'Success Rate', icon: TrendingUp }
 ]
