@@ -1,16 +1,16 @@
 "use client"
 
 import { GradientButton } from '@/components/ui/gradient-button'
-import { Globe, Search, Star, Megaphone, Share2, MapPin } from 'lucide-react'
+import { Globe, Search, Cpu, ShoppingCart, CreditCard, Palette } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 
 const skills = [
-  { icon: Globe, label: 'Website Development' },
-  { icon: Search, label: 'SEO' },
-  { icon: MapPin, label: 'Listings Management' },
-  { icon: Star, label: 'Reviews' },
-  { icon: Megaphone, label: 'Google Ads' },
-  { icon: Share2, label: 'Social Media' }
+  { icon: Globe, label: 'Web Design' },
+  { icon: Cpu, label: 'AI Integration' },
+  { icon: ShoppingCart, label: 'E-commerce' },
+  { icon: CreditCard, label: 'POS Integration' },
+  { icon: Palette, label: 'Creative Content' },
+  { icon: Search, label: 'SEO' }
 ]
 
 const stats = [
@@ -37,7 +37,7 @@ export const PortfolioSection = () => {
         <div className="flex flex-col min-h-full justify-between lg:col-span-5 animate-fadeInLeft animation-delay-200">
           <div>
             <h2 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
-              Complete digital solutions that drive results
+              Innovative web solutions powered by technology
             </h2>
 
             {/* Divider */}
@@ -73,7 +73,7 @@ export const PortfolioSection = () => {
           <div className="w-full mt-10 animate-fadeInUp animation-delay-500">
             <p className="text-sm font-medium text-white tracking-tight">Ready to grow your business?</p>
             <p className="text-sm text-neutral-300 max-w-sm mt-1">
-              Get everything you need in one place - from websites to digital marketing.
+              Get everything you need in one place - from custom websites to AI-powered solutions.
             </p>
             <div className="flex gap-4 mt-5 items-center flex-wrap">
               <GradientButton href="/portfolio" variant="primary">
@@ -137,21 +137,20 @@ export const PortfolioSection = () => {
 
             <div className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift">
               <div className="aspect-square relative overflow-hidden">
-                <img
-                  src="/services/ads.jpg"
-                  alt="Google Ads"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-cyan-900/40" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Cpu className="w-16 h-16 text-purple-400/60" strokeWidth={1} />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
-                    <Megaphone className="w-3.5 h-3.5" strokeWidth={1.5} />
+                    <Cpu className="w-3.5 h-3.5" strokeWidth={1.5} />
                   </span>
                 </div>
               </div>
               <div className="p-3">
-                <h3 className="text-sm font-medium text-white tracking-tight">Google Ads</h3>
-                <p className="text-xs text-neutral-400 mt-1">Targeted campaigns</p>
+                <h3 className="text-sm font-medium text-white tracking-tight">AI Integration</h3>
+                <p className="text-xs text-neutral-400 mt-1">Smart automation</p>
               </div>
             </div>
 
@@ -159,39 +158,38 @@ export const PortfolioSection = () => {
               <div className="aspect-square relative overflow-hidden">
                 <img
                   src="/services/social.jpg"
-                  alt="Social Media"
+                  alt="Creative Content"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
-                    <Share2 className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    <Palette className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </span>
                 </div>
               </div>
               <div className="p-3">
-                <h3 className="text-sm font-medium text-white tracking-tight">Social Media</h3>
-                <p className="text-xs text-neutral-400 mt-1">Brand engagement</p>
+                <h3 className="text-sm font-medium text-white tracking-tight">Creative Content</h3>
+                <p className="text-xs text-neutral-400 mt-1">Engaging media</p>
               </div>
             </div>
 
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
               <div className="aspect-square relative overflow-hidden">
-                <img
-                  src="/services/review.jpg"
-                  alt="Reviews"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 via-teal-900/30 to-cyan-900/40" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <ShoppingCart className="w-16 h-16 text-emerald-400/60" strokeWidth={1} />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-2 backdrop-blur">
-                    <Star className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    <ShoppingCart className="h-3.5 w-3.5" strokeWidth={1.5} />
                   </span>
                 </div>
               </div>
               <div className="p-3">
-                <h3 className="text-sm font-medium text-white tracking-tight">Reviews</h3>
-                <p className="text-xs text-neutral-400 mt-1">Reputation management</p>
+                <h3 className="text-sm font-medium text-white tracking-tight">E-commerce</h3>
+                <p className="text-xs text-neutral-400 mt-1">Online stores</p>
               </div>
             </div>
           </div>

@@ -44,14 +44,14 @@ export const Hero = () => {
         {/* Left: Headline */}
         <div className="lg:col-span-7">
           <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter animate-fadeInLeft animation-delay-300">
-            Complete PR & Digital Marketing for Small Business
+            Web Design & AI Integration for Modern Businesses
           </h1>
         </div>
 
         {/* Right: Copy + CTAs */}
         <div className="lg:col-span-5">
           <p className="sm:text-base text-sm text-neutral-300 max-w-[42ch] animate-fadeInRight animation-delay-400">
-            From stunning websites to comprehensive digital marketing, we provide everything your small business needs to thrive online. One partner for your complete digital presence.
+            From stunning custom websites to AI-powered solutions, we provide innovative technology to help your business succeed online. Your tech partner for the digital future.
           </p>
           <div className="flex gap-4 animate-fadeInUp animation-delay-500 mt-5 items-center flex-wrap">
             <GradientButton href="/contact" variant="primary">

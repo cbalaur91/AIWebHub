@@ -21,7 +21,7 @@ const testimonials = [
     content: "I'm not super tech-savvy, so I really appreciated how patient and helpful the team was. They explained things clearly and built a site that looks professional.",
     rating: 5,
     metric: "+250% traffic",
-    service: "SEO & Marketing",
+    service: "Web Development",
     icon: TrendingUp,
     color: "blue"
   },
@@ -38,7 +38,7 @@ const testimonials = [
   {
     name: "Finn O'Brien",
     position: "CEO, TechStart Solutions",
-    content: "The team delivered exceptional results on time and under budget. Their expertise in digital marketing has transformed our online presence completely.",
+    content: "The team delivered exceptional results on time and under budget. Their expertise in web development and AI integration has transformed our online presence completely.",
     rating: 5,
     metric: "+300% leads",
     service: "Full-Stack",
@@ -74,7 +74,7 @@ export const TestimonialsSection = () => {
               Clients love AIWebHub
             </h3>
             <p className="mt-3 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              Trusted by small businesses, delivering exceptional digital marketing and PR solutions that drive real results.
+              Trusted by businesses, delivering exceptional web design and technology solutions that drive real results.
             </p>
 
             <div className="mt-6 grid grid-cols-3 gap-3 stagger-animation">

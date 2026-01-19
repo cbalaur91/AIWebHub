@@ -41,12 +41,12 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "name": "About - AIWebHub",
-    "description": "Learn about AIWebHub's mission to provide complete PR and digital marketing solutions for small businesses",
+    "description": "Learn about AIWebHub's mission to provide innovative web design and AI integration solutions for modern businesses",
     "url": "https://www.aiwebhub.io/about",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "description": "Full-service digital marketing agency specializing in PR solutions for small businesses"
+      "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses"
     }
   }
 
@@ -91,10 +91,10 @@ export default function AboutPage() {
           {/* Left copy */}
           <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
             <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
-              Your complete PR and <span className="text-white/90">digital marketing partner</span>
+              Your web design and <span className="text-white/90">AI integration partner</span>
             </h1>
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              We're dedicated to helping small businesses thrive online with comprehensive solutions that drive real results.
+              We're dedicated to helping businesses succeed with innovative web solutions and AI-powered technology.
             </p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="/contact" variant="primary">
@@ -140,13 +140,13 @@ export default function AboutPage() {
           {/* Left copy */}
           <div className="lg:col-span-6 animate-fadeInLeft animation-delay-300">
             <h2 className="text-[44px] sm:text-5xl md:text-6xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
-              Complete solutions, <span className="text-white/90">one partner</span>
+              Innovative solutions, <span className="text-white/90">one partner</span>
             </h2>
             <p className="mt-6 text-sm sm:text-base text-zinc-400 leading-relaxed">
-              At AIWebHub, our mission is to provide small businesses with complete PR and digital marketing solutions that drive real results. We believe that every business deserves access to professional marketing services without the complexity of managing multiple vendors.
+              At AIWebHub, our mission is to provide businesses with innovative web design and AI integration solutions that drive real results. We believe that every business deserves access to cutting-edge technology without the complexity of managing multiple vendors.
             </p>
             <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
-              From building your website to managing your online reputation, running your Google Ads campaigns, and creating engaging social media content - we handle it all. One partner, one solution, complete peace of mind.
+              From building your custom website to integrating AI-powered features, developing e-commerce solutions, and connecting your POS systems - we handle it all. One partner, one solution, complete peace of mind.
             </p>
           </div>
 

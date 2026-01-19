@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: "Finn O'Brien",
     position: "CEO, TechStart Solutions",
-    content: "The team delivered exceptional results on time and under budget. Their expertise in digital marketing has transformed our online presence completely."
+    content: "The team delivered exceptional results on time and under budget. Their expertise in web development and AI integration has transformed our online presence completely."
   }
 ]
 
@@ -31,7 +31,7 @@ export default function Home() {
     "@type": "WebSite",
     "name": "AIWebHub",
     "url": "https://www.aiwebhub.io",
-    "description": "Full-service digital marketing and PR solutions for small businesses including website development, SEO, listings management, online reviews, Google Ads, and social media marketing",
+    "description": "Web design and AI integration solutions for modern businesses including custom websites, AI-powered features, e-commerce development, POS integration, and creative content services",
     "publisher": {
       "@type": "Organization",
       "name": "AIWebHub",

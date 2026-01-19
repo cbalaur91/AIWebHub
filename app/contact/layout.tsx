@@ -2,13 +2,13 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact | AIWebHub',
-  description: 'Get in touch with AIWebHub for complete PR and digital marketing solutions for your small business.',
+  description: 'Get in touch with AIWebHub for innovative web design and AI integration solutions for your business.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
     title: 'Contact | AIWebHub',
-    description: 'Get in touch with AIWebHub for complete PR and digital marketing solutions for your small business.',
+    description: 'Get in touch with AIWebHub for innovative web design and AI integration solutions for your business.',
     url: 'https://www.aiwebhub.io/contact',
   },
 }

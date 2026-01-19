@@ -1,50 +1,48 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Globe, MapPin, Search, Star, Megaphone, Share2 } from 'lucide-react'
+import { Globe, Search, Cpu, ShoppingCart, CreditCard, Palette } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Vortex } from '@/components/ui/vortex'
 
 const services = [
   {
-    title: "Website Development",
-    description: "Professional, conversion-focused websites that establish credibility and turn visitors into customers.",
+    title: "Custom Web Design",
+    description: "Beautiful, conversion-focused websites built with modern frameworks like Next.js and React for exceptional performance.",
     icon: Globe,
     image: "/services/webdev.png",
     delay: 0.1,
   },
   {
-    title: "Listings Management",
-    description: "Ensure your business information is accurate and consistent across all online directories and platforms.",
-    icon: MapPin,
+    title: "AI Integration",
+    description: "Enhance your business with AI-powered features including chatbots, automation, intelligent analytics, and machine learning solutions.",
+    icon: Cpu,
     delay: 0.15,
   },
   {
-    title: "Search Engine Optimization",
-    description: "Get found by more customers with comprehensive SEO strategies that improve your visibility in search results.",
-    icon: Search,
-    image: "/services/seo.png",
+    title: "E-commerce Development",
+    description: "Complete online stores with secure payment processing, inventory management, and seamless shopping experiences.",
+    icon: ShoppingCart,
     delay: 0.2,
   },
   {
-    title: "Online Reviews",
-    description: "Build trust and credibility with strategic review management that showcases your reputation.",
-    icon: Star,
-    image: "/services/reviews.png",
+    title: "POS System Integration",
+    description: "Connect your point-of-sale systems with your website for unified inventory, orders, and customer data management.",
+    icon: CreditCard,
     delay: 0.25,
   },
   {
-    title: "Google Ads",
-    description: "Drive targeted traffic and generate leads with expertly managed Google Ads campaigns.",
-    icon: Megaphone,
-    image: "/services/googleads.png",
+    title: "Creative Content Services",
+    description: "Professional content creation for social media, websites, and digital platforms that engages your audience.",
+    icon: Palette,
+    image: "/services/socialmedia.png",
     delay: 0.3,
   },
   {
-    title: "Social Media Marketing",
-    description: "Engage your audience and grow your brand with strategic social media campaigns across all platforms.",
-    icon: Share2,
-    image: "/services/socialmedia.png",
+    title: "Search Engine Optimization",
+    description: "Improve your visibility in search results with technical SEO and content optimization strategies.",
+    icon: Search,
+    image: "/services/seo.png",
     delay: 0.35,
   },
 ]
@@ -66,10 +64,10 @@ export const ServicesSection = () => {
         <div className="container mx-auto">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Complete Digital Marketing Solutions
+              Web Design & AI Integration Solutions
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-              Everything your small business needs to succeed online - from website development to digital marketing and reputation management.
+              Innovative technology solutions for modern businesses - from custom web design to AI-powered features and seamless integrations.
             </p>
           </div>
 

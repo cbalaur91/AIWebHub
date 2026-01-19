@@ -10,9 +10,9 @@ import { Toaster } from '@/components/ui/sonner'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AIWebHub - Complete PR & Digital Marketing Solutions for Small Business',
-  description: 'Full-service digital marketing and PR solutions for small businesses. Website development, SEO, listings management, online reviews, Google Ads, and social media marketing - all in one place.',
-  keywords: 'digital marketing, PR services, small business marketing, website development, SEO, listings management, online reviews, Google Ads, social media marketing, reputation management',
+  title: 'AIWebHub - Web Design & AI Integration Solutions for Modern Businesses',
+  description: 'Innovative web design and AI integration solutions for modern businesses. Custom websites, AI-powered features, e-commerce development, POS integration, and creative content services.',
+  keywords: 'web design, AI integration, custom websites, AI-powered solutions, e-commerce development, POS integration, Next.js development, modern web applications, creative content, SEO',
   authors: [{ name: 'AIWebHub' }],
   creator: 'AIWebHub',
   publisher: 'AIWebHub',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'AIWebHub - Complete PR & Digital Marketing Solutions',
-    description: 'Transform your small business with comprehensive PR and digital marketing services. One partner for your complete digital presence.',
+    title: 'AIWebHub - Web Design & AI Integration Solutions',
+    description: 'Transform your business with innovative web design and AI-powered solutions. Your technology partner for the digital future.',
     url: 'https://www.aiwebhub.io',
     siteName: 'AIWebHub',
     images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: 'https://www.aiwebhub.io/thumbnails/logo-thumbnail.png',
         width: 1200,
         height: 630,
-        alt: 'AIWebHub - Complete PR & Digital Marketing Solutions',
+        alt: 'AIWebHub - Web Design & AI Integration Solutions',
       },
     ],
     locale: 'en_US',
@@ -43,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AIWebHub - Complete PR & Digital Marketing Solutions',
-    description: 'Full-service digital marketing for small businesses. Website development, SEO, Google Ads, social media, and more.',
+    title: 'AIWebHub - Web Design & AI Integration Solutions',
+    description: 'Innovative web design and AI integration for modern businesses. Custom development, AI features, e-commerce, and more.',
     images: ['https://www.aiwebhub.io/thumbnails/logo-thumbnail.png'],
     creator: '@aiwebhub',
   },
@@ -102,11 +102,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "AIWebHub",
-              "alternateName": "AIWebHub - Complete PR & Digital Marketing Solutions",
+              "alternateName": "AIWebHub - Web Design & AI Integration Solutions",
               "url": "https://www.aiwebhub.io",
               "logo": "https://www.aiwebhub.io/logo/logo.png",
               "image": "https://www.aiwebhub.io/thumbnails/logo-thumbnail.png",
-              "description": "Full-service digital marketing agency providing comprehensive PR solutions for small businesses",
+              "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
               "sameAs": [
                 "https://twitter.com/aiwebhub"
               ],
@@ -118,14 +118,14 @@ export default function RootLayout({
               "foundingDate": "2024",
               "areaServed": "Worldwide",
               "knowsAbout": [
-                "Digital Marketing",
-                "Public Relations",
-                "Website Development",
-                "Search Engine Optimization",
-                "Listings Management",
-                "Online Reviews Management",
-                "Google Ads Management",
-                "Social Media Marketing"
+                "Web Design",
+                "AI Integration",
+                "Custom Website Development",
+                "E-commerce Solutions",
+                "POS System Integration",
+                "Next.js Development",
+                "Creative Content Services",
+                "Search Engine Optimization"
               ]
             })
           }}

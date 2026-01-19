@@ -6,8 +6,10 @@ import { GradientButton } from '@/components/ui/gradient-button'
 interface PricingPlan {
   id: string;
   name: string;
-  price: string;
-  priceMonthly: number;
+  oneTimePrice: string;
+  monthlyPrice: string;
+  oneTimePriceValue: number;
+  monthlyPriceValue: number;
   description: string;
   features: string[];
   popular?: boolean;
@@ -17,29 +19,33 @@ const pricingPlans: PricingPlan[] = [
   {
     id: "starter",
     name: "Starter",
-    price: "$99",
-    priceMonthly: 99,
-    description: "Perfect for small businesses getting started with their online presence.",
+    oneTimePrice: "$499",
+    monthlyPrice: "$30",
+    oneTimePriceValue: 499,
+    monthlyPriceValue: 30,
+    description: "Perfect for businesses starting their online presence with a professional website.",
     features: [
-      "Basic listings management across major directories",
+      "Custom website design",
+      "Mobile-responsive development",
+      "Basic SEO setup",
       "Website hosting & maintenance",
-      "Review monitoring dashboard",
-      "Monthly performance report",
       "Email support",
     ],
   },
   {
     id: "essentials",
     name: "Essentials",
-    price: "$399",
-    priceMonthly: 399,
-    description: "Comprehensive marketing solution for growing businesses ready to scale.",
+    oneTimePrice: "$999",
+    monthlyPrice: "$50",
+    oneTimePriceValue: 999,
+    monthlyPriceValue: 50,
+    description: "Comprehensive web solution for businesses ready to leverage modern technology.",
     features: [
       "Everything in Starter",
-      "SEO optimization & local SEO",
-      "Social media management (2 platforms)",
-      "Online review management with responses",
-      "Quarterly website updates",
+      "E-commerce functionality",
+      "Basic AI chatbot integration",
+      "Content management system",
+      "Social media content creation",
       "Priority email & phone support",
     ],
     popular: true,
@@ -47,15 +53,17 @@ const pricingPlans: PricingPlan[] = [
   {
     id: "professional",
     name: "Professional",
-    price: "$899",
-    priceMonthly: 899,
-    description: "Full-service digital marketing for businesses serious about growth.",
+    oneTimePrice: "$1,999",
+    monthlyPrice: "$100",
+    oneTimePriceValue: 1999,
+    monthlyPriceValue: 100,
+    description: "Full-service technology solutions for businesses serious about digital innovation.",
     features: [
       "Everything in Essentials",
-      "Google Ads campaign management",
-      "Advanced SEO with link building",
-      "Social media management (all platforms)",
-      "Weekly content creation",
+      "Advanced AI integrations",
+      "POS system integration",
+      "Custom web applications",
+      "Advanced analytics dashboard",
       "Bi-weekly performance reports",
       "Dedicated account manager",
     ],
@@ -64,7 +72,7 @@ const pricingPlans: PricingPlan[] = [
 
 const stats = [
   { value: '3', label: 'Flexible Plans', icon: Target },
-  { value: '$99', label: 'Starting From', icon: Zap },
+  { value: '$499', label: 'Starting From', icon: Zap },
   { value: '100%', label: 'Satisfaction', icon: TrendingUp }
 ]
 
@@ -73,13 +81,13 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing Plans - AIWebHub",
-    "description": "Choose from our flexible pricing plans for complete digital marketing and PR solutions. Starter, Essentials, and Professional plans to fit your business needs.",
+    "description": "Choose from our flexible pricing plans for web design, AI integration, and custom development solutions. Starter, Essentials, and Professional plans to fit your business needs.",
     "url": "https://www.aiwebhub.io/services",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
       "url": "https://www.aiwebhub.io",
-      "description": "Full-service digital marketing agency specializing in PR solutions for small businesses",
+      "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Pricing Plans",
@@ -87,8 +95,20 @@ export default function ServicesPage() {
           "@type": "Offer",
           "name": plan.name,
           "description": plan.description,
-          "price": plan.priceMonthly.toString(),
-          "priceCurrency": "USD"
+          "priceSpecification": [
+            {
+              "@type": "UnitPriceSpecification",
+              "price": plan.oneTimePriceValue.toString(),
+              "priceCurrency": "USD",
+              "unitText": "one-time"
+            },
+            {
+              "@type": "UnitPriceSpecification",
+              "price": plan.monthlyPriceValue.toString(),
+              "priceCurrency": "USD",
+              "unitText": "monthly"
+            }
+          ]
         }))
       }
     }
@@ -138,7 +158,7 @@ export default function ServicesPage() {
               Simple pricing, powerful results
             </h1>
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              Choose the perfect plan for your business. All plans include our complete suite of digital marketing and PR solutions designed to help small businesses thrive online.
+              Choose the perfect plan for your business. All plans include our complete suite of web design and AI integration solutions designed to help businesses succeed with modern technology.
             </p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#pricing" variant="primary">
@@ -207,9 +227,15 @@ export default function ServicesPage() {
                   <h2 className="text-2xl font-light text-white tracking-tight">
                     {plan.name}
                   </h2>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-5xl font-light text-white tracking-tighter">{plan.price}</span>
-                    <span className="text-sm text-zinc-400">/month</span>
+                  <div className="mt-4">
+                    <span className="text-xs text-zinc-500 uppercase tracking-wider">Starting from</span>
+                    <div className="flex items-baseline gap-2 mt-1">
+                      <span className="text-5xl font-light text-white tracking-tighter">{plan.oneTimePrice}</span>
+                    </div>
+                    <div className="flex items-baseline gap-2 mt-2">
+                      <span className="text-xl font-light text-zinc-300">+ {plan.monthlyPrice}</span>
+                      <span className="text-sm text-zinc-500">/month for support</span>
+                    </div>
                   </div>
                   <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
                     {plan.description}

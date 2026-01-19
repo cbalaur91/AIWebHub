@@ -7,27 +7,27 @@ import { Mail, Phone, MessageSquare } from 'lucide-react'
 const faqs = [
   {
     question: "What's included in each pricing plan?",
-    answer: "Our Starter plan ($99/mo) includes listings management, website hosting, and review monitoring. Essentials ($399/mo) adds SEO, social media management, and review responses. Professional ($899/mo) includes everything plus Google Ads management, advanced SEO, and a dedicated account manager."
+    answer: "Our Starter plan (starting from $499 + $30/mo) includes custom website design, mobile-responsive development, and basic SEO. Essentials (starting from $999 + $50/mo) adds e-commerce functionality, AI chatbot integration, and content creation. Professional (starting from $1,999 + $100/mo) includes everything plus advanced AI integrations, POS system integration, and a dedicated account manager. One-time fees cover initial development, while monthly fees include ongoing support, maintenance, and adjustments."
   },
   {
-    question: "Can I switch between plans or cancel anytime?",
-    answer: "Yes! You can upgrade or downgrade your plan at any time. While we don't require long-term contracts, we recommend staying with a plan for at least 3 months to see meaningful results. You can cancel with 30 days notice."
+    question: "How does the pricing model work?",
+    answer: "Our pricing has two components: a one-time project fee for initial development and a monthly fee for ongoing support, maintenance, and adjustments. The 'starting from' pricing allows us to customize solutions - additional features or complexity may require a custom quote. Monthly support can be cancelled with 30 days notice."
   },
   {
-    question: "How long does it take to see results?",
-    answer: "Results vary by service. You'll see immediate improvements in listings management and review monitoring. SEO typically shows results in 3-6 months. Social media engagement builds over 2-3 months. Google Ads can drive traffic immediately."
+    question: "How long does it take to build a website?",
+    answer: "Timeline varies by project complexity. A landing page typically takes 1-2 weeks, a multi-page business site 2-4 weeks, and e-commerce stores with AI integrations 4-8 weeks. We'll provide a detailed timeline during our initial consultation."
   },
   {
     question: "What information do you need to get started?",
-    answer: "To get started, we'll need access to your current online profiles (website, Google Business, social media), information about your business goals, target audience, and any current marketing materials. We'll guide you through the onboarding process."
+    answer: "To get started, we'll need information about your business goals, brand guidelines (if any), content/images you'd like to use, and any existing systems (POS, inventory) you want integrated. We'll guide you through the onboarding process."
   },
   {
-    question: "Do I need to have a website to use your services?",
-    answer: "Not at all! If you don't have a website, we can build one for you as part of your plan. All our monthly plans include website hosting and maintenance. We can create a professional website that integrates seamlessly with your other digital marketing efforts."
+    question: "What AI features can you integrate into my website?",
+    answer: "We can integrate various AI-powered features including chatbots for customer service, intelligent search, personalized recommendations, automated content generation, analytics dashboards, and custom machine learning solutions tailored to your business needs."
   },
   {
     question: "Can I customize a plan to fit my specific needs?",
-    answer: "Absolutely! While our three standard plans work great for most small businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package at a price that fits your budget."
+    answer: "Absolutely! While our three standard plans work great for most businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package that fits your requirements and budget."
   }
 ]
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact - AIWebHub",
-    "description": "Get in touch with AIWebHub for complete PR and digital marketing solutions for your small business",
+    "description": "Get in touch with AIWebHub for innovative web design and AI integration solutions for your business",
     "url": "https://www.aiwebhub.io/contact"
   }
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
               Let's discuss your <span className="text-white/90">business goals</span>
             </h1>
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              Ready to transform your digital presence? We're here to help your small business thrive with complete PR and marketing solutions.
+              Ready to transform your digital presence? We're here to help your business succeed with innovative web design and AI-powered solutions.
             </p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#contact-form" variant="primary">

@@ -96,7 +96,7 @@ export default function PortfolioPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Portfolio - AIWebHub",
-    "description": "Explore our latest projects and see how we've helped businesses achieve their digital goals with exceptional website development and digital marketing solutions.",
+    "description": "Explore our latest projects and see how we've helped businesses achieve their digital goals with exceptional web design and AI-powered solutions.",
     "url": "https://www.aiwebhub.io/portfolio",
     "mainEntity": {
       "@type": "ItemList",
