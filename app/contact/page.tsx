@@ -123,10 +123,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-medium text-white tracking-tight">Email Us</h3>
                   <a
-                    href="mailto:aiwebcraftinfo@gmail.com"
+                    href="mailto:info@aiwebhub.io"
                     className="mt-1 text-sm text-zinc-400 hover:text-blue-400 transition-colors block"
                   >
-                    aiwebcraftinfo@gmail.com
+                    info@aiwebhub.io
                   </a>
                 </div>
               </article>

@@ -98,10 +98,10 @@ export const Footer = () => {
       {/* Email */}
       <p className="mt-6 text-center animate-fadeInUp animation-delay-600">
         <a
-          href="mailto:aiwebcraftinfo@gmail.com"
+          href="mailto:info@aiwebhub.io"
           className="text-sm text-neutral-300 underline underline-offset-4 hover:text-white hover:scale-105 inline-block transition-all duration-200"
         >
-          aiwebcraftinfo@gmail.com
+          info@aiwebhub.io
         </a>
       </p>
 

@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
             If you have any questions about this Privacy Policy, please contact us:
           </p>
           <ul className="mt-2">
-            <li>By email: aiwebcraftinfo@gmail.com</li>
+            <li>By email: info@aiwebhub.io</li>
             <li>By phone: +1 (734) 341-6746</li>
           </ul>
         </section>
