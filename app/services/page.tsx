@@ -45,6 +45,7 @@ const pricingPlans: PricingPlan[] = [
       "E-commerce functionality",
       "Basic AI chatbot integration",
       "Content management system",
+      "GEO — AI search optimization",
       "Social media content creation",
       "Priority email & phone support",
     ],
@@ -61,6 +62,7 @@ const pricingPlans: PricingPlan[] = [
     features: [
       "Everything in Essentials",
       "Advanced AI integrations",
+      "Advanced GEO & AI citation monitoring",
       "POS system integration",
       "Custom web applications",
       "Advanced analytics dashboard",
@@ -93,6 +95,10 @@ export default function ServicesPage() {
     {
       question: "How long does it take to build a custom website?",
       answer: "The timeline for building a custom website depends on the type and complexity of the project. A single-page landing site with a modern design typically takes one to two weeks from kickoff to launch. A multi-page business website with custom layouts, content management, and contact forms usually takes two to four weeks. E-commerce stores with product catalogs, payment processing, and AI-powered features require four to eight weeks to build and thoroughly test. At AIWebHub, we begin every project with a discovery phase where we define your goals, gather brand assets, and map out the sitemap and design direction. We then move through design, development, review, and launch phases with regular check-ins so you can provide feedback at every stage. Rush timelines are available for projects that need to launch sooner."
+    },
+    {
+      question: "What is GEO and how does it help my business get found by AI?",
+      answer: "GEO stands for Generative Engine Optimization. It is the practice of optimizing your website so that AI-powered search tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot can find, understand, and cite your business when answering user queries. Unlike traditional SEO which focuses on ranking in a list of links, GEO focuses on making your content clear, authoritative, and structured so that AI models select it as a trusted source. Our GEO service includes schema markup implementation, content structuring with answer-first formatting, entity consistency audits across your online presence, and E-E-A-T optimization. The Professional plan adds ongoing AI citation monitoring so you can track when and where AI search engines reference your business. With over 180 million people using ChatGPT monthly and Google AI Overviews appearing in roughly 30 percent of informational searches, GEO is becoming essential for businesses that want to stay visible as search behavior shifts toward AI-powered tools."
     },
     {
       question: "Can you integrate my existing POS system with my website?",
