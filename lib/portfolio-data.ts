@@ -144,6 +144,24 @@ export const projects: Project[] = [
       technologies: ["Next.js", "React", "TailwindCSS", "Arketa Booking Integration", "Image Optimization", "Local SEO", "Responsive Design"]
     }
   },
+  {
+    id: "project-9",
+    slug: "hotelscout-ai",
+    title: "HotelScout AI",
+    category: "web-app",
+    image: "/hotelscoutai.png",
+    description: "Find your perfect hotel, powered by AI. Search and compare deals on over 2 million hotels worldwide. Best rates guaranteed.",
+    tags: ["Web App", "AI-Powered", "Travel & Hospitality"],
+    url: "https://hotelscoutai.com",
+    caseStudy: {
+      overview: "HotelScout AI is an AI-powered hotel search and booking platform that aggregates deals from over two million properties worldwide, enabling travelers to find and compare the best rates in one place. The project required building a full-featured travel platform with real-time search, dynamic pricing, multi-language support for over 30 languages, multi-currency transactions, interactive mapping, and integrated payment processing. The platform needed to handle high-volume concurrent searches while delivering fast, relevant results to users across the globe.",
+      challenge: "Building a hotel search platform that competes in the crowded online travel space demanded performance, reliability, and scale from day one. The core challenges included aggregating and normalizing hotel inventory data from multiple suppliers into a unified search experience, delivering sub-second search results across millions of properties, supporting a truly global audience with multi-language and multi-currency capabilities, integrating mapping for location-based browsing, and processing payments securely across international transactions. The platform also needed a clean, intuitive interface that made complex search and comparison workflows feel effortless for casual travelers.",
+      approach: "We architected the platform with a performance-first mindset, choosing AWS infrastructure with CloudFront CDN for global content delivery and low-latency responses regardless of user location. The front-end was built with React for a dynamic, single-page application experience that handles complex search states, filters, and real-time updates without full page reloads. We designed the search interface around progressive disclosure—starting with a simple destination and date picker, then revealing filters, map views, and comparison tools as users refined their search. The AI component powers smart ranking and personalized recommendations based on search patterns and preferences.",
+      solution: "The finished platform features a clean, modern interface centered around an intuitive search experience. The homepage presents a full-width hero with destination search, date selection, and guest configuration. Search results display in a responsive grid with property photos, star ratings, pricing, and key amenities, with options to toggle between list and map views powered by Mapbox. Each property page includes detailed descriptions, photo galleries, room type options with transparent pricing, and a streamlined booking flow integrated with Stripe for secure payment processing. The multi-language system supports over 30 languages with automatic detection based on user locale, and the multi-currency engine displays prices in the traveler's preferred currency with real-time conversion. The platform is deployed on AWS with SSL via ACM, CloudFront distribution for global performance, and auto-scaling to handle traffic spikes during peak booking seasons.",
+      results: "HotelScout AI has launched as a fully functional hotel search and booking platform serving a global audience. The platform delivers search results across its two-million-property inventory with fast response times thanks to the CDN-backed architecture. The multi-language and multi-currency support has enabled the platform to attract users from diverse international markets without requiring separate regional sites. The AI-powered ranking surfaces the most relevant properties based on user preferences, improving the search-to-booking conversion rate. The clean, mobile-responsive interface ensures a consistent booking experience across all devices, which is critical given that the majority of travel searches now originate on smartphones.",
+      technologies: ["React", "AWS CloudFront", "Mapbox", "Stripe Payments", "AI/ML Ranking", "Multi-Language (30+)", "Responsive Design", "REST APIs"]
+    }
+  },
 ]
 
 export const categories = [
@@ -151,4 +169,5 @@ export const categories = [
   { label: "Landing Pages", value: "landing-page" },
   { label: "Portfolios", value: "portfolio" },
   { label: "Business Sites", value: "business" },
+  { label: "Web Apps", value: "web-app" },
 ]
