@@ -77,12 +77,50 @@ const stats = [
 ]
 
 export default function ServicesPage() {
+  const serviceFaqs = [
+    {
+      question: "What is AI integration and how can it benefit my business?",
+      answer: "AI integration refers to the process of embedding artificial intelligence capabilities directly into your website or business application. This can include AI-powered chatbots that handle customer inquiries around the clock, intelligent search features that help visitors find products or information faster, personalized content recommendations based on user behavior, and automated workflows that reduce manual tasks. For businesses, AI integration means improved customer experience, reduced operational costs, and the ability to scale support without proportionally increasing staff. At AIWebHub, we implement AI solutions using modern APIs and frameworks, ensuring they integrate seamlessly with your existing website and business tools. Whether you run an e-commerce store, a service-based business, or a content platform, AI integration can help you serve customers better and operate more efficiently."
+    },
+    {
+      question: "How much does a custom website cost in 2026?",
+      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes custom design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds e-commerce functionality, AI chatbot integration, and a content management system. For businesses needing advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
+    },
+    {
+      question: "What's included in website maintenance and support?",
+      answer: "Website maintenance and support at AIWebHub covers everything needed to keep your site running smoothly after launch. This includes web hosting on fast, reliable infrastructure, regular software and security updates, performance monitoring to ensure fast page load times, content updates and minor design adjustments, SSL certificate management, daily backups, and uptime monitoring. Our monthly support plans also include bug fixes, browser compatibility checks, and analytics reporting so you can track how your site is performing. If you need design changes, new pages, or feature additions beyond routine maintenance, we handle those as part of your support plan or through a scoped project quote. Support can be cancelled with 30 days notice, and all plans include email support with priority response for Essentials and Professional tiers."
+    },
+    {
+      question: "How long does it take to build a custom website?",
+      answer: "The timeline for building a custom website depends on the type and complexity of the project. A single-page landing site with a modern design typically takes one to two weeks from kickoff to launch. A multi-page business website with custom layouts, content management, and contact forms usually takes two to four weeks. E-commerce stores with product catalogs, payment processing, and AI-powered features require four to eight weeks to build and thoroughly test. At AIWebHub, we begin every project with a discovery phase where we define your goals, gather brand assets, and map out the sitemap and design direction. We then move through design, development, review, and launch phases with regular check-ins so you can provide feedback at every stage. Rush timelines are available for projects that need to launch sooner."
+    },
+    {
+      question: "Can you integrate my existing POS system with my website?",
+      answer: "Yes, POS system integration is one of our core services at AIWebHub. We connect popular point-of-sale systems like Square, Clover, Toast, and Shopify POS with your website so that inventory, pricing, and order data stay synchronized across your physical and online storefronts. This means when a product sells in your brick-and-mortar store, your website inventory updates automatically, and vice versa. POS integration also enables features like online ordering with in-store pickup, unified customer databases, consolidated sales reporting, and real-time stock level displays on your website. Our Professional plan includes POS integration as a standard feature, and we can customize the connection to fit your specific workflow. If you use a less common POS system, we can evaluate compatibility and build a custom integration using available APIs."
+    }
+  ]
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": serviceFaqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing Plans - AIWebHub",
     "description": "Choose from our flexible pricing plans for web design, AI integration, and custom development solutions. Starter, Essentials, and Professional plans to fit your business needs.",
     "url": "https://www.aiwebhub.io/services",
+    "datePublished": "2024-06-01",
+    "dateModified": "2026-02-16",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
@@ -133,6 +171,10 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* Hero Section */}
       <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
@@ -160,6 +202,7 @@ export default function ServicesPage() {
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
               Choose the perfect plan for your business. All plans include our complete suite of web design and AI integration solutions designed to help businesses succeed with modern technology.
             </p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#pricing" variant="primary">
                 View Plans
@@ -335,6 +378,37 @@ export default function ServicesPage() {
                 <h3 className="text-lg font-medium text-white tracking-tight">{service.title}</h3>
                 <p className="text-sm text-neutral-400 mt-2 leading-relaxed">{service.description}</p>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-500 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-white/5 to-transparent blur-3xl" />
+        </div>
+
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">FAQ</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">common questions about our services</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="mt-8 space-y-10">
+          {serviceFaqs.map((faq, index) => (
+            <article key={index} className="max-w-3xl">
+              <h2 className="text-2xl sm:text-3xl font-light text-zinc-100 tracking-tight">
+                {faq.question}
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
+                {faq.answer}
+              </p>
             </article>
           ))}
         </div>

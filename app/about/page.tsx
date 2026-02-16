@@ -1,6 +1,6 @@
 "use client"
 
-import { Lightbulb, Award, Users, Eye, Zap, Target } from 'lucide-react'
+import { Lightbulb, Award, Users, Eye, Zap, Target, Linkedin } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 
 const values = [
@@ -43,11 +43,38 @@ export default function AboutPage() {
     "name": "About - AIWebHub",
     "description": "Learn about AIWebHub's mission to provide innovative web design and AI integration solutions for modern businesses",
     "url": "https://www.aiwebhub.io/about",
+    "datePublished": "2024-06-01",
+    "dateModified": "2026-02-16",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
       "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses"
     }
+  }
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cosmin Balaur",
+    "jobTitle": "Founder & Lead Developer",
+    "url": "https://www.linkedin.com/in/cosminbalaur91",
+    "image": "https://www.aiwebhub.io/CB.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/cosminbalaur91"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AIWebHub",
+      "url": "https://www.aiwebhub.io"
+    },
+    "knowsAbout": [
+      "Web Development",
+      "AI Integration",
+      "E-commerce Solutions",
+      "UX/UI Design",
+      "SEO Optimization",
+      "POS Integration"
+    ]
   }
 
   const breadcrumbSchema = {
@@ -68,6 +95,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
       {/* Hero Section */}
@@ -96,6 +127,7 @@ export default function AboutPage() {
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
               We're dedicated to helping businesses succeed with innovative web solutions and AI-powered technology.
             </p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="/contact" variant="primary">
                 Get Started
@@ -207,6 +239,64 @@ export default function AboutPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-500 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Soft radial glow */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
+          <div className="absolute right-0 top-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-bl from-white/5 to-transparent blur-3xl" />
+        </div>
+
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">Team</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">the people behind AIWebHub</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="mt-8 max-w-2xl">
+          <article className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-zinc-900/60 border-white/10 border rounded-2xl hover-lift">
+            <div className="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-white/10 flex-shrink-0">
+                <img
+                  src="/CB.png"
+                  alt="Cosmin Balaur - Founder & Lead Developer at AIWebHub"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-medium text-white tracking-tight">Cosmin Balaur</h3>
+                <p className="text-sm text-zinc-400 mt-1">Founder & Lead Developer</p>
+                <p className="text-sm text-zinc-400 mt-4 leading-relaxed">
+                  Cosmin Balaur is the founder and lead developer of AIWebHub, bringing hands-on expertise in full-stack web development, AI integration, and digital strategy. With a background in building custom websites, e-commerce platforms, and AI-powered business tools, Cosmin works directly with each client to deliver solutions that drive measurable growth. His technical skill set spans Next.js, React, TypeScript, and modern AI APIs, while his business acumen ensures every project aligns with client goals. Cosmin founded AIWebHub in 2024 to make advanced web technology accessible and affordable for businesses of all sizes.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {["Web Development", "AI Integration", "E-commerce Solutions", "UX/UI Design", "SEO Optimization", "POS Integration"].map((skill) => (
+                    <span
+                      key={skill}
+                      className="inline-flex rounded-full bg-white/5 border border-white/10 px-2.5 py-1 text-xs text-zinc-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/cosminbalaur91"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-4 text-sm text-zinc-400 hover:text-white transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn Profile
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 

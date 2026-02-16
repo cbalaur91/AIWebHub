@@ -66,6 +66,13 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Definition passage for AI citability */}
+      <div className="relative mt-8 sm:mt-10 px-1 sm:px-0 animate-fadeInUp animation-delay-600">
+        <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-4xl">
+          AIWebHub is a web design and AI integration agency that helps modern businesses establish and grow their digital presence. Based in Michigan and serving clients worldwide, AIWebHub specializes in custom website development, AI-powered chatbot integration, e-commerce store creation, POS system connectivity, and search engine optimization. Every project is built with Next.js, React, and TypeScript for fast performance, accessibility, and scalability. From single-page landing sites to full-featured online stores with intelligent automation, AIWebHub delivers end-to-end solutions under one roof. The studio was founded in 2024 with a mission to make cutting-edge web technology accessible to businesses of all sizes, with transparent pricing starting at $499 and dedicated ongoing support.
+        </p>
+      </div>
     </section>
   )
 }

@@ -37,7 +37,9 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "name": "Contact - AIWebHub",
     "description": "Get in touch with AIWebHub for innovative web design and AI integration solutions for your business",
-    "url": "https://www.aiwebhub.io/contact"
+    "url": "https://www.aiwebhub.io/contact",
+    "datePublished": "2024-06-01",
+    "dateModified": "2026-02-16"
   }
 
   const faqSchema = {
@@ -103,6 +105,7 @@ export default function ContactPage() {
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
               Ready to transform your digital presence? We're here to help your business succeed with innovative web design and AI-powered solutions.
             </p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#contact-form" variant="primary">
                 Send Message

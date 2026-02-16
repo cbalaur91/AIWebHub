@@ -1,0 +1,44 @@
+# AIWebHub
+
+> AIWebHub is a web design and AI integration agency based in Michigan, USA. We build custom websites, integrate AI-powered features, develop e-commerce solutions, and connect POS systems for modern businesses. Founded in 2024, AIWebHub serves clients worldwide with a focus on innovative technology and measurable results.
+
+## Services
+
+- Custom Website Design & Development (landing pages, multi-page business sites, e-commerce stores)
+- AI Integration (chatbots, intelligent search, personalized recommendations, automated content)
+- E-commerce Solutions (online stores with secure payment processing and inventory management)
+- POS System Integration (connecting point-of-sale systems with web platforms)
+- SEO Optimization (search engine optimization and digital strategy)
+- Website Maintenance & Support (ongoing hosting, updates, and performance monitoring)
+
+## Pricing Plans
+
+- Starter: from $499 one-time + $30/month (custom design, mobile-responsive, basic SEO, hosting & maintenance)
+- Essentials: from $999 one-time + $50/month (adds e-commerce, AI chatbot, CMS, social media content)
+- Professional: from $1,999 one-time + $100/month (adds advanced AI, POS integration, custom apps, analytics, dedicated manager)
+
+## Pages
+
+- Homepage: https://www.aiwebhub.io/
+- Services & Pricing: https://www.aiwebhub.io/services
+- Portfolio: https://www.aiwebhub.io/portfolio
+- About: https://www.aiwebhub.io/about
+- Contact: https://www.aiwebhub.io/contact
+- Blog: https://www.aiwebhub.io/blog
+- Privacy Policy: https://www.aiwebhub.io/privacy-policy
+- Terms of Service: https://www.aiwebhub.io/terms-of-service
+
+## Technologies
+
+- Next.js 15, React, TypeScript, TailwindCSS
+- Framer Motion for animations
+- Radix UI for accessible components
+- Static site generation for optimal performance
+
+## Contact
+
+- Website: https://www.aiwebhub.io
+- Email: info@aiwebhub.io
+- Phone: +1 (734) 341-6746
+- Facebook: https://www.facebook.com/profile.php?id=61574644971669
+- Founder: Cosmin Balaur (https://www.linkedin.com/in/cosminbalaur91)

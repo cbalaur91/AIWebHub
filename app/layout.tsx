@@ -108,12 +108,18 @@ export default function RootLayout({
               "image": "https://www.aiwebhub.io/thumbnails/logo-thumbnail.png",
               "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
               "sameAs": [
-                "https://twitter.com/aiwebhub"
+                "https://www.facebook.com/profile.php?id=61574644971669",
+                "https://www.linkedin.com/in/cosminbalaur91"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
                 "availableLanguage": "English"
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "Cosmin Balaur",
+                "url": "https://www.linkedin.com/in/cosminbalaur91"
               },
               "foundingDate": "2024",
               "areaServed": "Worldwide",

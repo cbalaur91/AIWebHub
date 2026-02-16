@@ -4,84 +4,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Target, Filter, TrendingUp, ExternalLink } from 'lucide-react'
-
-interface Project {
-  id: string
-  title: string
-  category: string
-  image: string
-  description: string
-  tags: string[]
-  url: string
-}
-
-const projects: Project[] = [
-  {
-    id: "project-1",
-    title: "Romanian Banquet Hall",
-    category: "landing-page",
-    image: "/Banquet_Hall.JPG",
-    description: "Located in Warren, Mi, Romanian Banquet Hall offers an elegant and sophisticated venue for your special events. With over 20 years of experience, we've hosted countless weddings, corporate events, and celebrations.",
-    tags: ["UI/UX", "React", "Animation"],
-    url: "https://www.romanianbanquethall.com/"
-  },
-  {
-    id: "project-2",
-    title: "Quality Work Granite",
-    category: "portfolio",
-    image: "/qwgranite-logo.png",
-    description: "Crafting exceptional stone surfaces for discerning homeowners.",
-    tags: ["Portfolio", "Gatsby", "Animation"],
-    url: "https://www.qwgranite.com/"
-  },
-  {
-    id: "project-3",
-    title: "Romanian Food Festival",
-    category: "landing-page",
-    image: "/rff.png",
-    description: "Experience authentic Romanian cuisine and culture in Rochester Hills, Michigan.",
-    tags: ["Landing Page", "Next.js", "Dashboard"],
-    url: "https://www.romanianfoodfestival.org/"
-  },
-  {
-    id: "project-4",
-    title: "Church Fundraising",
-    category: "landing-page",
-    image: "/schooldesign.jpg",
-    description: "Support our mission to create new classrooms for religious education",
-    tags: ["Landing Page", "Fundraising", "Animation"],
-    url: "https://fundraising-pogorarea-sfantului-duh.vercel.app/"
-  },
-  {
-    id: "project-6",
-    title: "88 Transpoort LLC",
-    category: "landing-page",
-    image: "/88transpoort-logonew.png",
-    description: " Join Chicago's premier car hauling company as an owner operator. Competitive rates, consistent loads, and unmatched support.",
-    tags: ["Landing Page", "Car Hauling", "Transportation"],
-    url: "https://www.88transpoortllc.com/"
-  },
-  {
-    id: "project-7",
-    title: "Divine Retreat Salon",
-    category: "business",
-    image: "/DivineRetreatLogo.jpg",
-    description: "A sanctuary for rejuvenation in Utica, Michigan offering premium hair services and therapeutic massage in an intimate, peaceful environment.",
-    tags: ["Business Site", "Next.js", "Salon & Spa"],
-    url: "https://www.divineretreatsalon.com/"
-  },
-]
-
-const categories = [
-  { label: "All", value: "all" },
-  { label: "Landing Pages", value: "landing-page" },
-  { label: "Portfolios", value: "portfolio" },
-  { label: "Business Sites", value: "business" },
-]
+import Link from 'next/link'
+import { projects, categories } from '@/lib/portfolio-data'
 
 const stats = [
-  { value: '7', label: 'Projects Delivered', icon: Target },
-  { value: '4', label: 'Categories', icon: Filter },
+  { value: String(projects.length), label: 'Projects Delivered', icon: Target },
+  { value: String(categories.length - 1), label: 'Categories', icon: Filter },
   { value: '100%', label: 'Success Rate', icon: TrendingUp }
 ]
 
@@ -98,6 +26,8 @@ export default function PortfolioPage() {
     "name": "Portfolio - AIWebHub",
     "description": "Explore our latest projects and see how we've helped businesses achieve their digital goals with exceptional web design and AI-powered solutions.",
     "url": "https://www.aiwebhub.io/portfolio",
+    "datePublished": "2024-06-01",
+    "dateModified": "2026-02-16",
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": projects.map((project, index) => ({
@@ -157,6 +87,7 @@ export default function PortfolioPage() {
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
               Explore our portfolio of successful projects. From landing pages to complete business solutions, each project showcases our commitment to quality and innovation.
             </p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#projects" variant="primary">
                 View Projects
@@ -288,6 +219,14 @@ export default function PortfolioPage() {
                     </span>
                   ))}
                 </div>
+
+                {/* Case Study Link */}
+                <Link
+                  href={`/portfolio/${project.slug}`}
+                  className="inline-block mt-4 text-sm text-zinc-400 hover:text-white transition-colors"
+                >
+                  Read Case Study &rarr;
+                </Link>
               </div>
             </motion.article>
           ))}
