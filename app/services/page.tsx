@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target } from 'lucide-react'
+import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 
 interface PricingPlan {
@@ -70,10 +70,29 @@ const pricingPlans: PricingPlan[] = [
       "Dedicated account manager",
     ],
   },
+  {
+    id: "ai-agents",
+    name: "AI Agents",
+    oneTimePrice: "$2,499",
+    monthlyPrice: "$150",
+    oneTimePriceValue: 2499,
+    monthlyPriceValue: 150,
+    description: "Custom AI agents built for your business — automate tasks, answer questions, and streamline operations.",
+    features: [
+      "Custom AI agent development",
+      "Business data & knowledge base training",
+      "API & third-party integrations",
+      "Multi-platform deployment",
+      "Conversation flow design",
+      "Performance monitoring & analytics",
+      "Monthly agent tuning & updates",
+      "Dedicated AI specialist support",
+    ],
+  },
 ]
 
 const stats = [
-  { value: '3', label: 'Flexible Plans', icon: Target },
+  { value: '4', label: 'Flexible Plans', icon: Target },
   { value: '$499', label: 'Starting From', icon: Zap },
   { value: '100%', label: 'Satisfaction', icon: TrendingUp }
 ]
@@ -86,7 +105,7 @@ export default function ServicesPage() {
     },
     {
       question: "How much does a custom website cost in 2026?",
-      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes custom design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds e-commerce functionality, AI chatbot integration, and a content management system. For businesses needing advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
+      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes custom design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds e-commerce functionality, AI chatbot integration, and a content management system. For businesses needing advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. For businesses looking to deploy custom AI agents, our AI Agents plan starts at $2,499 plus $150 per month and includes agent development, knowledge base training, and multi-platform deployment. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
     },
     {
       question: "What's included in website maintenance and support?",
@@ -103,6 +122,10 @@ export default function ServicesPage() {
     {
       question: "Can you integrate my existing POS system with my website?",
       answer: "Yes, POS system integration is one of our core services at AIWebHub. We connect popular point-of-sale systems like Square, Clover, Toast, and Shopify POS with your website so that inventory, pricing, and order data stay synchronized across your physical and online storefronts. This means when a product sells in your brick-and-mortar store, your website inventory updates automatically, and vice versa. POS integration also enables features like online ordering with in-store pickup, unified customer databases, consolidated sales reporting, and real-time stock level displays on your website. Our Professional plan includes POS integration as a standard feature, and we can customize the connection to fit your specific workflow. If you use a less common POS system, we can evaluate compatibility and build a custom integration using available APIs."
+    },
+    {
+      question: "What are AI agents and how can they help my business?",
+      answer: "AI agents are autonomous software programs powered by large language models that can perform tasks, answer questions, and make decisions on behalf of your business. Unlike basic chatbots that follow scripted responses, AI agents understand context, learn from your business data, and handle complex multi-step interactions. At AIWebHub, we build custom AI agents trained on your specific knowledge base — product catalogs, policies, procedures, and FAQs — so they can provide accurate, brand-consistent responses to customers around the clock. Common use cases include customer support agents that resolve inquiries without human intervention, sales assistants that qualify leads and recommend products, scheduling agents that book appointments and manage calendars, and internal operations agents that automate repetitive workflows like data entry or report generation. Our AI Agents plan starts at $2,499 with $150 per month for ongoing maintenance, which includes custom agent development, API integrations with your existing tools, multi-platform deployment across your website, Slack, or email, and monthly tuning to improve accuracy and performance. Businesses using AI agents typically see faster response times, lower support costs, and the ability to scale customer interactions without proportionally increasing headcount."
     }
   ]
 
@@ -123,10 +146,10 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing Plans - AIWebHub",
-    "description": "Choose from our flexible pricing plans for web design, AI integration, and custom development solutions. Starter, Essentials, and Professional plans to fit your business needs.",
+    "description": "Choose from our flexible pricing plans for web design, AI integration, AI agents, and custom development solutions. Starter, Essentials, Professional, and AI Agents plans to fit your business needs.",
     "url": "https://www.aiwebhub.io/services",
     "datePublished": "2024-06-01",
-    "dateModified": "2026-02-16",
+    "dateModified": "2026-02-27",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
@@ -255,7 +278,7 @@ export default function ServicesPage() {
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 stagger-animation">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8 stagger-animation">
           {pricingPlans.map((plan) => (
             <article
               key={plan.id}
@@ -326,20 +349,20 @@ export default function ServicesPage() {
             <span className="text-4xl font-medium text-white">Services</span>
           </span>
           <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">website types we build</span>
+          <span className="text-sm text-neutral-300">what we build</span>
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
         <div className="mt-8">
           <h2 className="text-[44px] sm:text-5xl md:text-6xl leading-[1.05] font-light text-zinc-100 tracking-tighter animate-fadeInUp animation-delay-200 max-w-3xl">
-            Custom websites for various business needs
+            Custom websites & AI solutions for every business
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl animate-fadeInUp animation-delay-300">
-            As part of our website development service, we create tailored solutions that convert visitors into customers.
+            From high-converting websites to intelligent AI agents, we create tailored solutions that drive results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 stagger-animation">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 stagger-animation">
           {[
             {
               title: "Landing Pages",
@@ -361,6 +384,13 @@ export default function ServicesPage() {
               icon: Globe,
               image: "/services/business.jpg",
               iconColor: "text-emerald-400"
+            },
+            {
+              title: "AI Agents",
+              description: "Intelligent AI agents trained on your business data to automate customer support, streamline workflows, and handle tasks 24/7.",
+              icon: Bot,
+              image: "/services/AiAgents.png",
+              iconColor: "text-cyan-400"
             },
           ].map((service, index) => (
             <article

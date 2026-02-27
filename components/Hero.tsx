@@ -7,7 +7,7 @@ export const Hero = () => {
   return (
     <section
       className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-neutral-900/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur"
-      style={{ height: '600px' }}
+      style={{ minHeight: '600px' }}
     >
       {/* Background layers */}
       <div className="absolute inset-0 overflow-hidden -z-10 rounded-3xl">
@@ -22,7 +22,7 @@ export const Hero = () => {
         {/* Brand watermark positioned at left */}
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none absolute bottom-10 left-6 animate-fadeIn animation-delay-600"
+          className="pointer-events-none select-none absolute bottom-4 left-6 animate-fadeIn animation-delay-600"
           style={{ letterSpacing: '-0.02em' }}
         >
           <span
@@ -31,7 +31,7 @@ export const Hero = () => {
               fontWeight: 700,
               fontSize: 'min(12vw, 210px)',
               lineHeight: 0.8,
-              color: 'rgba(125, 211, 252, 0.5)'
+              color: 'rgba(125, 211, 252, 0.12)'
             }}
           >
             AIWEBHUB
@@ -68,7 +68,7 @@ export const Hero = () => {
       </div>
 
       {/* Definition passage for AI citability */}
-      <div className="relative mt-8 sm:mt-10 px-1 sm:px-0 animate-fadeInUp animation-delay-600">
+      <div className="relative z-10 mt-8 sm:mt-10 px-1 sm:px-0 animate-fadeInUp animation-delay-600">
         <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-4xl">
           AIWebHub is a web design and AI integration agency that helps modern businesses establish and grow their digital presence. Based in Michigan and serving clients worldwide, AIWebHub specializes in custom website development, AI-powered chatbot integration, e-commerce store creation, POS system connectivity, and search engine optimization. Every project is built with Next.js, React, and TypeScript for fast performance, accessibility, and scalability. From single-page landing sites to full-featured online stores with intelligent automation, AIWebHub delivers end-to-end solutions under one roof. The studio was founded in 2024 with a mission to make cutting-edge web technology accessible to businesses of all sizes, with transparent pricing starting at $499 and dedicated ongoing support.
         </p>
