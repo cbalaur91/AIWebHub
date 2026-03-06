@@ -171,6 +171,25 @@ export const projects: Project[] = [
       technologies: ["React", "AWS CloudFront", "Mapbox", "Stripe Payments", "AI/ML Ranking", "Multi-Language (30+)", "Responsive Design", "REST APIs"]
     }
   },
+  {
+    id: "project-10",
+    slug: "bestpick-usa",
+    title: "BestPick USA",
+    category: "web-app",
+    image: "/bestpickusa.png",
+    imageAlt: "BestPick USA independent product review platform showing category browsing for electronics, smart home, and kitchen products",
+    description: "Independent and unbiased product testing platform. Hands-on reviews, real price tracking across retailers, and honest recommendations with no sponsored placements.",
+    tags: ["Web App", "Next.js", "E-Commerce & Reviews"],
+    url: "https://www.bestpickusa.com/",
+    caseStudy: {
+      overview: "BestPick USA is an independent product review and price tracking platform that tests electronics, smart home devices, kitchen appliances, and more hands-on, providing unbiased recommendations without sponsored placements or pay-to-play rankings. The project required building a content-rich platform with category-based browsing, detailed buying guides, real-time price tracking across major retailers, and a search system that helps consumers find the right product quickly. The site needed to establish trust and authority in a space dominated by affiliate-driven review sites.",
+      challenge: "The consumer product review space is crowded with sites that prioritize affiliate revenue over honest recommendations, eroding consumer trust. BestPick USA needed a platform that would differentiate itself through transparency and editorial independence while still being commercially viable. The technical challenges included building a scalable content management system for hundreds of product reviews and buying guides, integrating real-time price data from multiple retailers, organizing products across nine distinct categories with intuitive navigation, and ensuring fast load times for content-heavy pages with product imagery and comparison tables.",
+      approach: "We designed the platform around the core principle of trust through transparency. The visual design uses a clean, dark-themed interface that puts product information front and center without distracting advertisements or promotional banners. The information architecture was structured around categories and buying guides, allowing users to either browse by product type or dive directly into curated recommendation lists. We prioritized search functionality and category filtering to minimize the clicks between landing on the site and finding relevant product recommendations. The content structure was built to support SEO at scale, with each guide and review optimized for search intent.",
+      solution: "The finished platform features a category-driven homepage with nine product categories including Televisions, Laptops, Cameras, Smart Home, Headphones & Audio, SSDs, Gaming & Accessories, Vacuums, and Kitchen Appliances. Each category leads to detailed buying guides with hands-on test results, product comparisons, and real price tracking across retailers. The search system allows users to find specific products instantly. The site was built with Next.js for optimal performance and SEO, featuring server-side rendering for content pages, dynamic price data integration, and a responsive design that works seamlessly across desktop and mobile devices. The clean, ad-free interface reinforces the brand's commitment to unbiased recommendations.",
+      results: "BestPick USA has launched as a credible alternative to ad-heavy review sites, with its independent editorial approach resonating with consumers seeking trustworthy product recommendations. The category-based navigation and comprehensive buying guides keep users engaged across multiple pages per session. The site's SEO-optimized content structure drives organic traffic for high-intent product research queries, and the transparent, no-sponsored-placements policy has helped build a loyal returning audience that trusts the platform's recommendations for their purchasing decisions.",
+      technologies: ["Next.js", "React", "TailwindCSS", "Price Tracking API", "Search Integration", "SEO Optimization", "Responsive Design"]
+    }
+  },
 ]
 
 export const categories = [
