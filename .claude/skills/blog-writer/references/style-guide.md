@@ -102,7 +102,7 @@ Clear calls-to-action drive conversions. Every page should guide visitors toward
 ### Comparison Data (instead of tables)
 Use a consistent paragraph format with the same data points for each option:
 
-"Our Starter plan at $499 includes a custom website, mobile-responsive design, and basic SEO. The Essentials plan at $999 adds e-commerce, AI chatbot integration, and GEO optimization."
+"Our Starter plan at $499 includes a single-page website, mobile-responsive design, and basic SEO. The Essentials plan at $999 adds a custom multi-page website, AI chatbot integration, and GEO optimization. The Professional plan at $1,999 adds e-commerce functionality and social media content creation."
 
 ## Numbers and Currency
 

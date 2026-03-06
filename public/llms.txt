@@ -13,9 +13,10 @@
 
 ## Pricing Plans
 
-- Starter: from $499 one-time + $30/month (custom design, mobile-responsive, basic SEO, hosting & maintenance)
-- Essentials: from $999 one-time + $50/month (adds e-commerce, AI chatbot, CMS, social media content)
-- Professional: from $1,999 one-time + $100/month (adds advanced AI, POS integration, custom apps, analytics, dedicated manager)
+- Starter: from $499 one-time + $30/month (single-page website design, mobile-responsive, basic SEO, hosting & maintenance)
+- Essentials: from $999 one-time + $50/month (adds custom multi-page website, AI chatbot, CMS, GEO optimization)
+- Professional: from $1,999 one-time + $100/month (adds e-commerce, social media content creation, advanced AI, POS integration, custom apps, analytics, dedicated manager)
+- AI Agents: from $2,499 one-time + $150/month (custom AI agent development, knowledge base training, API integrations, multi-platform deployment, monthly tuning)
 
 ## Pages
 

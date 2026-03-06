@@ -41,7 +41,7 @@ Mention pages naturally in prose. Examples:
 Write each point as its own short paragraph separated by a blank line. Start each with a clear topic phrase so the structure is scannable even without bullet formatting.
 
 **How to handle comparisons** (instead of tables):
-Use a consistent paragraph format with the same data points for each option. Example: "The Starter plan at $499 includes custom design and basic SEO. The Essentials plan at $999 adds e-commerce and AI chatbot integration."
+Use a consistent paragraph format with the same data points for each option. Example: "The Starter plan at $499 includes single-page website design and basic SEO. The Essentials plan at $999 adds a custom multi-page website and AI chatbot integration. The Professional plan at $1,999 adds e-commerce functionality and social media content creation."
 
 ## Workflow
 

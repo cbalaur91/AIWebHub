@@ -7,7 +7,7 @@ import { Mail, Phone, MessageSquare } from 'lucide-react'
 const faqs = [
   {
     question: "What's included in each pricing plan?",
-    answer: "Our Starter plan (starting from $499 + $30/mo) includes custom website design, mobile-responsive development, and basic SEO. Essentials (starting from $999 + $50/mo) adds e-commerce functionality, AI chatbot integration, and content creation. Professional (starting from $1,999 + $100/mo) includes everything plus advanced AI integrations, POS system integration, and a dedicated account manager. One-time fees cover initial development, while monthly fees include ongoing support, maintenance, and adjustments."
+    answer: "Our Starter plan (starting from $499 + $30/mo) includes single-page website design, mobile-responsive development, and basic SEO. Essentials (starting from $999 + $50/mo) adds a custom multi-page website, AI chatbot integration, CMS, and GEO optimization. Professional (starting from $1,999 + $100/mo) includes everything plus e-commerce functionality, social media content creation, advanced AI integrations, POS system integration, and a dedicated account manager. Our AI Agents plan (starting from $2,499 + $150/mo) includes custom AI agent development, knowledge base training, and multi-platform deployment. One-time fees cover initial development, while monthly fees include ongoing support, maintenance, and adjustments."
   },
   {
     question: "How does the pricing model work?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "Can I customize a plan to fit my specific needs?",
-    answer: "Absolutely! While our three standard plans work great for most businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package that fits your requirements and budget."
+    answer: "Absolutely! While our four standard plans work great for most businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package that fits your requirements and budget."
   }
 ]
 

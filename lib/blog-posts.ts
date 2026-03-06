@@ -470,6 +470,6 @@ The good news is that none of these e-commerce mistakes require rebuilding your 
 
 Prioritize based on data, not gut feeling. Check your analytics for cart abandonment rates, mobile versus desktop conversion rates, and your top exit pages. These numbers tell you exactly where customers are dropping off and where to focus your effort first.
 
-At AIWebHub, we build e-commerce sites that avoid these mistakes from day one. Our Essentials plan at $999 includes e-commerce functionality, AI chatbot integration, mobile-responsive design, and SEO optimization. For stores that need advanced performance tuning and AI search readiness, our Professional plan at $1,999 adds those capabilities. Contact us at aiwebhub.io/contact for a free consultation to evaluate your current store and identify the highest-impact improvements for your business.`
+At AIWebHub, we build e-commerce sites that avoid these mistakes from day one. Our Professional plan at $1,999 includes e-commerce functionality, social media content creation, advanced AI integrations, and POS system integration. For businesses starting out, our Essentials plan at $999 covers custom multi-page websites, AI chatbot integration, and GEO optimization. Contact us at aiwebhub.io/contact for a free consultation to evaluate your current store and identify the highest-impact improvements for your business.`
   },
 ]

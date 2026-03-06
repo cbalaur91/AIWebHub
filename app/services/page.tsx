@@ -2,6 +2,7 @@
 
 import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 
 interface PricingPlan {
   id: string;
@@ -25,7 +26,7 @@ const pricingPlans: PricingPlan[] = [
     monthlyPriceValue: 30,
     description: "Perfect for businesses starting their online presence with a professional website.",
     features: [
-      "Custom website design",
+      "Single-page website design",
       "Mobile-responsive development",
       "Basic SEO setup",
       "Website hosting & maintenance",
@@ -42,11 +43,10 @@ const pricingPlans: PricingPlan[] = [
     description: "Comprehensive web solution for businesses ready to leverage modern technology.",
     features: [
       "Everything in Starter",
-      "E-commerce functionality",
+      "Custom multi-page website",
       "Basic AI chatbot integration",
       "Content management system",
       "GEO — AI search optimization",
-      "Social media content creation",
       "Priority email & phone support",
     ],
     popular: true,
@@ -61,6 +61,8 @@ const pricingPlans: PricingPlan[] = [
     description: "Full-service technology solutions for businesses serious about digital innovation.",
     features: [
       "Everything in Essentials",
+      "E-commerce functionality",
+      "Social media content creation",
       "Advanced AI integrations",
       "Advanced GEO & AI citation monitoring",
       "POS system integration",
@@ -105,7 +107,7 @@ export default function ServicesPage() {
     },
     {
       question: "How much does a custom website cost in 2026?",
-      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes custom design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds e-commerce functionality, AI chatbot integration, and a content management system. For businesses needing advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. For businesses looking to deploy custom AI agents, our AI Agents plan starts at $2,499 plus $150 per month and includes agent development, knowledge base training, and multi-platform deployment. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
+      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes single-page website design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds a custom multi-page website, AI chatbot integration, a content management system, and GEO optimization. For businesses needing e-commerce functionality, social media content creation, advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. For businesses looking to deploy custom AI agents, our AI Agents plan starts at $2,499 plus $150 per month and includes agent development, knowledge base training, and multi-platform deployment. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
     },
     {
       question: "What's included in website maintenance and support?",
@@ -436,18 +438,22 @@ export default function ServicesPage() {
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-        <div className="mt-8 space-y-10">
+        <Accordion type="single" collapsible className="mt-8 max-w-3xl">
           {serviceFaqs.map((faq, index) => (
-            <article key={index} className="max-w-3xl">
-              <h2 className="text-2xl sm:text-3xl font-light text-zinc-100 tracking-tight">
-                {faq.question}
-              </h2>
-              <p className="mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
-                {faq.answer}
-              </p>
-            </article>
+            <AccordionItem key={index} value={`faq-${index}`}>
+              <AccordionTrigger>
+                <h2 className="text-lg sm:text-xl font-light text-inherit tracking-tight pr-4">
+                  {faq.question}
+                </h2>
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </section>
 
     </>
