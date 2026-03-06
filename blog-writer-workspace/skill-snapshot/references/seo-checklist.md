@@ -18,8 +18,8 @@
 - Single H1 (the title)
 - 5-8 H2 sections per 1,500+ word post
 - H2s include keywords naturally — at least 3 of them
-- Question-based or problem-based H2s preferred (matches search queries and AI extraction)
-- H2 is the only heading level the renderer supports — do not use H3 or deeper
+- Question-based H2s preferred (matches search queries and AI extraction)
+- No skipping heading levels
 
 ### Keyword Placement
 - Primary keyword in: title, first 100 words, 2-3 H2s, last paragraph
@@ -27,35 +27,30 @@
 - Semantic variations used (synonyms, related phrases)
 - Density 1-3% — never forced or stuffed
 
-### Internal References
-The blog renderer does not support markdown links. Instead, reference other pages naturally in prose:
-- 2-4 references to other AIWebHub pages or blog posts per article
-- Mention the page and path naturally (e.g., "our services page at aiwebhub.io/services")
-- Reference existing blog posts by topic (e.g., "as we covered in our guide to AI integration")
-- Spread references throughout the content, not clustered in one section
-- The blog page template includes a built-in CTA section with a link to /contact, so the closing CTA paragraph can simply direct readers to "get in touch" without needing a rendered link
+### Internal Linking
+- 2-4 internal links per post
+- Descriptive anchor text (not "click here")
+- Link to relevant service pages, other blog posts, contact page
+- Spread throughout the content, not clustered
 
 ### Content Length
 - Blog posts: minimum 1,500 words
 - Pillar content: 2,500-4,000 words
-- Each section: 130-300 words
+- Each section: 150-300 words
 
 ## GEO (Generative Engine Optimization)
 
 ### Citability
-AI search engines (Google AI Overviews, Perplexity, ChatGPT) extract passage-length snippets for citations. Research on featured snippets and AI Overviews shows two optimal lengths: 40-60 words for direct answer snippets and 130-170 words for comprehensive answer blocks.
-
-- Self-contained answer blocks: aim for roughly 130-170 words in at least 2-3 sections per post
-- Answer-first formatting: direct answer in first 40-60 words of each section
+- Self-contained answer blocks: 134-167 words each
+- Answer-first formatting: direct answer in first 40-60 words of section
 - Definition patterns: "X is [definition]" for core concepts
-- Quotable facts with specific numbers and context
-- Do not force every section to the same length — natural variation is fine
+- Quotable facts with specific numbers and sources
 
 ### Structural Readability
-- Clean heading hierarchy (H1 title + H2 sections only)
+- Clean heading hierarchy
 - Short paragraphs (2-4 sentences)
-- Structured prose for comparisons: use a consistent paragraph format with the same data points for each option (the renderer does not support tables or formatted lists)
-- Short standalone paragraphs for series of points (one point per paragraph, each starting with a clear topic phrase)
+- Bulleted/numbered lists for processes and comparisons
+- Tables for comparative data
 - FAQ-style question headings
 
 ### Authority Signals
@@ -100,9 +95,8 @@ AI search engines (Google AI Overviews, Perplexity, ChatGPT) extract passage-len
 - Generic openers ("In today's digital landscape...")
 - Fabricated statistics without sources
 - Keyword stuffing in headings
-- All references clustered in one section
+- All links clustered in one section
 - Sections that restate the same point
 - Missing CTA or weak closing paragraph
 - Not checking if the topic overlaps with existing posts
 - Ignoring the existing blog's voice and tone
-- Using markdown syntax the renderer doesn't support (links, bold, lists, tables)

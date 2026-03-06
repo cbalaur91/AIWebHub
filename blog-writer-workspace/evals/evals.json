@@ -1,0 +1,23 @@
+{
+  "skill_name": "blog-writer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a blog post about how to choose the right web development agency in 2026",
+      "expected_output": "A blog post using Archetype E (How-To) or Archetype D (Listicle) structure, with content gap analysis showing differentiation from existing posts, no markdown links/bold/lists/tables, natural prose references to AIWebHub pages, and at least one original insight about agency selection.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Blog about common e-commerce mistakes small businesses make",
+      "expected_output": "A blog post using Archetype D (Listicle) or F (Myth-Busting) structure, with varied H2 headings (not the formulaic What Is/How Does/Benefits pattern), no unsupported markdown syntax, and references to AIWebHub's e-commerce offerings.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write an article comparing custom websites vs WordPress templates for small businesses",
+      "expected_output": "A blog post using Archetype C (Comparison) structure, with balanced pros/cons in prose format (no tables), content gap analysis noting overlap with the existing landing-page-vs-multi-page post and differentiating accordingly, no unsupported markdown syntax.",
+      "files": []
+    }
+  ]
+}

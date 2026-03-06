@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "No unsupported markdown syntax",
+      "passed": true,
+      "evidence": "Clean - no unsupported syntax"
+    },
+    {
+      "text": "H2 count in range (5-8)",
+      "passed": false,
+      "evidence": "Found 9 H2 headings: ## Why Choosing the Right Web Developmen, ## What Should You Look for in a Web Dev, ## How Much Should You Expect to Pay a W..."
+    },
+    {
+      "text": "Word count >= 1500",
+      "passed": true,
+      "evidence": "Word count: 1816"
+    },
+    {
+      "text": "Title is present and topical",
+      "passed": true,
+      "evidence": "Title: 'How to Choose the Right Web Development Agency in 2026'"
+    },
+    {
+      "text": "Natural prose page references (2+, no markdown links)",
+      "passed": true,
+      "evidence": "Found 5 aiwebhub.io refs, 2 prose mentions, markdown links: False"
+    },
+    {
+      "text": "Has citability blocks (130-170 words, at least 2)",
+      "passed": true,
+      "evidence": "Found 2 sections in 130-170 word range"
+    },
+    {
+      "text": "Varied H2 structure (not all formulaic)",
+      "passed": true,
+      "evidence": "0/9 headings match formulaic patterns"
+    },
+    {
+      "text": "No generic filler phrases",
+      "passed": true,
+      "evidence": "Clean - no filler found"
+    },
+    {
+      "text": "References to existing content (differentiation awareness)",
+      "passed": true,
+      "evidence": "Found 3 differentiation/cross-reference indicators"
+    },
+    {
+      "text": "Has closing CTA",
+      "passed": true,
+      "evidence": "Found 6 CTA indicators"
+    }
+  ]
+}

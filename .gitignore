@@ -27,6 +27,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# cached fonts for blog image generation
+scripts/fonts/
+
 # vercel
 .vercel
 

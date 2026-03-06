@@ -4,6 +4,7 @@ export interface Project {
   title: string
   category: string
   image: string
+  imageAlt: string
   description: string
   tags: string[]
   url: string
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     title: "Romanian Banquet Hall",
     category: "landing-page",
     image: "/Banquet_Hall.JPG",
+    imageAlt: "Romanian Banquet Hall website screenshot showing elegant event venue with gold-accented interior design",
     description: "Located in Warren, Mi, Romanian Banquet Hall offers an elegant and sophisticated venue for your special events. With over 20 years of experience, we've hosted countless weddings, corporate events, and celebrations.",
     tags: ["UI/UX", "React", "Animation"],
     url: "https://www.romanianbanquethall.com/",
@@ -42,6 +44,7 @@ export const projects: Project[] = [
     title: "Quality Work Granite",
     category: "portfolio",
     image: "/qwgranite-logo.png",
+    imageAlt: "Quality Work Granite portfolio website featuring premium stone countertop fabrication projects",
     description: "Crafting exceptional stone surfaces for discerning homeowners.",
     tags: ["Portfolio", "Gatsby", "Animation"],
     url: "https://www.qwgranite.com/",
@@ -60,6 +63,7 @@ export const projects: Project[] = [
     title: "Romanian Food Festival",
     category: "landing-page",
     image: "/rff.png",
+    imageAlt: "Romanian Food Festival website landing page with traditional cuisine photography and event details",
     description: "Experience authentic Romanian cuisine and culture in Rochester Hills, Michigan.",
     tags: ["Landing Page", "Next.js", "Dashboard"],
     url: "https://www.romanianfoodfestival.org/",
@@ -78,6 +82,7 @@ export const projects: Project[] = [
     title: "Church Fundraising",
     category: "landing-page",
     image: "/schooldesign.jpg",
+    imageAlt: "Church fundraising website with classroom renderings and donation progress tracker",
     description: "Support our mission to create new classrooms for religious education",
     tags: ["Landing Page", "Fundraising", "Animation"],
     url: "https://fundraising-pogorarea-sfantului-duh.vercel.app/",
@@ -96,6 +101,7 @@ export const projects: Project[] = [
     title: "88 Transpoort LLC",
     category: "landing-page",
     image: "/88transpoort-logonew.png",
+    imageAlt: "88 Transpoort LLC car hauling company website with driver recruitment landing page",
     description: "Join Chicago's premier car hauling company as an owner operator. Competitive rates, consistent loads, and unmatched support.",
     tags: ["Landing Page", "Car Hauling", "Transportation"],
     url: "https://www.88transpoortllc.com/",
@@ -114,6 +120,7 @@ export const projects: Project[] = [
     title: "Divine Retreat Salon",
     category: "business",
     image: "/DivineRetreatLogo.jpg",
+    imageAlt: "Divine Retreat Salon business website showcasing premium hair and spa services in Utica, Michigan",
     description: "A sanctuary for rejuvenation in Utica, Michigan offering premium hair services and therapeutic massage in an intimate, peaceful environment.",
     tags: ["Business Site", "Next.js", "Salon & Spa"],
     url: "https://www.divineretreatsalon.com/",
@@ -132,6 +139,7 @@ export const projects: Project[] = [
     title: "Salinair Salt Room & Wellness Spa",
     category: "business",
     image: "/salinair.png",
+    imageAlt: "Salinair Salt Room and Wellness Spa website with Himalayan salt therapy room photography",
     description: "Experience the transformative power of salt therapy and holistic wellness at Salinair. Natural healing for your respiratory system, skin, and overall well-being.",
     tags: ["Business Site", "Next.js", "Wellness & Spa"],
     url: "https://salinair.com",
@@ -150,6 +158,7 @@ export const projects: Project[] = [
     title: "HotelScout AI",
     category: "web-app",
     image: "/hotelscoutai.png",
+    imageAlt: "HotelScout AI hotel search platform interface showing AI-powered travel booking with map view",
     description: "Find your perfect hotel, powered by AI. Search and compare deals on over 2 million hotels worldwide. Best rates guaranteed.",
     tags: ["Web App", "AI-Powered", "Travel & Hospitality"],
     url: "https://hotelscoutai.com",

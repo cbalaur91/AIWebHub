@@ -28,9 +28,16 @@
 - "Cutting-edge", "state-of-the-art", "game-changing" (be specific instead)
 - "It's important to note that..." (just say it)
 - "Basically", "essentially" (filler words)
+- "Navigate" when meaning "understand" or "handle"
+- "Landscape" in "the digital landscape", "the AI landscape"
+- "Robust" (overused filler adjective — describe what makes it strong)
+- "Seamless" / "seamlessly" (describe what makes integration smooth)
+- "Harness" / "harness the power of" (just say "use")
 - Exclamation points (convey enthusiasm through substance, not punctuation)
 
 ## Structure Patterns
+
+Structure varies by post type — see SKILL.md for post archetypes. The patterns below apply universally regardless of archetype.
 
 ### Opening Paragraph
 - Answer the core question in the first 2 sentences
@@ -45,17 +52,61 @@
 
 ### Closing Section
 - Summarize the key actionable takeaway
-- Tie back to the user's specific services/pricing
-- Include a natural CTA with internal link
+- Tie back to AIWebHub's specific services or pricing
+- Include a natural CTA directing readers to get in touch or visit the services page
 - Don't introduce new concepts in the closing
 
-## Formatting
+## Formatting — Renderer Constraints
 
-- H2 headings only (the blog renderer parses `##` as sections)
-- No H3 or deeper — the current blog template doesn't support them
-- No markdown bold/italic in content (renders as plain text)
-- Internal links: `[anchor text](/path)` format
-- Numbers: spell out one through nine, use digits for 10+
+The blog renderer is a simple custom parser. It supports ONLY two things:
+
+1. **H2 headings** — lines starting with `## ` (used to split the post into sections)
+2. **Plain text paragraphs** — separated by blank lines (`\n\n`)
+
+Everything else renders as raw literal text on the page. Do NOT use any of the following in blog content:
+
+- `### ` or deeper headings (renders as text with `###` visible)
+- `**bold**` or `*italic*` (renders as literal asterisks)
+- `[link text](url)` (renders as the literal string, not a clickable link)
+- `- ` bullet lists (renders as text with dashes visible)
+- `1. ` numbered lists (renders as text with numbers visible)
+- `| table |` syntax (renders as literal pipe characters)
+- `` `code` `` or code blocks (renders as literal backticks)
+- `> blockquotes` (renders as text with `>` visible)
+
+### Internal References (instead of links)
+Since markdown links do not render, reference other pages in natural prose:
+- "Visit our services page at aiwebhub.io/services for pricing details"
+- "As we covered in our guide to website costs, pricing depends on..."
+- "Contact us at aiwebhub.io/contact to discuss your project"
+
+### List-Like Content (instead of bullet lists)
+Present series of points as short standalone paragraphs, each starting with a clear topic phrase:
+
+Instead of:
+```
+- Fast load times improve SEO
+- Mobile responsiveness is essential
+- Clear CTAs drive conversions
+```
+
+Write:
+```
+Fast load times directly improve your search rankings. Google uses page speed as a ranking factor...
+
+Mobile responsiveness is no longer optional. Over 60 percent of web traffic comes from phones...
+
+Clear calls-to-action drive conversions. Every page should guide visitors toward a specific next step...
+```
+
+### Comparison Data (instead of tables)
+Use a consistent paragraph format with the same data points for each option:
+
+"Our Starter plan at $499 includes a custom website, mobile-responsive design, and basic SEO. The Essentials plan at $999 adds e-commerce, AI chatbot integration, and GEO optimization."
+
+## Numbers and Currency
+
+- Spell out one through nine, use digits for 10+
 - Percentages: spell out "percent" (not %)
 - Currency: use dollar sign with comma separators ($2,499)
 

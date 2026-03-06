@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "skill_name": "blog-writer",
+    "skill_path": "/home/cbalaur/projects/ai-web-hub/.claude/skills/blog-writer",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-03-06T14:38:26Z",
+    "evals_run": ["choosing-agency", "ecommerce-mistakes", "custom-vs-wordpress"],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_name": "choosing-agency",
+      "configurations": [
+        {
+          "name": "with_skill",
+          "pass_rate": 0.9,
+          "time_seconds": 182.6,
+          "tokens": 27991,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": true, "evidence": "Clean - no unsupported syntax"},
+            {"text": "H2 count in range (5-8)", "passed": false, "evidence": "Found 9 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1816"},
+            {"text": "Natural prose page references (2+)", "passed": true, "evidence": "Found 5 aiwebhub.io refs, 2 prose mentions"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 2 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "0/9 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": true, "evidence": "Found 3 cross-reference indicators"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 6 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        },
+        {
+          "name": "old_skill",
+          "pass_rate": 0.7,
+          "time_seconds": 157.0,
+          "tokens": 29972,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": false, "evidence": "Markdown links found"},
+            {"text": "H2 count in range (5-8)", "passed": true, "evidence": "Found 8 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1511"},
+            {"text": "Natural prose page references (2+)", "passed": false, "evidence": "0 prose refs, uses markdown links"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 3 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "0/8 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": false, "evidence": "0 differentiation indicators"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 4 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        }
+      ]
+    },
+    {
+      "eval_name": "ecommerce-mistakes",
+      "configurations": [
+        {
+          "name": "with_skill",
+          "pass_rate": 1.0,
+          "time_seconds": 197.6,
+          "tokens": 29971,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": true, "evidence": "Clean"},
+            {"text": "H2 count in range (5-8)", "passed": true, "evidence": "Found 8 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1543"},
+            {"text": "Natural prose page references (2+)", "passed": true, "evidence": "Found 4 aiwebhub.io refs, 3 prose mentions"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 4 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "0/8 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": true, "evidence": "Found 2 cross-reference indicators"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 3 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        },
+        {
+          "name": "old_skill",
+          "pass_rate": 0.7,
+          "time_seconds": 190.2,
+          "tokens": 34415,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": false, "evidence": "Markdown links found"},
+            {"text": "H2 count in range (5-8)", "passed": true, "evidence": "Found 8 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1577"},
+            {"text": "Natural prose page references (2+)", "passed": false, "evidence": "0 prose refs, uses markdown links"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 5 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "0/8 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": false, "evidence": "0 differentiation indicators"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 3 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        }
+      ]
+    },
+    {
+      "eval_name": "custom-vs-wordpress",
+      "configurations": [
+        {
+          "name": "with_skill",
+          "pass_rate": 1.0,
+          "time_seconds": 177.8,
+          "tokens": 28798,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": true, "evidence": "Clean"},
+            {"text": "H2 count in range (5-8)", "passed": true, "evidence": "Found 8 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1573"},
+            {"text": "Natural prose page references (2+)", "passed": true, "evidence": "Found 2 aiwebhub.io refs, 3 prose mentions"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 4 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "3/8 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": true, "evidence": "Found 3 cross-reference indicators"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 5 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        },
+        {
+          "name": "old_skill",
+          "pass_rate": 0.8,
+          "time_seconds": 176.9,
+          "tokens": 26324,
+          "expectations": [
+            {"text": "No unsupported markdown syntax", "passed": false, "evidence": "Markdown links found"},
+            {"text": "H2 count in range (5-8)", "passed": true, "evidence": "Found 8 H2 headings"},
+            {"text": "Word count >= 1500", "passed": true, "evidence": "Word count: 1576"},
+            {"text": "Natural prose page references (2+)", "passed": false, "evidence": "0 prose refs, uses markdown links"},
+            {"text": "Has citability blocks (130-170 words)", "passed": true, "evidence": "Found 3 sections in range"},
+            {"text": "Varied H2 structure", "passed": true, "evidence": "2/8 formulaic headings"},
+            {"text": "No generic filler phrases", "passed": true, "evidence": "Clean"},
+            {"text": "References existing content", "passed": true, "evidence": "Found 1 differentiation indicator"},
+            {"text": "Has closing CTA", "passed": true, "evidence": "Found 4 CTA indicators"},
+            {"text": "Title is present and topical", "passed": true, "evidence": "Title present"}
+          ]
+        }
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {"pass_rate": {"mean": 0.967, "stddev": 0.058}, "time_seconds": {"mean": 186.0, "stddev": 10.3}, "tokens": {"mean": 28920, "stddev": 907}},
+    "old_skill": {"pass_rate": {"mean": 0.733, "stddev": 0.058}, "time_seconds": {"mean": 174.7, "stddev": 17.0}, "tokens": {"mean": 30237, "stddev": 4068}},
+    "delta": {
+      "pass_rate": "+23.4%",
+      "time_seconds": "+6.5%",
+      "tokens": "-4.4%"
+    }
+  },
+  "notes": [
+    "The improved skill eliminates broken markdown syntax (3/3 pass vs 0/3) - the single biggest quality improvement",
+    "Natural prose references work consistently (3/3 vs 0/3) - old skill always used markdown links that render as broken text",
+    "Content differentiation awareness improved significantly (3/3 vs 1/3) - new skill cross-references existing posts",
+    "The agency post slightly exceeded the 5-8 H2 target (9 H2s) - minor issue, content quality was high",
+    "Token usage is slightly lower with the new skill despite more instructions",
+    "Time is ~7% longer with the new skill due to content gap analysis step - worthwhile tradeoff"
+  ]
+}

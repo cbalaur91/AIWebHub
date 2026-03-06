@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "No unsupported markdown syntax",
+      "passed": true,
+      "evidence": "Clean - no unsupported syntax"
+    },
+    {
+      "text": "H2 count in range (5-8)",
+      "passed": true,
+      "evidence": "Found 8 H2 headings: ## What Is a Custom Website?, ## What Is a WordPress Template Website?, ## How Do Custom Websites and WordPress ..."
+    },
+    {
+      "text": "Word count >= 1500",
+      "passed": true,
+      "evidence": "Word count: 1573"
+    },
+    {
+      "text": "Title is present and topical",
+      "passed": true,
+      "evidence": "Title: 'Custom Website vs WordPress: Which Is Right for Your Small Business?'"
+    },
+    {
+      "text": "Natural prose page references (2+, no markdown links)",
+      "passed": true,
+      "evidence": "Found 2 aiwebhub.io refs, 3 prose mentions, markdown links: False"
+    },
+    {
+      "text": "Has citability blocks (130-170 words, at least 2)",
+      "passed": true,
+      "evidence": "Found 4 sections in 130-170 word range"
+    },
+    {
+      "text": "Varied H2 structure (not all formulaic)",
+      "passed": true,
+      "evidence": "3/8 headings match formulaic patterns"
+    },
+    {
+      "text": "No generic filler phrases",
+      "passed": true,
+      "evidence": "Clean - no filler found"
+    },
+    {
+      "text": "References to existing content (differentiation awareness)",
+      "passed": true,
+      "evidence": "Found 3 differentiation/cross-reference indicators"
+    },
+    {
+      "text": "Has closing CTA",
+      "passed": true,
+      "evidence": "Found 5 CTA indicators"
+    }
+  ]
+}

@@ -23,11 +23,21 @@ export default function PortfolioPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Portfolio - AIWebHub",
-    "description": "Explore our latest projects and see how we've helped businesses achieve their digital goals with exceptional web design and AI-powered solutions.",
+    "name": "Web Design Portfolio - AIWebHub",
+    "description": "Browse AIWebHub's portfolio of custom websites, AI-powered applications, and landing pages built for real businesses with measurable results.",
     "url": "https://www.aiwebhub.io/portfolio",
     "datePublished": "2024-06-01",
-    "dateModified": "2026-02-16",
+    "dateModified": "2026-03-06",
+    "author": {
+      "@type": "Person",
+      "name": "Cosmin Balaur",
+      "url": "https://www.linkedin.com/in/cosminbalaur91"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "AIWebHub",
+      "url": "https://www.aiwebhub.io"
+    },
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": projects.map((project, index) => ({
@@ -36,6 +46,7 @@ export default function PortfolioPage() {
         "name": project.title,
         "description": project.description,
         "url": project.url,
+        "image": `https://www.aiwebhub.io${project.image}`,
         "keywords": project.tags.join(", ")
       }))
     }
@@ -82,10 +93,13 @@ export default function PortfolioPage() {
           {/* Left copy */}
           <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
             <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
-              Transforming ideas into exceptional <span className="text-white/90">digital experiences</span>
+              Our web design portfolio: <span className="text-white/90">real projects, real results</span>
             </h1>
-            <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              Explore our portfolio of successful projects. From landing pages to complete business solutions, each project showcases our commitment to quality and innovation.
+            <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[56ch]">
+              Every project in our portfolio represents a real business challenge solved through thoughtful design and modern web technology. From conversion-focused landing pages to AI-powered web applications, we partner with small businesses to create digital experiences that drive measurable results. Browse our case studies to see the challenges, solutions, and outcomes behind each build.
+            </p>
+            <p className="mt-3 text-sm text-zinc-400 max-w-[56ch]">
+              We specialize in <Link href="/services" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">Next.js development, AI integration, and e-commerce solutions</Link> — built with performance and SEO baked in from day one. Each project is crafted by <Link href="/about" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">Cosmin Balaur</Link>, founder of AIWebHub, with a focus on clean code and business impact.
             </p>
             <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
@@ -175,7 +189,10 @@ export default function PortfolioPage() {
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={project.imageAlt}
+                  width={600}
+                  height={338}
+                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 {/* Gradient Overlay */}
@@ -238,6 +255,26 @@ export default function PortfolioPage() {
             <p className="text-zinc-400 text-sm">No projects found in this category.</p>
           </div>
         )}
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-16 mx-auto px-6 py-6 backdrop-blur">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-light text-zinc-100 tracking-tight">
+            Ready to build something great?
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-400">
+            Every project starts with a conversation. Tell us about your business goals and we&apos;ll craft a solution tailored to your needs. Explore our <Link href="/services" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">full range of services</Link> or read our <Link href="/blog" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">latest insights on web design and AI</Link>.
+          </p>
+          <div className="flex gap-4 mt-6 items-center justify-center flex-wrap">
+            <GradientButton href="/contact" variant="primary">
+              Start Your Project
+            </GradientButton>
+            <GradientButton href="/services" variant="secondary">
+              View Services
+            </GradientButton>
+          </div>
+        </div>
       </section>
     </>
   )

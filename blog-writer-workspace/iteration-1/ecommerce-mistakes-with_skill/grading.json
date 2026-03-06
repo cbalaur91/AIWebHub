@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "No unsupported markdown syntax",
+      "passed": true,
+      "evidence": "Clean - no unsupported syntax"
+    },
+    {
+      "text": "H2 count in range (5-8)",
+      "passed": true,
+      "evidence": "Found 8 H2 headings: ## 1. Treating Mobile as an Afterthought, ## 2. Making the Checkout Process Too Co, ## 3. Using Weak Product Descriptions an..."
+    },
+    {
+      "text": "Word count >= 1500",
+      "passed": true,
+      "evidence": "Word count: 1543"
+    },
+    {
+      "text": "Title is present and topical",
+      "passed": true,
+      "evidence": "Title: '7 E-Commerce Mistakes Small Businesses Make and How to Fix Them'"
+    },
+    {
+      "text": "Natural prose page references (2+, no markdown links)",
+      "passed": true,
+      "evidence": "Found 4 aiwebhub.io refs, 3 prose mentions, markdown links: False"
+    },
+    {
+      "text": "Has citability blocks (130-170 words, at least 2)",
+      "passed": true,
+      "evidence": "Found 4 sections in 130-170 word range"
+    },
+    {
+      "text": "Varied H2 structure (not all formulaic)",
+      "passed": true,
+      "evidence": "0/8 headings match formulaic patterns"
+    },
+    {
+      "text": "No generic filler phrases",
+      "passed": true,
+      "evidence": "Clean - no filler found"
+    },
+    {
+      "text": "References to existing content (differentiation awareness)",
+      "passed": true,
+      "evidence": "Found 2 differentiation/cross-reference indicators"
+    },
+    {
+      "text": "Has closing CTA",
+      "passed": true,
+      "evidence": "Found 3 CTA indicators"
+    }
+  ]
+}
