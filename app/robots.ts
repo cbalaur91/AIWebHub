@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { abs } from '@/lib/site'
 
 export const dynamic = 'force-static'
 
@@ -55,6 +56,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/private/', '/favicons/'],
       },
     ],
-    sitemap: 'https://www.aiwebhub.io/sitemap.xml',
+    sitemap: abs('/sitemap.xml'),
   }
 }

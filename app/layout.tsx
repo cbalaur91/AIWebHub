@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { AnimatedLines } from '@/components/AnimatedLines'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { Toaster } from '@/components/ui/sonner'
+import { OG_IMAGE, ORG, SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,18 +22,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.aiwebhub.io'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'AIWebHub - Web Design & AI Integration Solutions',
     description: 'Transform your business with innovative web design and AI-powered solutions. Your technology partner for the digital future.',
-    url: 'https://www.aiwebhub.io',
+    url: SITE_URL,
     siteName: 'AIWebHub',
     images: [
       {
-        url: 'https://www.aiwebhub.io/thumbnails/logo-thumbnail.png',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'AIWebHub - Web Design & AI Integration Solutions',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AIWebHub - Web Design & AI Integration Solutions',
     description: 'Innovative web design and AI integration for modern businesses. Custom development, AI features, e-commerce, and more.',
-    images: ['https://www.aiwebhub.io/thumbnails/logo-thumbnail.png'],
+    images: [OG_IMAGE],
     creator: '@aiwebhub',
   },
   robots: {
@@ -88,12 +89,12 @@ export default function RootLayout({
         {/* Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta property="og:image" content="https://www.aiwebhub.io/thumbnails/logo-thumbnail.png" />
+        <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="AIWebHub - Innovative Web Solutions" />
         <meta property="og:image:type" content="image/png" />
-        <meta name="twitter:image" content="https://www.aiwebhub.io/thumbnails/logo-thumbnail.png" />
+        <meta name="twitter:image" content={OG_IMAGE} />
         <meta name="twitter:image:alt" content="AIWebHub - Innovative Web Solutions" />
         <script
           type="application/ld+json"
@@ -101,16 +102,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "AIWebHub",
+              "name": ORG.name,
               "alternateName": "AIWebHub - Web Design & AI Integration Solutions",
-              "url": "https://www.aiwebhub.io",
-              "logo": "https://www.aiwebhub.io/logo/logo.png",
-              "image": "https://www.aiwebhub.io/thumbnails/logo-thumbnail.png",
+              "url": ORG.url,
+              "logo": ORG.logo,
+              "image": ORG.ogImage,
               "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
-              "sameAs": [
-                "https://www.facebook.com/profile.php?id=61574644971669",
-                "https://www.linkedin.com/in/cosminbalaur91"
-              ],
+              "sameAs": ORG.sameAs,
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
@@ -118,8 +116,8 @@ export default function RootLayout({
               },
               "founder": {
                 "@type": "Person",
-                "name": "Cosmin Balaur",
-                "url": "https://www.linkedin.com/in/cosminbalaur91"
+                "name": ORG.founder,
+                "url": ORG.authorUrl
               },
               "foundingDate": "2024",
               "areaServed": "Worldwide",

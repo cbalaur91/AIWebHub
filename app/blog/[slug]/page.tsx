@@ -1,18 +1,19 @@
-import { blogPosts } from '@/lib/blog-posts'
+import { getAllPosts, getPostBySlug } from '@/lib/blog-posts'
+import { abs, ORG, SITE_URL } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, Clock, User, Calendar } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return getAllPosts().map((post) => ({
     slug: post.slug,
   }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
+  const post = getPostBySlug(slug)
   if (!post) return { title: 'Post Not Found' }
 
   return {
@@ -21,19 +22,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://www.aiwebhub.io/blog/${post.slug}`,
+      url: abs(`/blog/${post.slug}`),
       type: 'article',
       publishedTime: post.publishedDate,
       modifiedTime: post.modifiedDate,
       authors: [post.author],
-      images: [{ url: `https://www.aiwebhub.io${post.image}` }],
+      images: [{ url: abs(post.image) }],
     },
   }
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
+  const post = getPostBySlug(slug)
 
   if (!post) {
     return (
@@ -51,7 +52,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": `https://www.aiwebhub.io${post.image}`,
+    "image": abs(post.image),
     "author": {
       "@type": "Person",
       "name": post.author,
@@ -61,12 +62,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "publisher": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://www.aiwebhub.io",
-      "logo": "https://www.aiwebhub.io/logo/logo.png"
+      "url": SITE_URL,
+      "logo": ORG.logo
     },
     "datePublished": post.publishedDate,
     "dateModified": post.modifiedDate,
-    "url": `https://www.aiwebhub.io/blog/${post.slug}`,
+    "url": abs(`/blog/${post.slug}`),
     "keywords": post.tags.join(", "),
     "wordCount": post.content.split(/\s+/).length
   }
@@ -75,9 +76,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.aiwebhub.io/blog" },
-      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.aiwebhub.io/blog/${post.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": abs('/blog') },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": abs(`/blog/${post.slug}`) }
     ]
   }
 

@@ -5,11 +5,12 @@ import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Target, Filter, TrendingUp, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-import { projects, categories } from '@/lib/portfolio-data'
+import { getAllProjects, getAllCategories, getProjectsByCategory } from '@/lib/portfolio-data'
+import { abs, SITE_URL } from '@/lib/site'
 
 const stats = [
-  { value: String(projects.length), label: 'Projects Delivered', icon: Target },
-  { value: String(categories.length - 1), label: 'Categories', icon: Filter },
+  { value: String(getAllProjects().length), label: 'Projects Delivered', icon: Target },
+  { value: String(getAllCategories().length - 1), label: 'Categories', icon: Filter },
   { value: '100%', label: 'Success Rate', icon: TrendingUp }
 ]
 
@@ -17,15 +18,15 @@ export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("all")
 
   const filteredProjects = activeCategory === "all"
-    ? projects
-    : projects.filter(project => project.category === activeCategory)
+    ? getAllProjects()
+    : getProjectsByCategory(activeCategory)
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Web Design Portfolio - AIWebHub",
     "description": "Browse AIWebHub's portfolio of custom websites, AI-powered applications, and landing pages built for real businesses with measurable results.",
-    "url": "https://www.aiwebhub.io/portfolio",
+    "url": abs('/portfolio'),
     "datePublished": "2024-06-01",
     "dateModified": "2026-03-06",
     "author": {
@@ -36,17 +37,17 @@ export default function PortfolioPage() {
     "isPartOf": {
       "@type": "WebSite",
       "name": "AIWebHub",
-      "url": "https://www.aiwebhub.io"
+      "url": SITE_URL
     },
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": projects.map((project, index) => ({
+      "itemListElement": getAllProjects().map((project, index) => ({
         "@type": "CreativeWork",
         "position": index + 1,
         "name": project.title,
         "description": project.description,
         "url": project.url,
-        "image": `https://www.aiwebhub.io${project.image}`,
+        "image": abs(project.image),
         "keywords": project.tags.join(", ")
       }))
     }
@@ -56,8 +57,8 @@ export default function PortfolioPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.aiwebhub.io/portfolio" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": abs('/portfolio') }
     ]
   }
 
@@ -150,7 +151,7 @@ export default function PortfolioPage() {
 
         {/* Filter Pills */}
         <div className="flex flex-wrap items-center justify-center gap-3 mt-6 animate-fadeInUp animation-delay-200">
-          {categories.map((category) => (
+          {getAllCategories().map((category) => (
             <button
               key={category.value}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
@@ -201,7 +202,7 @@ export default function PortfolioPage() {
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3">
                   <span className="inline-flex items-center gap-2 text-xs text-white/90 bg-white/10 border-white/15 border rounded-full py-1.5 px-3 backdrop-blur">
-                    {categories.find(c => c.value === project.category)?.label || project.category}
+                    {getAllCategories().find(c => c.value === project.category)?.label || project.category}
                   </span>
                 </div>
 

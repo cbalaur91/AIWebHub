@@ -1,15 +1,15 @@
 "use client"
 
 import { useState } from 'react'
-import { blogPosts } from '@/lib/blog-posts'
+import { getAllPosts, getAllTags, getPostsByTag } from '@/lib/blog-posts'
 import { BlogCard } from '@/components/BlogCard'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { BookOpen, PenTool, TrendingUp } from 'lucide-react'
 
-const allTags = Array.from(new Set(blogPosts.flatMap((post) => post.tags)))
+const allTags = getAllTags()
 
 const stats = [
-  { value: String(blogPosts.length), label: 'Articles', icon: BookOpen },
+  { value: String(getAllPosts().length), label: 'Articles', icon: BookOpen },
   { value: String(allTags.length), label: 'Topics', icon: PenTool },
   { value: 'Weekly', label: 'New Content', icon: TrendingUp },
 ]
@@ -18,8 +18,8 @@ export default function BlogPage() {
   const [activeTag, setActiveTag] = useState("all")
 
   const filteredPosts = activeTag === "all"
-    ? blogPosts
-    : blogPosts.filter((post) => post.tags.includes(activeTag))
+    ? getAllPosts()
+    : getPostsByTag(activeTag)
 
   return (
     <>

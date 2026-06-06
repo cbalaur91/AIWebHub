@@ -3,6 +3,7 @@
 import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { abs, SITE_URL } from '@/lib/site'
 
 interface PricingPlan {
   id: string;
@@ -149,13 +150,13 @@ export default function ServicesPage() {
     "@type": "WebPage",
     "name": "Pricing Plans - AIWebHub",
     "description": "Choose from our flexible pricing plans for web design, AI integration, AI agents, and custom development solutions. Starter, Essentials, Professional, and AI Agents plans to fit your business needs.",
-    "url": "https://www.aiwebhub.io/services",
+    "url": abs('/services'),
     "datePublished": "2024-06-01",
     "dateModified": "2026-02-27",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://www.aiwebhub.io",
+      "url": SITE_URL,
       "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -187,8 +188,8 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.aiwebhub.io/services" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": abs('/services') }
     ]
   }
 
