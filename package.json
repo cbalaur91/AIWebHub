@@ -7,7 +7,9 @@
     "build": "bun run generate:blog-images && next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:blog-images": "bun run scripts/generate-blog-images.ts"
+    "generate:blog-images": "bun run scripts/generate-blog-images.ts",
+    "generate:favicons": "bun run scripts/generate-favicons.ts",
+    "generate:brand-images": "bun run scripts/generate-brand-images.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
