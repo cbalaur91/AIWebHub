@@ -12,7 +12,7 @@ export interface BlogPost {
   image: string
 }
 
-export const blogPosts: BlogPost[] = [
+const blogPosts: BlogPost[] = [
   {
     slug: "how-much-does-a-custom-website-cost-in-2026",
     title: "How Much Does a Custom Website Cost in 2026?",
@@ -552,3 +552,28 @@ Understanding these patterns is the first step. Applying the right one to your s
 If you are exploring how an AI agent could handle customer support, sales, scheduling, or internal automation for your business, visit our services page at aiwebhub.io/services to see what each plan includes, or read more about the fundamentals in our guide to what AI integration means for your business. When you are ready to move, contact us at aiwebhub.io/contact for a free consultation and a quote tailored to your specific use case. The businesses that win with AI in 2026 will not be the ones with the most complex systems. They will be the ones who matched the right pattern to the right problem.`
   },
 ]
+
+// --- Query interface -------------------------------------------------------
+// Callers go through these helpers instead of importing the raw array, so the
+// blog data stays a private implementation detail of this module. Each helper
+// is the exact expression callers previously wrote inline.
+
+/** All posts, in publication order. Returns a fresh array — safe to filter/sort. */
+export function getAllPosts(): BlogPost[] {
+  return [...blogPosts]
+}
+
+/** The post with the given slug, or `undefined` if none matches. */
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug)
+}
+
+/** Every post tagged with `tag` (exact match), in publication order. */
+export function getPostsByTag(tag: string): BlogPost[] {
+  return blogPosts.filter((post) => post.tags.includes(tag))
+}
+
+/** The de-duplicated set of all tags, in first-seen order. */
+export function getAllTags(): string[] {
+  return Array.from(new Set(blogPosts.flatMap((post) => post.tags)))
+}

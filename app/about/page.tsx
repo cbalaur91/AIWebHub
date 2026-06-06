@@ -2,6 +2,7 @@
 
 import { Lightbulb, Award, Users, Eye, Zap, Target, Linkedin } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { abs, SITE_URL } from '@/lib/site'
 
 const values = [
   {
@@ -42,7 +43,7 @@ export default function AboutPage() {
     "@type": "AboutPage",
     "name": "About - AIWebHub",
     "description": "Learn about AIWebHub's mission to provide innovative web design and AI integration solutions for modern businesses",
-    "url": "https://www.aiwebhub.io/about",
+    "url": abs('/about'),
     "datePublished": "2024-06-01",
     "dateModified": "2026-02-16",
     "mainEntity": {
@@ -58,14 +59,14 @@ export default function AboutPage() {
     "name": "Cosmin Balaur",
     "jobTitle": "Founder & Lead Developer",
     "url": "https://www.linkedin.com/in/cosminbalaur91",
-    "image": "https://www.aiwebhub.io/CB.png",
+    "image": abs('/CB.png'),
     "sameAs": [
       "https://www.linkedin.com/in/cosminbalaur91"
     ],
     "worksFor": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://www.aiwebhub.io"
+      "url": SITE_URL
     },
     "knowsAbout": [
       "Web Development",
@@ -81,8 +82,8 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.aiwebhub.io/about" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": abs('/about') }
     ]
   }
 

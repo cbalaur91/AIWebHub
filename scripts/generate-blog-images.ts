@@ -2,7 +2,7 @@ import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 import { mkdir, writeFile, access } from "fs/promises";
 import { join } from "path";
-import { blogPosts } from "../lib/blog-posts";
+import { getAllPosts } from "../lib/blog-posts";
 import { BlogImageTemplate } from "./blog-image-template";
 
 const FONTS_DIR = join(import.meta.dir, "fonts");
@@ -45,7 +45,7 @@ async function main() {
   let generated = 0;
   let skipped = 0;
 
-  for (const post of blogPosts) {
+  for (const post of getAllPosts()) {
     const outputPath = join(OUTPUT_DIR, `${post.slug}.png`);
 
     try {

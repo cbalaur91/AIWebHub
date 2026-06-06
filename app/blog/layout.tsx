@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { abs } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Blog - Web Design & AI Integration Insights | AIWebHub',
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blog - Web Design & AI Integration Insights | AIWebHub',
     description: 'Expert insights on web design, AI integration, and digital strategy for modern businesses.',
-    url: 'https://www.aiwebhub.io/blog',
+    url: abs('/blog'),
   },
 }
 

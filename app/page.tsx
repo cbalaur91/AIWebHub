@@ -1,6 +1,7 @@
 import { Hero } from '@/components/Hero'
 import { PortfolioSection } from '@/components/PortfolioSection'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
+import { ORG, SITE_URL } from '@/lib/site'
 
 const testimonials = [
   {
@@ -30,14 +31,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AIWebHub",
-    "url": "https://www.aiwebhub.io",
+    "url": SITE_URL,
     "description": "Web design and AI integration solutions for modern businesses including custom websites, AI-powered features, e-commerce development, POS integration, and creative content services",
     "publisher": {
       "@type": "Organization",
       "name": "AIWebHub",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.aiwebhub.io/logo/logo.png"
+        "url": ORG.logo
       }
     }
   }
@@ -45,9 +46,9 @@ export default function Home() {
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://www.aiwebhub.io/#organization",
+    "@id": `${SITE_URL}/#organization`,
     "name": "AIWebHub",
-    "url": "https://www.aiwebhub.io",
+    "url": SITE_URL,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",

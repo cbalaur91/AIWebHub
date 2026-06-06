@@ -18,7 +18,7 @@ export interface Project {
   }
 }
 
-export const projects: Project[] = [
+const projects: Project[] = [
   {
     id: "project-1",
     slug: "romanian-banquet-hall",
@@ -192,10 +192,41 @@ export const projects: Project[] = [
   },
 ]
 
-export const categories = [
+export interface Category {
+  label: string
+  value: string
+}
+
+const categories: Category[] = [
   { label: "All", value: "all" },
   { label: "Landing Pages", value: "landing-page" },
   { label: "Portfolios", value: "portfolio" },
   { label: "Business Sites", value: "business" },
   { label: "Web Apps", value: "web-app" },
 ]
+
+// --- Query interface -------------------------------------------------------
+// Mirrors the blog query interface (lib/blog-posts.ts). Callers go through these
+// helpers instead of importing the raw arrays, so the project data and category
+// list stay a private implementation detail of this module. Each helper is the
+// exact expression callers previously wrote inline.
+
+/** All projects, in listing order. Returns a fresh array — safe to filter/sort. */
+export function getAllProjects(): Project[] {
+  return [...projects]
+}
+
+/** The project with the given slug, or `undefined` if none matches. */
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((project) => project.slug === slug)
+}
+
+/** Every project in the given category (exact match), in listing order. */
+export function getProjectsByCategory(category: string): Project[] {
+  return projects.filter((project) => project.category === category)
+}
+
+/** The category list (label + value), including the "All" filter entry. */
+export function getAllCategories(): Category[] {
+  return [...categories]
+}

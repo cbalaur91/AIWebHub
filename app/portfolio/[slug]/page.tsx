@@ -1,18 +1,19 @@
-import { projects } from '@/lib/portfolio-data'
+import { getAllProjects, getProjectBySlug } from '@/lib/portfolio-data'
+import { abs, ORG, SITE_URL } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export function generateStaticParams() {
-  return projects.map((project) => ({
+  return getAllProjects().map((project) => ({
     slug: project.slug,
   }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
+  const project = getProjectBySlug(slug)
   if (!project) return { title: 'Project Not Found' }
 
   return {
@@ -21,15 +22,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${project.title} - Case Study | AIWebHub`,
       description: project.caseStudy.overview.slice(0, 160),
-      url: `https://www.aiwebhub.io/portfolio/${project.slug}`,
-      images: [{ url: `https://www.aiwebhub.io${project.image}` }],
+      url: abs(`/portfolio/${project.slug}`),
+      images: [{ url: abs(project.image) }],
     },
   }
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
+  const project = getProjectBySlug(slug)
 
   if (!project) {
     return (
@@ -47,7 +48,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     "@type": "Article",
     "headline": `${project.title} - Case Study`,
     "description": project.caseStudy.overview,
-    "image": `https://www.aiwebhub.io${project.image}`,
+    "image": abs(project.image),
     "author": {
       "@type": "Person",
       "name": "Cosmin Balaur",
@@ -56,21 +57,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
     "publisher": {
       "@type": "Organization",
       "name": "AIWebHub",
-      "url": "https://www.aiwebhub.io",
-      "logo": "https://www.aiwebhub.io/logo/logo.png"
+      "url": SITE_URL,
+      "logo": ORG.logo
     },
     "datePublished": "2024-06-01",
     "dateModified": "2026-02-16",
-    "url": `https://www.aiwebhub.io/portfolio/${project.slug}`
+    "url": abs(`/portfolio/${project.slug}`)
   }
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.aiwebhub.io/portfolio" },
-      { "@type": "ListItem", "position": 3, "name": project.title, "item": `https://www.aiwebhub.io/portfolio/${project.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": abs('/portfolio') },
+      { "@type": "ListItem", "position": 3, "name": project.title, "item": abs(`/portfolio/${project.slug}`) }
     ]
   }
 
