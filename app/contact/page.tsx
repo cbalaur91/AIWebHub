@@ -3,6 +3,7 @@
 import { ContactForm } from '@/components/ContactForm'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Mail, Phone, MessageSquare } from 'lucide-react'
+import { abs, SITE_URL } from '@/lib/site'
 
 const faqs = [
   {
@@ -37,7 +38,7 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "name": "Contact - AIWebHub",
     "description": "Get in touch with AIWebHub for innovative web design and AI integration solutions for your business",
-    "url": "https://www.aiwebhub.io/contact",
+    "url": abs('/contact'),
     "datePublished": "2024-06-01",
     "dateModified": "2026-02-16"
   }
@@ -59,8 +60,8 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiwebhub.io" },
-      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.aiwebhub.io/contact" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": abs('/contact') }
     ]
   }
 

@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next'
-import { projects } from '@/lib/portfolio-data'
-import { blogPosts } from '@/lib/blog-posts'
+import { getAllProjects } from '@/lib/portfolio-data'
+import { getAllPosts } from '@/lib/blog-posts'
+import { SITE_URL } from '@/lib/site'
 
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.aiwebhub.io'
+  const baseUrl = SITE_URL
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -58,14 +59,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const caseStudyPages: MetadataRoute.Sitemap = projects.map((project) => ({
+  const caseStudyPages: MetadataRoute.Sitemap = getAllProjects().map((project) => ({
     url: `${baseUrl}/portfolio/${project.slug}`,
     lastModified: new Date('2026-02-16'),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
 
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.modifiedDate),
     changeFrequency: 'monthly' as const,

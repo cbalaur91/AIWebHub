@@ -9,7 +9,9 @@
     "lint": "next lint",
     "generate:blog-images": "bun run scripts/generate-blog-images.ts",
     "generate:favicons": "bun run scripts/generate-favicons.ts",
-    "generate:brand-images": "bun run scripts/generate-brand-images.ts"
+    "generate:brand-images": "bun run scripts/generate-brand-images.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -76,6 +78,7 @@
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
+    "@types/bun": "^1.3.14",
     "@types/d3-color": "^3.1.3",
     "@types/d3-ease": "^3.0.2",
     "@types/d3-interpolate": "^3.0.4",
