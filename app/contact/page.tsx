@@ -7,12 +7,12 @@ import { abs, SITE_URL } from '@/lib/site'
 
 const faqs = [
   {
-    question: "What's included in each pricing plan?",
-    answer: "Our Starter plan (starting from $499 + $30/mo) includes single-page website design, mobile-responsive development, and basic SEO. Essentials (starting from $999 + $50/mo) adds a custom multi-page website, AI chatbot integration, CMS, and GEO optimization. Professional (starting from $1,999 + $100/mo) includes everything plus e-commerce functionality, social media content creation, advanced AI integrations, POS system integration, and a dedicated account manager. Our AI Agents plan (starting from $2,499 + $150/mo) includes custom AI agent development, knowledge base training, and multi-platform deployment. One-time fees cover initial development, while monthly fees include ongoing support, maintenance, and adjustments."
+    question: "What's included when I work with AIWebHub?",
+    answer: "Every engagement is scoped to your project rather than sold as a fixed package. Depending on what your business needs, a build can include single-page or multi-page website design, mobile-responsive development, SEO and GEO optimization, AI chatbot or custom AI agent integration, e-commerce functionality, POS system integration, and a content management system. Projects are typically structured as a one-time build fee covering initial development plus an optional monthly plan for ongoing support, maintenance, and adjustments. We'll outline exactly what's included for your specific project in your quote."
   },
   {
-    question: "How does the pricing model work?",
-    answer: "Our pricing has two components: a one-time project fee for initial development and a monthly fee for ongoing support, maintenance, and adjustments. The 'starting from' pricing allows us to customize solutions - additional features or complexity may require a custom quote. Monthly support can be cancelled with 30 days notice."
+    question: "How does pricing work?",
+    answer: "There are no fixed packages — every project is quoted individually based on its scope. Most engagements have two components: a one-time project fee for initial development and an optional monthly fee for ongoing support, maintenance, and adjustments. We scope a solution to your goals and send a tailored quote with a clear breakdown, and monthly support can be cancelled with 30 days notice."
   },
   {
     question: "How long does it take to build a website?",
@@ -27,8 +27,8 @@ const faqs = [
     answer: "We can integrate various AI-powered features including chatbots for customer service, intelligent search, personalized recommendations, automated content generation, analytics dashboards, and custom machine learning solutions tailored to your business needs."
   },
   {
-    question: "Can I customize a plan to fit my specific needs?",
-    answer: "Absolutely! While our four standard plans work great for most businesses, we understand every business is unique. Contact us to discuss your specific needs, and we can create a custom package that fits your requirements and budget."
+    question: "Can you tailor a solution to my specific needs?",
+    answer: "Absolutely — in fact, every solution we build is custom. We don't sell fixed packages; we start from your goals, scope exactly what your business needs, and put together a tailored proposal that fits your requirements and budget. Contact us and we'll take it from there."
   }
 ]
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
     "description": "Get in touch with AIWebHub for innovative web design and AI integration solutions for your business",
     "url": abs('/contact'),
     "datePublished": "2024-06-01",
-    "dateModified": "2026-02-16"
+    "dateModified": "2026-06-13"
   }
 
   const faqSchema = {
@@ -106,7 +106,7 @@ export default function ContactPage() {
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
               Ready to transform your digital presence? We're here to help your business succeed with innovative web design and AI-powered solutions.
             </p>
-            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: June 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
               <GradientButton href="#contact-form" variant="primary">
                 Send Message
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-cyan-400 mt-1">•</span>
-                  <span>Transparent pricing with no hidden fees</span>
+                  <span>Transparent quotes with no hidden fees</span>
                 </li>
               </ul>
             </div>

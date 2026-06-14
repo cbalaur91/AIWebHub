@@ -1,102 +1,13 @@
 "use client"
 
-import { CheckCircle, Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
+import { Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { abs, SITE_URL } from '@/lib/site'
 
-interface PricingPlan {
-  id: string;
-  name: string;
-  oneTimePrice: string;
-  monthlyPrice: string;
-  oneTimePriceValue: number;
-  monthlyPriceValue: number;
-  description: string;
-  features: string[];
-  popular?: boolean;
-}
-
-const pricingPlans: PricingPlan[] = [
-  {
-    id: "starter",
-    name: "Starter",
-    oneTimePrice: "$499",
-    monthlyPrice: "$30",
-    oneTimePriceValue: 499,
-    monthlyPriceValue: 30,
-    description: "Perfect for businesses starting their online presence with a professional website.",
-    features: [
-      "Single-page website design",
-      "Mobile-responsive development",
-      "Basic SEO setup",
-      "Website hosting & maintenance",
-      "Email support",
-    ],
-  },
-  {
-    id: "essentials",
-    name: "Essentials",
-    oneTimePrice: "$999",
-    monthlyPrice: "$50",
-    oneTimePriceValue: 999,
-    monthlyPriceValue: 50,
-    description: "Comprehensive web solution for businesses ready to leverage modern technology.",
-    features: [
-      "Everything in Starter",
-      "Custom multi-page website",
-      "Basic AI chatbot integration",
-      "Content management system",
-      "GEO — AI search optimization",
-      "Priority email & phone support",
-    ],
-    popular: true,
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    oneTimePrice: "$1,999",
-    monthlyPrice: "$100",
-    oneTimePriceValue: 1999,
-    monthlyPriceValue: 100,
-    description: "Full-service technology solutions for businesses serious about digital innovation.",
-    features: [
-      "Everything in Essentials",
-      "E-commerce functionality",
-      "Social media content creation",
-      "Advanced AI integrations",
-      "Advanced GEO & AI citation monitoring",
-      "POS system integration",
-      "Custom web applications",
-      "Advanced analytics dashboard",
-      "Bi-weekly performance reports",
-      "Dedicated account manager",
-    ],
-  },
-  {
-    id: "ai-agents",
-    name: "AI Agents",
-    oneTimePrice: "$2,499",
-    monthlyPrice: "$150",
-    oneTimePriceValue: 2499,
-    monthlyPriceValue: 150,
-    description: "Custom AI agents built for your business — automate tasks, answer questions, and streamline operations.",
-    features: [
-      "Custom AI agent development",
-      "Business data & knowledge base training",
-      "API & third-party integrations",
-      "Multi-platform deployment",
-      "Conversation flow design",
-      "Performance monitoring & analytics",
-      "Monthly agent tuning & updates",
-      "Dedicated AI specialist support",
-    ],
-  },
-]
-
 const stats = [
-  { value: '4', label: 'Flexible Plans', icon: Target },
-  { value: '$499', label: 'Starting From', icon: Zap },
+  { value: '24/7', label: 'AI Automation', icon: Zap },
+  { value: '1–8 wk', label: 'Avg. Build Time', icon: Target },
   { value: '100%', label: 'Satisfaction', icon: TrendingUp }
 ]
 
@@ -108,11 +19,11 @@ export default function ServicesPage() {
     },
     {
       question: "How much does a custom website cost in 2026?",
-      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project. At AIWebHub, our Starter plan begins at $499 as a one-time fee plus $30 per month for ongoing support, which includes single-page website design, mobile-responsive development, basic SEO, and hosting. Our Essentials plan starts at $999 plus $50 per month and adds a custom multi-page website, AI chatbot integration, a content management system, and GEO optimization. For businesses needing e-commerce functionality, social media content creation, advanced AI features, POS integration, and custom web applications, our Professional plan starts at $1,999 plus $100 per month. For businesses looking to deploy custom AI agents, our AI Agents plan starts at $2,499 plus $150 per month and includes agent development, knowledge base training, and multi-platform deployment. These prices reflect the starting cost; additional complexity or custom features may require a tailored quote. Compared to industry averages, our pricing is competitive because we handle design, development, AI integration, and ongoing maintenance under one roof, eliminating the need for multiple vendors."
+      answer: "The cost of a custom website in 2026 depends on the scope, features, and complexity of your project — there is no single price that fits every business. A simple single-page site costs far less than a multi-page site with e-commerce, AI integration, or custom web applications. Rather than forcing your project into a fixed package, AIWebHub scopes each build to exactly what you need and provides a tailored quote with a clear breakdown, so you only pay for what moves your business forward. Because we handle design, development, AI integration, and ongoing maintenance under one roof, custom work stays competitive compared to hiring multiple separate vendors. Tell us about your goals and we'll send a personalized estimate, usually within 24 hours."
     },
     {
       question: "What's included in website maintenance and support?",
-      answer: "Website maintenance and support at AIWebHub covers everything needed to keep your site running smoothly after launch. This includes web hosting on fast, reliable infrastructure, regular software and security updates, performance monitoring to ensure fast page load times, content updates and minor design adjustments, SSL certificate management, daily backups, and uptime monitoring. Our monthly support plans also include bug fixes, browser compatibility checks, and analytics reporting so you can track how your site is performing. If you need design changes, new pages, or feature additions beyond routine maintenance, we handle those as part of your support plan or through a scoped project quote. Support can be cancelled with 30 days notice, and all plans include email support with priority response for Essentials and Professional tiers."
+      answer: "Website maintenance and support at AIWebHub covers everything needed to keep your site running smoothly after launch. This includes web hosting on fast, reliable infrastructure, regular software and security updates, performance monitoring to ensure fast page load times, content updates and minor design adjustments, SSL certificate management, daily backups, and uptime monitoring. Our monthly support plans also include bug fixes, browser compatibility checks, and analytics reporting so you can track how your site is performing. If you need design changes, new pages, or feature additions beyond routine maintenance, we handle those as part of your support plan or through a scoped project quote. Support can be cancelled with 30 days notice, and ongoing support plans include email support with priority response available."
     },
     {
       question: "How long does it take to build a custom website?",
@@ -120,15 +31,15 @@ export default function ServicesPage() {
     },
     {
       question: "What is GEO and how does it help my business get found by AI?",
-      answer: "GEO stands for Generative Engine Optimization. It is the practice of optimizing your website so that AI-powered search tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot can find, understand, and cite your business when answering user queries. Unlike traditional SEO which focuses on ranking in a list of links, GEO focuses on making your content clear, authoritative, and structured so that AI models select it as a trusted source. Our GEO service includes schema markup implementation, content structuring with answer-first formatting, entity consistency audits across your online presence, and E-E-A-T optimization. The Professional plan adds ongoing AI citation monitoring so you can track when and where AI search engines reference your business. With over 180 million people using ChatGPT monthly and Google AI Overviews appearing in roughly 30 percent of informational searches, GEO is becoming essential for businesses that want to stay visible as search behavior shifts toward AI-powered tools."
+      answer: "GEO stands for Generative Engine Optimization. It is the practice of optimizing your website so that AI-powered search tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot can find, understand, and cite your business when answering user queries. Unlike traditional SEO which focuses on ranking in a list of links, GEO focuses on making your content clear, authoritative, and structured so that AI models select it as a trusted source. Our GEO service includes schema markup implementation, content structuring with answer-first formatting, entity consistency audits across your online presence, and E-E-A-T optimization. We also offer ongoing AI citation monitoring so you can track when and where AI search engines reference your business. With over 180 million people using ChatGPT monthly and Google AI Overviews appearing in roughly 30 percent of informational searches, GEO is becoming essential for businesses that want to stay visible as search behavior shifts toward AI-powered tools."
     },
     {
       question: "Can you integrate my existing POS system with my website?",
-      answer: "Yes, POS system integration is one of our core services at AIWebHub. We connect popular point-of-sale systems like Square, Clover, Toast, and Shopify POS with your website so that inventory, pricing, and order data stay synchronized across your physical and online storefronts. This means when a product sells in your brick-and-mortar store, your website inventory updates automatically, and vice versa. POS integration also enables features like online ordering with in-store pickup, unified customer databases, consolidated sales reporting, and real-time stock level displays on your website. Our Professional plan includes POS integration as a standard feature, and we can customize the connection to fit your specific workflow. If you use a less common POS system, we can evaluate compatibility and build a custom integration using available APIs."
+      answer: "Yes, POS system integration is one of our core services at AIWebHub. We connect popular point-of-sale systems like Square, Clover, Toast, and Shopify POS with your website so that inventory, pricing, and order data stay synchronized across your physical and online storefronts. This means when a product sells in your brick-and-mortar store, your website inventory updates automatically, and vice versa. POS integration also enables features like online ordering with in-store pickup, unified customer databases, consolidated sales reporting, and real-time stock level displays on your website. POS integration is a core part of our custom builds, and we tailor the connection to fit your specific workflow. If you use a less common POS system, we can evaluate compatibility and build a custom integration using available APIs."
     },
     {
       question: "What are AI agents and how can they help my business?",
-      answer: "AI agents are autonomous software programs powered by large language models that can perform tasks, answer questions, and make decisions on behalf of your business. Unlike basic chatbots that follow scripted responses, AI agents understand context, learn from your business data, and handle complex multi-step interactions. At AIWebHub, we build custom AI agents trained on your specific knowledge base — product catalogs, policies, procedures, and FAQs — so they can provide accurate, brand-consistent responses to customers around the clock. Common use cases include customer support agents that resolve inquiries without human intervention, sales assistants that qualify leads and recommend products, scheduling agents that book appointments and manage calendars, and internal operations agents that automate repetitive workflows like data entry or report generation. Our AI Agents plan starts at $2,499 with $150 per month for ongoing maintenance, which includes custom agent development, API integrations with your existing tools, multi-platform deployment across your website, Slack, or email, and monthly tuning to improve accuracy and performance. Businesses using AI agents typically see faster response times, lower support costs, and the ability to scale customer interactions without proportionally increasing headcount."
+      answer: "AI agents are autonomous software programs powered by large language models that can perform tasks, answer questions, and make decisions on behalf of your business. Unlike basic chatbots that follow scripted responses, AI agents understand context, learn from your business data, and handle complex multi-step interactions. At AIWebHub, we build custom AI agents trained on your specific knowledge base — product catalogs, policies, procedures, and FAQs — so they can provide accurate, brand-consistent responses to customers around the clock. Common use cases include customer support agents that resolve inquiries without human intervention, sales assistants that qualify leads and recommend products, scheduling agents that book appointments and manage calendars, and internal operations agents that automate repetitive workflows like data entry or report generation. Our custom AI agent service includes agent development, API integrations with your existing tools, multi-platform deployment across your website, Slack, or email, and monthly tuning to improve accuracy and performance. Businesses using AI agents typically see faster response times, lower support costs, and the ability to scale customer interactions without proportionally increasing headcount."
     }
   ]
 
@@ -148,11 +59,11 @@ export default function ServicesPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Pricing Plans - AIWebHub",
-    "description": "Choose from our flexible pricing plans for web design, AI integration, AI agents, and custom development solutions. Starter, Essentials, Professional, and AI Agents plans to fit your business needs.",
+    "name": "Services - AIWebHub",
+    "description": "Web design, AI integration, custom AI agents, e-commerce, and development services from AIWebHub — every project scoped to your business and quoted individually.",
     "url": abs('/services'),
     "datePublished": "2024-06-01",
-    "dateModified": "2026-02-27",
+    "dateModified": "2026-06-13",
     "mainEntity": {
       "@type": "Organization",
       "name": "AIWebHub",
@@ -160,26 +71,41 @@ export default function ServicesPage() {
       "description": "Web design and AI integration studio creating innovative digital solutions for modern businesses",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Pricing Plans",
-        "itemListElement": pricingPlans.map((plan) => ({
-          "@type": "Offer",
-          "name": plan.name,
-          "description": plan.description,
-          "priceSpecification": [
-            {
-              "@type": "UnitPriceSpecification",
-              "price": plan.oneTimePriceValue.toString(),
-              "priceCurrency": "USD",
-              "unitText": "one-time"
-            },
-            {
-              "@type": "UnitPriceSpecification",
-              "price": plan.monthlyPriceValue.toString(),
-              "priceCurrency": "USD",
-              "unitText": "monthly"
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing Pages",
+              "description": "Conversion-focused single-page websites designed to turn visitors into leads."
             }
-          ]
-        }))
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "E-commerce Stores",
+              "description": "Online stores with secure payments, inventory management, and POS integration."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Multi-Page Business Websites",
+              "description": "Comprehensive, custom-designed websites that showcase your full business."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Agents",
+              "description": "Custom AI agents trained on your business data to automate support and workflows."
+            }
+          }
+        ]
       }
     }
   }
@@ -218,10 +144,10 @@ export default function ServicesPage() {
         {/* Header */}
         <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
           <span className="inline-flex items-center gap-2 text-sm">
-            <span className="text-4xl font-medium text-white">Pricing</span>
+            <span className="text-4xl font-medium text-white">Services</span>
           </span>
           <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">flexible plans for every business</span>
+          <span className="text-sm text-neutral-300">websites & AI, built around your business</span>
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
@@ -229,18 +155,18 @@ export default function ServicesPage() {
           {/* Left copy */}
           <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
             <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
-              Simple pricing, powerful results
+              Websites & AI, built around your business
             </h1>
             <p className="mt-6 text-sm sm:text-base text-zinc-400 max-w-[48ch]">
-              Choose the perfect plan for your business. All plans include our complete suite of web design and AI integration solutions designed to help businesses succeed with modern technology.
+              No fixed packages — every project is scoped to your goals and budget. Tell us what you need and we'll put together a tailored quote. From single-page sites to custom AI agents, you get design, development, and AI integration under one roof.
             </p>
-            <p className="mt-3 text-xs text-zinc-500">Last updated: February 2026</p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: June 2026</p>
             <div className="flex gap-4 mt-6 items-center flex-wrap">
-              <GradientButton href="#pricing" variant="primary">
-                View Plans
+              <GradientButton href="/contact" variant="primary">
+                Request a Quote
               </GradientButton>
-              <GradientButton href="/contact" variant="secondary">
-                Contact Sales
+              <GradientButton href="#services" variant="secondary">
+                View Services
               </GradientButton>
             </div>
           </div>
@@ -269,78 +195,38 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Pricing Plans Section */}
-      <section id="pricing" className="relative z-10 sm:p-8 animate-scaleIn animation-delay-300 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+      {/* Request a Quote CTA */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-300 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
         {/* Header */}
         <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
           <span className="inline-flex items-center gap-2 text-sm">
-            <span className="text-4xl font-medium text-white">Plans</span>
+            <span className="text-4xl font-medium text-white">Quote</span>
           </span>
           <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">choose what fits your needs</span>
+          <span className="text-sm text-neutral-300">tailored to your project</span>
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8 stagger-animation">
-          {pricingPlans.map((plan) => (
-            <article
-              key={plan.id}
-              className={`relative overflow-hidden rounded-3xl border bg-zinc-900/60 backdrop-blur hover-lift transition-all duration-300 ${
-                plan.popular
-                  ? 'border-white/20 scale-[1.02] shadow-xl shadow-white/5'
-                  : 'border-white/10'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute right-4 top-4 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-medium text-white border border-white/10">
-                  Most Popular
-                </div>
-              )}
-
-              <div className="p-8">
-                <div>
-                  <h2 className="text-2xl font-light text-white tracking-tight">
-                    {plan.name}
-                  </h2>
-                  <div className="mt-4">
-                    <span className="text-xs text-zinc-500 uppercase tracking-wider">Starting from</span>
-                    <div className="flex items-baseline gap-2 mt-1">
-                      <span className="text-5xl font-light text-white tracking-tighter">{plan.oneTimePrice}</span>
-                    </div>
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className="text-xl font-light text-zinc-300">+ {plan.monthlyPrice}</span>
-                      <span className="text-sm text-zinc-500">/month for support</span>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-sm text-zinc-400 leading-relaxed">
-                    {plan.description}
-                  </p>
-                </div>
-
-                <div className="h-px bg-white/10 my-6" />
-
-                <div className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex gap-3 items-start">
-                      <CheckCircle className="h-4 w-4 flex-shrink-0 text-green-400 mt-0.5" strokeWidth={1.5} />
-                      <p className="text-sm text-zinc-300 leading-relaxed">{feature}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8">
-                  <GradientButton href="/contact" variant={plan.popular ? "primary" : "secondary"} className="w-full">
-                    Get Started
-                  </GradientButton>
-                </div>
-              </div>
-            </article>
-          ))}
+        <div className="mt-8 sm:mt-10 max-w-2xl mx-auto text-center animate-fadeInUp animation-delay-200">
+          <h2 className="text-[32px] sm:text-4xl md:text-5xl leading-[1.1] font-light text-zinc-100 tracking-tighter">
+            Every project gets a custom quote
+          </h2>
+          <p className="mt-5 text-sm sm:text-base text-zinc-400 leading-relaxed">
+            We don't do one-size-fits-all packages. Tell us about your business and goals, and we'll put together a tailored proposal scoped to exactly what you need — no more, no less. Most quotes go out within 24 hours.
+          </p>
+          <div className="flex gap-4 mt-8 items-center justify-center flex-wrap">
+            <GradientButton href="/contact" variant="primary">
+              Request a Quote
+            </GradientButton>
+            <GradientButton href="/portfolio" variant="secondary">
+              See Our Work
+            </GradientButton>
+          </div>
         </div>
       </section>
 
       {/* Website Types Section */}
-      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-400 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+      <section id="services" className="relative z-10 sm:p-8 animate-scaleIn animation-delay-400 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
         {/* Soft radial glow */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
           <div className="absolute right-0 bottom-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-tl from-white/5 to-transparent blur-3xl" />
@@ -349,10 +235,10 @@ export default function ServicesPage() {
         {/* Header */}
         <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
           <span className="inline-flex items-center gap-2 text-sm">
-            <span className="text-4xl font-medium text-white">Services</span>
+            <span className="text-4xl font-medium text-white">What We Build</span>
           </span>
           <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">what we build</span>
+          <span className="text-sm text-neutral-300">our core offerings</span>
         </div>
         <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
 
