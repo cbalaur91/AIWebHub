@@ -54,13 +54,13 @@ Technical integrations such as CRM connections, payment gateways, booking system
 
 Beyond the initial build, websites require ongoing investment. Hosting typically costs $10 to $100 per month depending on traffic and performance requirements. Domain registration runs $10 to $50 per year. SSL certificates are often included with modern hosting but can be a separate cost. Content updates, security patches, and performance monitoring are ongoing needs that many businesses address through monthly maintenance plans.
 
-At AIWebHub, our maintenance and support plans range from $30 to $100 per month and include hosting, updates, security monitoring, and content adjustments. This bundled approach is often more cost-effective than managing each service separately.
+At AIWebHub, our maintenance and support plans are scoped to each site and include hosting, updates, security monitoring, and content adjustments. This bundled approach is often more cost-effective than managing each service separately.
 
 ## How to Get the Best Value
 
 The best approach is to start with a clear understanding of your goals and priorities. Define what your website needs to accomplish—whether that is generating leads, selling products, or establishing credibility. Share your budget range upfront with your developer so they can recommend the most impactful features within your means. Consider a phased approach where you launch with core functionality and add features over time as your business grows.
 
-At AIWebHub, our pricing starts at $499 for a custom website with plans that scale to match your business needs. We provide transparent quotes with detailed breakdowns so you know exactly what you are paying for and why. Contact us for a free consultation to discuss your project and receive a personalized estimate.`
+At AIWebHub, every custom website is quoted to your scope and goals, with solutions that scale to match your business needs. We provide transparent quotes with detailed breakdowns so you know exactly what you are paying for and why. Contact us for a free consultation to discuss your project and receive a personalized estimate.`
   },
   {
     slug: "what-is-ai-integration-and-why-your-business-needs-it",
@@ -103,7 +103,7 @@ The best approach to AI integration is to start with a specific, well-defined pr
 
 Begin with a solution that integrates with your existing website or platform. Modern AI tools are designed to work alongside your current technology rather than replacing it. A chatbot can be added to your existing website, a recommendation engine can connect to your existing product database, and intelligent search can enhance your current content management system.
 
-Choose a technology partner who understands both AI capabilities and practical business needs. The goal is not to implement the most advanced AI possible but to implement the right AI for your specific situation. At AIWebHub, we specialize in integrating AI solutions that deliver measurable business results, starting with our Essentials plan that includes AI chatbot integration for $999 plus ongoing support.
+Choose a technology partner who understands both AI capabilities and practical business needs. The goal is not to implement the most advanced AI possible but to implement the right AI for your specific situation. At AIWebHub, we specialize in integrating AI solutions that deliver measurable business results, from AI chatbot integration to fully custom agents, scoped and quoted to your needs.
 
 ## Common Concerns Addressed
 
@@ -158,7 +158,7 @@ Businesses that rely on building trust and demonstrating expertise benefit from 
 
 Consider these factors when deciding. First, how many distinct messages do you need to communicate? If it is one primary offering, lean toward a landing page. If you have multiple services, target audiences, or content needs, a multi-page site is likely better. Second, what is your budget and timeline? Landing pages are faster and less expensive to launch. Third, how important is SEO to your growth strategy? Multi-page sites have a structural advantage for organic search.
 
-Many businesses start with a landing page and transition to a multi-page site as they grow. This phased approach lets you establish an online presence quickly, validate your messaging, and reinvest revenue into a more comprehensive website. At AIWebHub, our Starter plan at $499 supports both approaches, and we design with scalability in mind so expanding your site later is straightforward.
+Many businesses start with a landing page and transition to a multi-page site as they grow. This phased approach lets you establish an online presence quickly, validate your messaging, and reinvest revenue into a more comprehensive website. At AIWebHub, we support both approaches, and we design with scalability in mind so expanding your site later is straightforward.
 
 The most important thing is to launch with a site that effectively communicates your value and converts visitors into customers. Both landing pages and multi-page websites can accomplish this when designed with clear strategy and professional execution.`
   },
@@ -211,7 +211,7 @@ If two or more of these signs describe your current website, a redesign is likel
 
 Start by auditing your current site with Google PageSpeed Insights for performance data, Google Analytics for user behavior insights, and a mobile responsiveness test. Document the specific issues you want to address, and share this information with your web development partner so they can provide an accurate scope and timeline.
 
-At AIWebHub, we approach every redesign with a strategic focus on the business outcomes that matter to you. Our plans start at $499 and include mobile-responsive design, performance optimization, SEO fundamentals, and ongoing support. Contact us for a free consultation to discuss your current site and what a redesign could accomplish for your business.`
+At AIWebHub, we approach every redesign with a strategic focus on the business outcomes that matter to you. Every redesign is quoted to scope and includes mobile-responsive design, performance optimization, SEO fundamentals, and ongoing support. Contact us for a free consultation to discuss your current site and what a redesign could accomplish for your business.`
   },
   {
     slug: "how-to-optimize-your-website-for-ai-search-engines-in-2026",
@@ -385,7 +385,7 @@ Ongoing tuning is what separates agents that improve over time from agents that 
 
 ## How Much Does a Custom AI Agent Cost?
 
-The cost of a custom AI agent in 2026 depends on the scope of the project, the complexity of integrations, and the volume of interactions the agent needs to handle. At AIWebHub, our AI Agents plan starts at $2,499 as a one-time development fee plus $150 per month for ongoing maintenance, monitoring, and tuning.
+The cost of a custom AI agent in 2026 depends on the scope of the project, the complexity of integrations, and the volume of interactions the agent needs to handle. At AIWebHub, every AI agent is quoted to the scope of the project, typically as a one-time development fee plus a monthly fee for ongoing maintenance, monitoring, and tuning.
 
 The one-time fee covers discovery and strategy, agent development, knowledge base training on your business data, integration with your existing tools and platforms, conversation flow design, testing, and deployment. The monthly fee covers hosting, API costs for the underlying language model, performance monitoring, accuracy reviews, and regular updates to keep the agent aligned with your evolving business needs.
 
@@ -426,7 +426,7 @@ This post breaks down seven of the most damaging mistakes we see small business 
 
 Mobile commerce accounted for over 60 percent of all e-commerce traffic in 2025, yet many small business stores are still built desktop-first with mobile as a secondary concern. The result is pinch-to-zoom product pages, tiny tap targets, and checkout forms that are nearly impossible to complete on a phone. Google uses mobile-first indexing, which means it evaluates the mobile version of your store for search rankings before it ever looks at the desktop version.
 
-The fix is straightforward but requires discipline. Every page of your store should be designed and tested on mobile before desktop. Product images need to scale correctly. Buttons need to be large enough to tap with a thumb. Forms should use appropriate input types so phones display the right keyboard, such as a number pad for credit card fields. At AIWebHub, mobile-responsive design is included in every plan starting at $499 because we consider it foundational, not optional. If your current store fails the Google Mobile-Friendly Test, treat that as an urgent problem.
+The fix is straightforward but requires discipline. Every page of your store should be designed and tested on mobile before desktop. Product images need to scale correctly. Buttons need to be large enough to tap with a thumb. Forms should use appropriate input types so phones display the right keyboard, such as a number pad for credit card fields. At AIWebHub, mobile-responsive design is included in every build because we consider it foundational, not optional. If your current store fails the Google Mobile-Friendly Test, treat that as an urgent problem.
 
 ## 2. Making the Checkout Process Too Complicated
 
@@ -450,7 +450,7 @@ Transparency is the solution. Display shipping costs or a shipping cost estimato
 
 A slow online store loses customers at every stage of the buying process. Research from Google shows that 53 percent of mobile users leave a site that takes longer than three seconds to load. For e-commerce specifically, each additional second of load time reduces conversions by roughly 7 percent. A store that loads in five seconds instead of two is leaving significant revenue on the table.
 
-Common culprits include uncompressed product images, excessive third-party scripts from analytics and marketing tools, bloated page builders, and shared hosting that struggles under traffic spikes. Run your store through Google PageSpeed Insights and address the specific issues it flags. Compress images to WebP format. Defer non-essential JavaScript. Use a content delivery network to serve pages from servers geographically close to your customers. Our Professional plan at $1,999 includes performance optimization and advanced SEO specifically because site speed has such a direct impact on e-commerce revenue. If your product pages score below 50 on PageSpeed Insights, you are almost certainly losing sales to faster competitors.
+Common culprits include uncompressed product images, excessive third-party scripts from analytics and marketing tools, bloated page builders, and shared hosting that struggles under traffic spikes. Run your store through Google PageSpeed Insights and address the specific issues it flags. Compress images to WebP format. Defer non-essential JavaScript. Use a content delivery network to serve pages from servers geographically close to your customers. Our e-commerce builds include performance optimization and advanced SEO specifically because site speed has such a direct impact on e-commerce revenue. If your product pages score below 50 on PageSpeed Insights, you are almost certainly losing sales to faster competitors.
 
 ## 6. Ignoring Search Engine Optimization for Product Pages
 
@@ -470,7 +470,7 @@ The good news is that none of these e-commerce mistakes require rebuilding your 
 
 Prioritize based on data, not gut feeling. Check your analytics for cart abandonment rates, mobile versus desktop conversion rates, and your top exit pages. These numbers tell you exactly where customers are dropping off and where to focus your effort first.
 
-At AIWebHub, we build e-commerce sites that avoid these mistakes from day one. Our Professional plan at $1,999 includes e-commerce functionality, social media content creation, advanced AI integrations, and POS system integration. For businesses starting out, our Essentials plan at $999 covers custom multi-page websites, AI chatbot integration, and GEO optimization. Contact us at aiwebhub.io/contact for a free consultation to evaluate your current store and identify the highest-impact improvements for your business.`
+At AIWebHub, we build e-commerce sites that avoid these mistakes from day one. These builds include full e-commerce functionality, social media content creation, advanced AI integrations, and POS system integration. For businesses starting out, we also build custom multi-page websites with AI chatbot integration and GEO optimization. Contact us at aiwebhub.io/contact for a free consultation to evaluate your current store and identify the highest-impact improvements for your business.`
   },
   {
     slug: "agentic-workflow-patterns-how-ai-agents-work-in-2026",
@@ -547,7 +547,7 @@ The market is moving in this direction quickly. Gartner projects that 40 percent
 
 ## Ready to Put AI Agents to Work?
 
-Understanding these patterns is the first step. Applying the right one to your specific business is where the value is actually created, and where most projects go wrong. At AIWebHub, we build custom AI agents on these proven patterns, starting with the simplest structure that solves the problem and adding orchestration only where it earns its keep. Our AI Agents plan starts at $2,499 as a one-time build plus $150 per month for hosting, monitoring, and ongoing tuning, and that includes the discovery work to choose the right pattern from the very start.
+Understanding these patterns is the first step. Applying the right one to your specific business is where the value is actually created, and where most projects go wrong. At AIWebHub, we build custom AI agents on these proven patterns, starting with the simplest structure that solves the problem and adding orchestration only where it earns its keep. Each agent is quoted to scope, typically a one-time build plus a monthly fee for hosting, monitoring, and ongoing tuning, and that includes the discovery work to choose the right pattern from the very start.
 
 If you are exploring how an AI agent could handle customer support, sales, scheduling, or internal automation for your business, visit our services page at aiwebhub.io/services to see what each plan includes, or read more about the fundamentals in our guide to what AI integration means for your business. When you are ready to move, contact us at aiwebhub.io/contact for a free consultation and a quote tailored to your specific use case. The businesses that win with AI in 2026 will not be the ones with the most complex systems. They will be the ones who matched the right pattern to the right problem.`
   },
