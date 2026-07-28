@@ -3,6 +3,7 @@
 import { GradientButton } from '@/components/ui/gradient-button'
 import { TrendingUp, Globe, Smartphone, Palette } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
+import { getProjectCount } from '@/lib/portfolio-data'
 
 const testimonials = [
   {
@@ -48,7 +49,7 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: '10+', label: 'Projects delivered' },
+  { value: String(getProjectCount()), label: 'Projects delivered' },
   { value: '3+', label: 'Years experience' },
   { value: '100%', label: 'Client satisfaction' }
 ]

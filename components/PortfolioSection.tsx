@@ -3,6 +3,7 @@
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Globe, Search, Cpu, ShoppingCart, CreditCard, Palette } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
+import { getProjectCount } from '@/lib/portfolio-data'
 
 const skills = [
   { icon: Globe, label: 'Web Design' },
@@ -14,7 +15,7 @@ const skills = [
 ]
 
 const stats = [
-  { value: '10+', label: 'Projects' },
+  { value: String(getProjectCount()), label: 'Projects' },
   { value: '3+', label: 'Years' },
   { value: '100%', label: 'Satisfaction' }
 ]
