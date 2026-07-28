@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Target, Filter, TrendingUp, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-import { getAllProjects, getAllCategories, getProjectsByCategory } from '@/lib/portfolio-data'
+import { getAllProjects, getAllCategories, getProjectsByCategory, getProjectCount } from '@/lib/portfolio-data'
 import { abs, SITE_URL } from '@/lib/site'
 
 const stats = [
-  { value: String(getAllProjects().length), label: 'Projects Delivered', icon: Target },
+  { value: String(getProjectCount()), label: 'Projects Delivered', icon: Target },
   { value: String(getAllCategories().length - 1), label: 'Categories', icon: Filter },
   { value: '100%', label: 'Success Rate', icon: TrendingUp }
 ]
