@@ -49,7 +49,7 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: String(getProjectCount()), label: 'Projects delivered' },
+  { value: `${getProjectCount()}+`, label: 'Projects delivered' },
   { value: '3+', label: 'Years experience' },
   { value: '100%', label: 'Client satisfaction' }
 ]

@@ -15,7 +15,7 @@ const skills = [
 ]
 
 const stats = [
-  { value: String(getProjectCount()), label: 'Projects' },
+  { value: `${getProjectCount()}+`, label: 'Projects' },
   { value: '3+', label: 'Years' },
   { value: '100%', label: 'Satisfaction' }
 ]
