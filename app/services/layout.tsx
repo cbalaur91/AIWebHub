@@ -1,18 +1,11 @@
 import { Metadata } from 'next'
-import { abs } from '@/lib/site'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Services | AIWebHub',
   description: 'Web design, AI integration, e-commerce, and custom AI agents from AIWebHub — built around your business and quoted per project. Request a tailored quote.',
-  alternates: {
-    canonical: '/services',
-  },
-  openGraph: {
-    title: 'Services | AIWebHub',
-    description: 'Web design, AI integration, e-commerce, and custom AI agents from AIWebHub — built around your business and quoted per project. Request a tailored quote.',
-    url: abs('/services'),
-  },
-}
+  path: '/services',
+})
 
 export default function ServicesLayout({
   children,

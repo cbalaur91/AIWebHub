@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'AIWebHub - Web Design & AI Integration Solutions for Modern Businesses',
   description: 'Innovative web design and AI integration solutions for modern businesses. Custom websites, AI-powered features, e-commerce development, POS integration, and creative content services.',
-  keywords: 'web design, AI integration, custom websites, AI-powered solutions, e-commerce development, POS integration, Next.js development, modern web applications, creative content, SEO',
   authors: [{ name: 'AIWebHub' }],
   creator: 'AIWebHub',
   publisher: 'AIWebHub',

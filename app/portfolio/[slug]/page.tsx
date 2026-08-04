@@ -1,5 +1,5 @@
 import { getAllProjects, getProjectBySlug } from '@/lib/portfolio-data'
-import { abs, ORG, SITE_URL } from '@/lib/site'
+import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -16,16 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProjectBySlug(slug)
   if (!project) return { title: 'Project Not Found' }
 
-  return {
+  return pageMetadata({
     title: `${project.title} - Case Study | AIWebHub`,
     description: project.caseStudy.overview.slice(0, 160),
-    openGraph: {
-      title: `${project.title} - Case Study | AIWebHub`,
-      description: project.caseStudy.overview.slice(0, 160),
-      url: abs(`/portfolio/${project.slug}`),
-      images: [{ url: abs(project.image) }],
-    },
-  }
+    path: `/portfolio/${project.slug}`,
+    images: [{ url: abs(project.image) }],
+  })
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {

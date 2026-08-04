@@ -1,12 +1,11 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Terms of Service | AIWebHub',
   description: 'Terms of Service for AIWebHub - Read our terms and conditions for using our services.',
-  alternates: {
-    canonical: '/terms-of-service',
-  },
-}
+  path: '/terms-of-service',
+})
 
 export default function TermsOfService() {
   return (

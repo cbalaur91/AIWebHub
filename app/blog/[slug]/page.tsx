@@ -1,5 +1,5 @@
 import { getAllPosts, getPostBySlug } from '@/lib/blog-posts'
-import { abs, ORG, SITE_URL } from '@/lib/site'
+import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, Clock, User, Calendar } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -16,20 +16,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Post Not Found' }
 
-  return {
+  return pageMetadata({
     title: `${post.title} | AIWebHub Blog`,
     description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    socialTitle: post.title,
+    images: [{ url: abs(post.image) }],
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url: abs(`/blog/${post.slug}`),
       type: 'article',
       publishedTime: post.publishedDate,
       modifiedTime: post.modifiedDate,
       authors: [post.author],
-      images: [{ url: abs(post.image) }],
     },
-  }
+  })
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
