@@ -17,7 +17,7 @@ const skills = [
 const stats = [
   { value: `${getProjectCount()}+`, label: 'Projects' },
   { value: '3+', label: 'Years' },
-  { value: '100%', label: 'Satisfaction' }
+  { value: '4', label: 'Metro Detroit clients' }
 ]
 
 export const PortfolioSection = () => {
