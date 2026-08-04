@@ -8,7 +8,7 @@ import { abs, SITE_URL } from '@/lib/site'
 const stats = [
   { value: '24/7', label: 'AI Automation', icon: Zap },
   { value: '1–8 wk', label: 'Avg. Build Time', icon: Target },
-  { value: '100%', label: 'Satisfaction', icon: TrendingUp }
+  { value: '4', label: 'Metro Detroit Clients', icon: TrendingUp }
 ]
 
 export default function ServicesPage() {

@@ -1,30 +1,7 @@
 import { Hero } from '@/components/Hero'
 import { PortfolioSection } from '@/components/PortfolioSection'
-import { TestimonialsSection } from '@/components/TestimonialsSection'
+import { ClientWorkSection } from '@/components/ClientWorkSection'
 import { ORG, SITE_URL } from '@/lib/site'
-
-const testimonials = [
-  {
-    name: "Ravi Mehta",
-    position: "Owner, Miller & Co. Bakery",
-    content: "We hired AIWebHub to redesign our website, and they nailed it. It's clean, easy to use, and our customers love it. The whole process was smooth and communication was great."
-  },
-  {
-    name: "Isla MacGregor",
-    position: "Freelance Photographer",
-    content: "I'm not super tech-savvy, so I really appreciated how patient and helpful the team was. They explained things clearly and built a site that looks professional."
-  },
-  {
-    name: "Zara Osei",
-    position: "Manager, Willow Tree Wellness",
-    content: "AIWebHub helped us move from an outdated site to something fresh and modern. Since launching, we've seen more appointment bookings and better feedback."
-  },
-  {
-    name: "Finn O'Brien",
-    position: "CEO, TechStart Solutions",
-    content: "The team delivered exceptional results on time and under budget. Their expertise in web development and AI integration has transformed our online presence completely."
-  }
-]
 
 export default function Home() {
   const structuredData = {
@@ -43,47 +20,15 @@ export default function Home() {
     }
   }
 
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
-    "name": "AIWebHub",
-    "url": SITE_URL,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": testimonials.length.toString()
-    },
-    "review": testimonials.map(t => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": t.name
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": t.content
-    }))
-  }
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
       <Hero />
       <PortfolioSection />
-      <TestimonialsSection />
+      <ClientWorkSection />
     </>
   )
 }
