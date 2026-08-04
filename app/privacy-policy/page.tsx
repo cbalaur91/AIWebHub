@@ -1,12 +1,11 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Privacy Policy | AIWebHub',
   description: 'Privacy Policy for AIWebHub - Learn how we collect, use, and protect your information.',
-  alternates: {
-    canonical: '/privacy-policy',
-  },
-}
+  path: '/privacy-policy',
+})
 
 export default function PrivacyPolicy() {
   return (
