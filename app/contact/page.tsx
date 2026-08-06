@@ -145,7 +145,7 @@ export default function ContactPage() {
                     href="tel:+17343416746"
                     className="mt-1 text-sm text-zinc-400 hover:text-purple-400 transition-colors block"
                   >
-                    +1 (734) 341-6746
+                    (734) 341-6746
                   </a>
                 </div>
               </article>
