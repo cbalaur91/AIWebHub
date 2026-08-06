@@ -1,9 +1,13 @@
-"use client"
+// Server component. The only client code on this page is the GradientButton
+// leaf; the words are all server-rendered, which is what an SEO page needs
+// under `output: 'export'` (learned on #12).
 
 import { Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { Picture } from '@/components/ui/picture'
+import { FaqBlock } from '@/components/FaqBlock'
+import { ScopeSection } from '@/components/ScopeSection'
+import { QuoteCta } from '@/components/QuoteCta'
 import { abs, SITE_URL } from '@/lib/site'
 
 const stats = [
@@ -32,7 +36,7 @@ export default function ServicesPage() {
     },
     {
       question: "What is GEO and how does it help my business get found by AI?",
-      answer: "GEO stands for Generative Engine Optimization. It is the practice of optimizing your website so that AI-powered search tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot can find, understand, and cite your business when answering user queries. Unlike traditional SEO which focuses on ranking in a list of links, GEO focuses on making your content clear, authoritative, and structured so that AI models select it as a trusted source. Our GEO service includes schema markup implementation, content structuring with answer-first formatting, entity consistency audits across your online presence, and E-E-A-T optimization. We also offer ongoing AI citation monitoring so you can track when and where AI search engines reference your business. With over 180 million people using ChatGPT monthly and Google AI Overviews appearing in roughly 30 percent of informational searches, GEO is becoming essential for businesses that want to stay visible as search behavior shifts toward AI-powered tools."
+      answer: "GEO stands for Generative Engine Optimization. It is the practice of optimizing your website so that AI-powered search tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot can find, understand, and cite your business when answering user queries. Unlike traditional SEO which focuses on ranking in a list of links, GEO focuses on making your content clear, authoritative, and structured so that AI models select it as a trusted source. Our GEO service includes schema markup implementation, content structuring with answer-first formatting, entity consistency audits across your online presence, and E-E-A-T optimization. We also offer ongoing AI citation monitoring so you can track when and where AI search engines reference your business. As more buyers start their research inside an AI assistant rather than a list of blue links, GEO is becoming essential for businesses that want to stay visible in the answers those tools generate."
     },
     {
       question: "Can you integrate my existing POS system with my website?",
@@ -310,41 +314,25 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-500 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
-        {/* Soft radial glow */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-white/5 to-transparent blur-3xl" />
-        </div>
+      {/* What a build includes, and what moves the scope — the replacement for
+          the four pricing cards the quote-only change removed. */}
+      <ScopeSection />
 
-        {/* Header */}
-        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
-          <span className="inline-flex items-center gap-2 text-sm">
-            <span className="text-4xl font-medium text-white">FAQ</span>
-          </span>
-          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">common questions about our services</span>
-        </div>
-        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+      {/* FAQ — flat, not an accordion. Radix unmounts closed accordion panels,
+          so these seven answers were present in the FAQPage JSON-LD but absent
+          from the exported HTML entirely. Same words, now in the document. */}
+      <FaqBlock
+        eyebrow="FAQ"
+        caption="common questions about our services"
+        heading="Questions about websites, AI and what a project involves"
+        items={serviceFaqs}
+      />
 
-        <Accordion type="single" collapsible className="mt-8 max-w-3xl">
-          {serviceFaqs.map((faq, index) => (
-            <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger>
-                <h2 className="text-lg sm:text-xl font-light text-inherit tracking-tight pr-4">
-                  {faq.question}
-                </h2>
-              </AccordionTrigger>
-              <AccordionContent>
-                <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </section>
-
+      <QuoteCta
+        heading="Every project is scoped before it is priced"
+        body="Tell us what the business needs the site to do and we will come back with a written scope and a project price, usually within a day."
+        secondary={{ href: '/portfolio', label: 'See our work' }}
+      />
     </>
   )
 }
