@@ -128,6 +128,9 @@ inventing a single number that no source backs.
   $56.49/hr mean, May 2025). **Not used** — unverified at source. Worth one more
   attempt when building #17, since a `.gov` citation is the strongest E-E-A-T
   signal available on this page.
+  - *#17 retry, 5 Aug 2026:* still 403 — WebFetch and `curl` with a full browser
+    user agent both blocked at the edge. BLS remains uncited; the live page says
+    so in "The numbers we refused to use" rather than citing a search snippet.
 - **Clutch** *State of Small Business Websites 2025* — the resource URL 404s and
   the press release carries no cost figures. Widely-quoted secondary claims
   ("61% spent under $10,000") could **not** be traced to a primary Clutch page.

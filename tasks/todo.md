@@ -1,62 +1,60 @@
-# Wayfinder #13 — Design the website cost calculator
+# Wayfinder #17 — Build and ship /tools/website-cost-calculator
 
 Map: [Make aiwebhub.io visible: foundation + Michigan local beachhead](https://github.com/cbalaur91/AIWebHub/issues/6)
-Ticket: [Design the website cost calculator](https://github.com/cbalaur91/AIWebHub/issues/13) (`wayfinder:prototype`, claimed)
+Ticket: [Build and ship /tools/website-cost-calculator](https://github.com/cbalaur91/AIWebHub/issues/17) (`wayfinder:task`)
 
-Session shape agreed with owner: **cited third-party sources** for the numbers,
-**one design iterated live** (not three variants as in #12).
+Implements the design settled in #13 (two labelled survey bands, no submit
+button, no email gate). `lib/cost-calculator-data.ts`, `components/CostCalculator.tsx`
+and `SEO/research/website-cost-ranges.md` carry over from the prototype branch.
 
 ## Plan
 
-1. [x] Research citable 2025–26 web-design cost sources → verify: every range in the
-       prototype traces to a real, openable URL I have fetched; no invented figures
-2. [x] Record sources + derived ranges in `SEO/research/website-cost-ranges.md`
-       → verify: file lists source, date, methodology, and the range it supports
-3. [x] Build the prototype on `prototype/website-cost-calculator` at
-       `/prototype/cost-calculator` → verify: `bun run typecheck` clean, renders,
-       no email gate, no AIWebHub prices in output
-4. [x] Owner reacts; iterate live until the six ticket decisions are settled
-       → verify: input set, output shape, sourcing, wrapping content, share
-       mechanism and CTA each have a stated answer
-5. [x] Resolve #13 — resolution comment, close, append to map Decisions-so-far
-       → verify: `gh issue view 13` closed with comment; #17 unblocked
-6. [x] Rebuild the map body (#6 is empty — no Destination/Notes/Decisions)
-       → verify: `gh api repos/:owner/:repo/issues/6 --jq .body` non-null and
-       indexes all 7 closed tickets
-
-## Constraints carried in
-
-- `output: 'export'` — fully client-side, no server route, no API
-- No AIWebHub prices anywhere, incl. structured data (locked June 2026 pricing-to-quote spec)
-- No email gate — the sole differentiator over hogtheweb's estimator
-- Page must be a **server component**; interactive parts in leaf client components
-  (learned on #12: `useSearchParams` at page level renders zero server HTML under export)
-- Absolute search volumes in the SEO reports are distorted — rank-order signals only (#9)
-- `/frontend-design` mandatory for UI per CLAUDE.md
+1. [x] Branch `feat/website-cost-calculator` off the prototype branch
+       → verify: carried-over files present, tree clean
+2. [x] One more BLS attempt (#13 carried it forward: a `.gov` citation is the
+       strongest E-E-A-T signal available) → verify: figure traces to a fetched
+       bls.gov page, or the failure is recorded and BLS stays uncited
+3. [x] Build `app/tools/website-cost-calculator/page.tsx` as a server component:
+       `pageMetadata()` self-canonical, article body deepened to ~1,400–1,800
+       words, FAQ section, JSON-LD (`WebPage` + `FAQPage` + `BreadcrumbList`)
+       → verify: every figure traces to `SEO/research/website-cost-ranges.md`;
+       zero AIWebHub prices; no price fields in schema
+4. [x] Remove the throwaway `app/prototype/` route → verify: no references remain
+5. [x] Add the route to `app/sitemap.ts` → verify: URL present in built sitemap.xml
+6. [x] Verify build: `bun run typecheck` clean; `bun run build` static; built
+       `out/` HTML carries self-canonical, 1,400–1,800 words, all citations and
+       schema without JS; no email input anywhere on the page
+7. [ ] Commit, push, open PR to main, resolution comment on #17
 
 ## Review
 
-**#13 resolved and closed; #17 unblocked.** Design approved by the owner: two
-labelled survey bands that disagree, never one averaged number.
+Built `/tools/website-cost-calculator` from the #13 prototype. What changed
+against the prototype: real route with `pageMetadata()` self-canonical; article
+deepened from 758 to **1,778 rendered words** (target 1,400–1,800) with two new
+sections — "How agencies actually price the work" (budget split by phase, 63%
+market concentration, 100–200% TCO warning) and "The numbers we refused to use"
+(Clutch untraceable, aggregator circle, BLS blocked) — plus a 6-question FAQ
+rendered as always-visible prose so every answer ships in the static HTML.
 
-What shipped to the branch (all of it carries into #17 except the route wrapper):
+Decisions made here:
+- **Ongoing-cost chart stays** (#13 flagged it for revisit): it answers a real
+  input, and the not-apples-to-apples caveat renders beside it.
+- **BLS retried and still blocked** (403 to WebFetch and to curl with a full
+  browser UA). Remains uncited; the page says so instead.
+- **FAQ is prose, not an accordion** — Radix unmounts closed content, which
+  would strip the answers from the prerendered HTML.
 
-- `SEO/research/website-cost-ranges.md` — GoodFirms 2026 and WebFX 2026 with
-  methodology and caveats, plus an explicit rejected-sources list (Clutch's
-  widely-quoted "61% under $10,000" could not be traced to a primary page)
-- `lib/cost-calculator-data.ts` — typed bands, each carrying the survey row it
-  came from so the mapping is auditable on the page itself
-- `components/CostCalculator.tsx` — client leaf; server page wraps it
-- `app/prototype/cost-calculator/page.tsx` — throwaway, noindex, not in sitemap
+Verified in `out/`: typecheck clean · route `○ (Static)` 5.8 kB · self-canonical
+correct · 1,778 words · WebPage + BreadcrumbList + FAQPage schema with **zero
+price/offer keys** (checked recursively) · 6 citations to each survey without
+JS · every "email" occurrence is the phrase "no email gate" — no input exists ·
+sitemap entry present in built sitemap.xml.
 
-Verified: `bun run typecheck` clean · `bun run build` succeeds, route emits
-`○ (Static)` at 5.8 kB · **static HTML carries 758 words with every number and
-citation present without JS** · no email gate · no AIWebHub prices.
+## Constraints carried in
 
-Two weak spots recorded on the ticket rather than buried: the ongoing-cost chart
-is not apples-to-apples, and BLS wage data could not be verified (403) so it was
-deliberately not cited. Both handed to #17.
-
-**Also fixed:** the map body (#6) was empty — created with no Destination, Notes
-or Decisions, so every session had been re-deriving context from closed tickets.
-Reconstructed from the closed resolutions and marked as reconstructed.
+- `output: 'export'` — fully client-side, no server route
+- No AIWebHub prices anywhere, incl. structured data (locked June 2026 spec)
+- No email gate — structurally impossible (no submit step); keep it that way
+- Page is a server component; interactivity stays in the client leaf
+- If a number is not in `SEO/research/website-cost-ranges.md`, it does not render
+- Do not cite Clutch or agency-blog aggregators (rejected in #13)
