@@ -1,60 +1,49 @@
-# Wayfinder #17 — Build and ship /tools/website-cost-calculator
+# Loop: work the wayfinder map (#6) tickets to completion
 
-Map: [Make aiwebhub.io visible: foundation + Michigan local beachhead](https://github.com/cbalaur91/AIWebHub/issues/6)
-Ticket: [Build and ship /tools/website-cost-calculator](https://github.com/cbalaur91/AIWebHub/issues/17) (`wayfinder:task`)
+Autonomous /loop session, 2026-08-05. Order chosen: #26 → #23 (share `llms.txt`;
+#23 rebases on #26), then the independent builds (#18, #15, #19, #20, #27) with
+sub-agents where the build is heavy, then decision ticket #14, terminal #21 last.
 
-Implements the design settled in #13 (two labelled survey bands, no submit
-button, no email gate). `lib/cost-calculator-data.ts`, `components/CostCalculator.tsx`
-and `SEO/research/website-cost-ranges.md` carry over from the prototype branch.
+## #26 — Publish contact details and service area sitewide
 
-## Plan
+DONE except merge — **PR #29 open; `gh pr merge` is permission-blocked for the
+agent, user must merge.** All ticket verifications passed on a clean build
+(0 address strings, 0 "Worldwide", areaServed + tel link on 26/26 pages).
 
-1. [x] Branch `feat/website-cost-calculator` off the prototype branch
-       → verify: carried-over files present, tree clean
-2. [x] One more BLS attempt (#13 carried it forward: a `.gov` citation is the
-       strongest E-E-A-T signal available) → verify: figure traces to a fetched
-       bls.gov page, or the failure is recorded and BLS stays uncited
-3. [x] Build `app/tools/website-cost-calculator/page.tsx` as a server component:
-       `pageMetadata()` self-canonical, article body deepened to ~1,400–1,800
-       words, FAQ section, JSON-LD (`WebPage` + `FAQPage` + `BreadcrumbList`)
-       → verify: every figure traces to `SEO/research/website-cost-ranges.md`;
-       zero AIWebHub prices; no price fields in schema
-4. [x] Remove the throwaway `app/prototype/` route → verify: no references remain
-5. [x] Add the route to `app/sitemap.ts` → verify: URL present in built sitemap.xml
-6. [x] Verify build: `bun run typecheck` clean; `bun run build` static; built
-       `out/` HTML carries self-canonical, 1,400–1,800 words, all citations and
-       schema without JS; no email input anywhere on the page
-7. [x] Commit, push, open PR to main, resolution comment on #17 — PR #28 merged as `85a10ce`; #17 closed; map #6 updated
+## #23 — Scrub retired price tiers from llms.txt
 
-## Review
+DONE except merge — **PR #30 open, stacked on #29.** Zero price figures;
+inventory updated (calculator added); decision: file stays hand-maintained,
+drift guard = checklist comment posted on #21 (reconcile vs sitemap.ts).
 
-Built `/tools/website-cost-calculator` from the #13 prototype. What changed
-against the prototype: real route with `pageMetadata()` self-canonical; article
-deepened from 758 to **1,778 rendered words** (target 1,400–1,800) with two new
-sections — "How agencies actually price the work" (budget split by phase, 63%
-market concentration, 100–200% TCO warning) and "The numbers we refused to use"
-(Clutch untraceable, aggregator circle, BLS blocked) — plus a 6-question FAQ
-rendered as always-visible prose so every answer ships in the static HTML.
+## Queue after that
 
-Decisions made here:
-- **Ongoing-cost chart stays** (#13 flagged it for revisit): it answers a real
-  input, and the not-apples-to-apples caveat renders beside it.
-- **BLS retried and still blocked** (403 to WebFetch and to curl with a full
-  browser UA). Remains uncited; the page says so instead.
-- **FAQ is prose, not an accordion** — Radix unmounts closed content, which
-  would strip the answers from the prerendered HTML.
+- [x] #18 blog retarget — **PR #32** (sub-agent). Title/H1 retargeted to
+      "How Much Does a Website Cost in 2026?", slug kept, industry-only price
+      table matching calculator data, 2 calculator links, secondary retitle
+      skipped on live-SERP evidence. Typecheck + 19/19 tests + clean build.
+- [x] #15 /web-design-detroit — **PR #31** (sub-agent). Variant A "Receipts",
+      1,704 words, 4 real portfolio clients, LocalBusiness schema exactly per
+      spec (0 address/geo keys in out/), sitemap 0.9. Typecheck + clean build.
+- [ ] #19 deepen homepage + /services (sub-agent after #14 decision)
+- [ ] #20 per-route OG/Twitter images (sub-agent)
+- [ ] #27 image/asset pipeline (sub-agent)
+- [ ] #14 titles/meta decision (grilling ticket — decide + document, flag for user)
+- [ ] #21 deploy + Search Console baseline (terminal; needs user for GSC)
 
-Verified in `out/`: typecheck clean · route `○ (Static)` 5.8 kB · self-canonical
-correct · 1,778 words · WebPage + BreadcrumbList + FAQPage schema with **zero
-price/offer keys** (checked recursively) · 6 citations to each survey without
-JS · every "email" occurrence is the phrase "no email gate" — no input exists ·
-sitemap entry present in built sitemap.xml.
+## Review (session end, 2026-08-05 — user asked to stop after the two agents)
 
-## Constraints carried in
+4 tickets implemented, 4 PRs open, none merged (`gh pr merge` is
+permission-blocked for the agent — add an allow rule to change this):
 
-- `output: 'export'` — fully client-side, no server route
-- No AIWebHub prices anywhere, incl. structured data (locked June 2026 spec)
-- No email gate — structurally impossible (no submit step); keep it that way
-- Page is a server component; interactivity stays in the client leaf
-- If a number is not in `SEO/research/website-cost-ranges.md`, it does not render
-- Do not cite Clutch or agency-blog aggregators (rejected in #13)
+- **PR #29** ← merge first (base for #30) — closes #26
+- **PR #30** ← stacked on #29 — closes #23
+- **PR #31** — closes #15 (/web-design-detroit)
+- **PR #32** — closes #18 (blog retarget)
+
+#31/#32 are based on main; a trivial llms.txt/footer overlap with #29/#30 is
+not expected (agents were barred from llms.txt), but merge #29+#30 first anyway.
+
+Still open on the map: #27 image pipeline, #20 OG images, #19 deepen
+homepage//services, #14 titles/metas (grilling), #21 terminal baseline
+(needs GSC access + the llms.txt reconciliation checklist comment posted there).
