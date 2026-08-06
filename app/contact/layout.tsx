@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { pageMetadata } from '@/lib/site'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Contact | AIWebHub',
-  description: 'Get in touch with AIWebHub for innovative web design and AI integration solutions for your business.',
+  title: 'Contact AIWebHub | Request a Web Design Quote',
+  description: 'Talk to AIWebHub about a web design or AI integration project. Michigan-based, serving clients nationwide — tell us what you need and get a tailored quote.',
   path: '/contact',
 })
 
