@@ -12,7 +12,9 @@ describe("blog content query interface", () => {
     const post = getPostBySlug(slug);
     expect(post).toBeDefined();
     expect(post?.slug).toBe(slug);
-    expect(post?.title).toBe("How Much Does a Custom Website Cost in 2026?");
+    expect(post?.title).toBe(
+      "How Much Does a Website Cost in 2026? Real Prices by Project Type",
+    );
   });
 
   test("getPostBySlug returns undefined for an unknown slug (slug miss)", () => {
