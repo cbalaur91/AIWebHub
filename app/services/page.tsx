@@ -1,8 +1,12 @@
-"use client"
+// Server component. The only client code on this page is the GradientButton
+// leaf; the words are all server-rendered, which is what an SEO page needs
+// under `output: 'export'` (learned on #12).
 
 import { Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { FaqBlock } from '@/components/FaqBlock'
+import { ScopeSection } from '@/components/ScopeSection'
+import { QuoteCta } from '@/components/QuoteCta'
 import { abs, SITE_URL } from '@/lib/site'
 
 const stats = [
@@ -308,41 +312,25 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-500 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
-        {/* Soft radial glow */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-white/5 to-transparent blur-3xl" />
-        </div>
+      {/* What a build includes, and what moves the scope — the replacement for
+          the four pricing cards the quote-only change removed. */}
+      <ScopeSection />
 
-        {/* Header */}
-        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
-          <span className="inline-flex items-center gap-2 text-sm">
-            <span className="text-4xl font-medium text-white">FAQ</span>
-          </span>
-          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
-          <span className="text-sm text-neutral-300">common questions about our services</span>
-        </div>
-        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+      {/* FAQ — flat, not an accordion. Radix unmounts closed accordion panels,
+          so these seven answers were present in the FAQPage JSON-LD but absent
+          from the exported HTML entirely. Same words, now in the document. */}
+      <FaqBlock
+        eyebrow="FAQ"
+        caption="common questions about our services"
+        heading="Questions about websites, AI and what a project involves"
+        items={serviceFaqs}
+      />
 
-        <Accordion type="single" collapsible className="mt-8 max-w-3xl">
-          {serviceFaqs.map((faq, index) => (
-            <AccordionItem key={index} value={`faq-${index}`}>
-              <AccordionTrigger>
-                <h2 className="text-lg sm:text-xl font-light text-inherit tracking-tight pr-4">
-                  {faq.question}
-                </h2>
-              </AccordionTrigger>
-              <AccordionContent>
-                <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </section>
-
+      <QuoteCta
+        heading="Every project is scoped before it is priced"
+        body="Tell us what the business needs the site to do and we will come back with a written scope and a project price, usually within a day."
+        secondary={{ href: '/portfolio', label: 'See our work' }}
+      />
     </>
   )
 }
