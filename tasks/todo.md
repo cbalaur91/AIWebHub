@@ -1,34 +1,41 @@
 # Loop: work the wayfinder map (#6) tickets to completion
 
 Autonomous /loop session 2, 2026-08-06. Picked up from session 1 (2026-08-05),
-which left #26/#23/#18/#15 implemented as PRs #29–#32, all unmerged because
-`gh pr merge` is permission-blocked for the agent.
+which left #26/#23/#18/#15 implemented as PRs #29–#32, all unmerged.
 
-## Every map ticket is now implemented. Nothing is left to build.
+## ✅ ALL MERGED AND DEPLOYED — 2026-08-06
+
+The user authorised merging, and `gh pr merge` went through. All eight PRs are
+on `main` and live on aiwebhub.io. **Seven map tickets closed: #26 #23 #15 #18
+#14 #20 #19 #27.** Only #21 (terminal) remains, plus two new tickets found by
+verification (#36, #38).
+
+Production verified after deploy: **26/26 pages self-canonicalise with exactly
+one `og:image` and one `twitter:image`, 26 unique cards**, sitemap 26 URLs valid
+XML, `/web-design-detroit` 200, homepage image payload **11,715 KB → 98 KB**,
+the dead 3.47 MB MP4 now 404s.
+
+⚠️ **Merge gotcha for next time:** merging #29 with `--delete-branch` destroyed
+#30's base branch and GitHub auto-closed it un-merged. Recovered as #39.
+Retarget stacked PRs to `main` *before* merging their base.
+
+⚠️ Re-measuring assets immediately after a Vercel deploy can read stale CDN edge
+cache — a first pass showed 3 MB originals still live; a second returned
+byte-exact matches to the repo.
+
+## What was built (all now on main)
 
 | Ticket | State | PR |
 |---|---|---|
-| #26 contact details sitewide | done, unmerged | #29 |
-| #23 scrub llms.txt price tiers | done, unmerged | #30 |
-| #15 /web-design-detroit | done, unmerged | #31 |
-| #18 blog retarget | done, unmerged | #32 |
-| #14 money-page titles & metas | done, unmerged | **#33** |
-| #20 per-route OG/Twitter images | done, unmerged | **#34** |
-| #19 deepen / and /services | done, unmerged | **#35** |
-| #27 image & asset pipeline | done, unmerged | **#37** |
-| #21 deploy + GSC baseline | **blocked on human** — needs the merges deployed, then Search Console | — |
-
-## 🚫 The one blocker: merging
-
-`gh pr merge` is denied by the permission classifier. **Eight PRs are ready and
-proven to compose.** Merge order (only #30 is stacked — its base is #29):
-
-```
-#29 → #30 → #31 → #32 → #33 → #34 → #35 → #37
-```
-
-Adding a Bash allow rule for `gh pr merge` would let a future session close the
-map end to end without stopping here.
+| #26 contact details sitewide | ✅ merged & live | #29 |
+| #23 scrub llms.txt price tiers | ✅ merged & live | ~~#30~~ → **#39** |
+| #15 /web-design-detroit | ✅ merged & live | #31 |
+| #18 blog retarget | ✅ merged & live | #32 |
+| #14 money-page titles & metas | ✅ merged & live | #33 |
+| #20 per-route OG/Twitter images | ✅ merged & live | #34 |
+| #19 deepen / and /services | ✅ merged & live | #35 |
+| #27 image & asset pipeline | ✅ merged & live | #37 |
+| #21 deploy + GSC baseline | **open** — items 1-3 verified live; 4-6 need Search Console + #38 | — |
 
 ## This session's work
 
@@ -88,13 +95,11 @@ with exactly 1 `og:image` / 1 `twitter:image` / 1 canonical, 26 unique cards,
 
 ## Next session
 
-1. Merge the eight PRs in the order above, let Vercel deploy.
-2. Re-run the live canonical sweep (26 URLs now) and reconcile
-   sitemap ↔ `app/sitemap.ts` ↔ `llms.txt`.
-3. **#38 before #21 item 5** — LCP is unmeasurable until the opacity pattern is
-   fixed, and #27's 11,715 KB → 54 KB image win can't be demonstrated without it.
-4. #21's remaining items need a human in Search Console: submit sitemap, request
-   indexing, record the true-zero baseline.
-5. Small cleanup: add `public/og/*.png` to `scripts/generate-images.ts`'s
+1. **#38 before #21 item 5** — LCP is unmeasurable until the opacity pattern is
+   fixed, and #27's 11,715 KB → 98 KB image win (measured live) can't be
+   demonstrated as an LCP number without it.
+2. #21's remaining items need a human in Search Console: submit sitemap, request
+   indexing, record the true-zero baseline. Items 1-3 are already verified live.
+3. Small cleanup: add `public/og/*.png` to `scripts/generate-images.ts`'s
    exclusion list next to `public/blog/*.png` — the pipeline currently generates
    51 pointless WebP derivatives of #34's OG cards. Non-breaking, just waste.
