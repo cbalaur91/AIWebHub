@@ -3,7 +3,123 @@ import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, Clock, User, Calendar } from 'lucide-react'
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
+
+// --- Content rendering helpers ---------------------------------------------
+// The blog renderer supports exactly three constructs: `## ` section headings,
+// plain paragraphs separated by blank lines, and (below) inline markdown links
+// plus pipe-delimited tables. Anything else renders as literal text.
+
+/** Render `[label](href)` markdown links inside a paragraph; internal paths use <Link>. */
+function renderInline(text: string): ReactNode[] {
+  // split() with capture groups yields [before, label, href, before, label, href, ..., after]
+  const parts = text.split(/\[([^\]]+)\]\(([^)\s]+)\)/g)
+  const nodes: ReactNode[] = []
+  for (let i = 0; i < parts.length; i += 3) {
+    if (parts[i]) nodes.push(parts[i])
+    const label = parts[i + 1]
+    const href = parts[i + 2]
+    if (label !== undefined && href !== undefined) {
+      const linkClass =
+        'text-zinc-200 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-300'
+      nodes.push(
+        href.startsWith('/') ? (
+          <Link key={i} href={href} className={linkClass}>
+            {label}
+          </Link>
+        ) : (
+          <a key={i} href={href} className={linkClass}>
+            {label}
+          </a>
+        )
+      )
+    }
+  }
+  return nodes
+}
+
+/** A block is a table when every line is a pipe-delimited row. */
+function isTableBlock(block: string): boolean {
+  const lines = block.split('\n')
+  return lines.length > 1 && lines.every((line) => line.trim().startsWith('|'))
+}
+
+function parseTable(block: string): { header: string[]; rows: string[][] } {
+  const allRows = block.split('\n').map((line) =>
+    line
+      .trim()
+      .replace(/^\|/, '')
+      .replace(/\|$/, '')
+      .split('|')
+      .map((cell) => cell.trim())
+  )
+  const header = allRows[0]
+  const rows = allRows.slice(1).filter((cells) => !cells.every((cell) => /^:?-{3,}:?$/.test(cell)))
+  return { header, rows }
+}
+
+function ContentTable({ block }: { block: string }) {
+  const { header, rows } = parseTable(block)
+  return (
+    <div className="mb-6 overflow-x-auto rounded-xl border border-white/10">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="border-b border-white/10 bg-white/[0.03]">
+            {header.map((cell, i) => (
+              <th
+                key={i}
+                scope="col"
+                className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-zinc-500"
+              >
+                {cell}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((cells, r) => (
+            <tr key={r} className="border-b border-white/5 last:border-0">
+              {cells.map((cell, c) => (
+                <td
+                  key={c}
+                  className={
+                    c === 0
+                      ? 'px-4 py-3 text-zinc-200'
+                      : 'whitespace-nowrap px-4 py-3 tabular-nums text-zinc-400'
+                  }
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+/** Paragraphs and tables within an intro or a headed section. */
+function ArticleBody({ text }: { text: string }) {
+  return (
+    <>
+      {text
+        .split('\n\n')
+        .filter(Boolean)
+        .map((block, i) => {
+          const trimmed = block.trim()
+          return isTableBlock(trimmed) ? (
+            <ContentTable key={i} block={trimmed} />
+          ) : (
+            <p key={i} className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-4">
+              {renderInline(trimmed)}
+            </p>
+          )
+        })}
+    </>
+  )
+}
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({
@@ -167,11 +283,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Intro */}
           {intro && (
             <div className="mb-10">
-              {intro.split('\n\n').filter(Boolean).map((paragraph, i) => (
-                <p key={i} className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-4">
-                  {paragraph.trim()}
-                </p>
-              ))}
+              <ArticleBody text={intro} />
             </div>
           )}
 
@@ -181,11 +293,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <h2 className="text-xl sm:text-2xl font-light text-zinc-100 tracking-tight mb-4">
                 {section.heading}
               </h2>
-              {section.body.split('\n\n').filter(Boolean).map((paragraph, i) => (
-                <p key={i} className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-4">
-                  {paragraph.trim()}
-                </p>
-              ))}
+              <ArticleBody text={section.body} />
             </div>
           ))}
         </article>
