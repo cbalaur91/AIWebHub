@@ -24,7 +24,7 @@ and `SEO/research/website-cost-ranges.md` carry over from the prototype branch.
 6. [x] Verify build: `bun run typecheck` clean; `bun run build` static; built
        `out/` HTML carries self-canonical, 1,400–1,800 words, all citations and
        schema without JS; no email input anywhere on the page
-7. [ ] Commit, push, open PR to main, resolution comment on #17
+7. [x] Commit, push, open PR to main, resolution comment on #17 — PR #28 merged as `85a10ce`; #17 closed; map #6 updated
 
 ## Review
 
