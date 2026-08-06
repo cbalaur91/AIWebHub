@@ -14,3 +14,6 @@
 - Wayfinder maps are only useful if the map body exists. Check
   `gh api repos/:owner/:repo/issues/<n> --jq .body` is non-null at session start;
   an empty map silently costs every later session ~6 fetches of re-derivation.
+- When expanding copy to hit a word target, re-audit every added sentence for
+  traceability before building — filler claims ("most projects launched in
+  under two months") sneak in exactly when the goal is word count, not facts.
