@@ -11,8 +11,8 @@ import { OG_IMAGE, ORG, SITE_URL } from '@/lib/site'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AIWebHub - Web Design & AI Integration Solutions for Modern Businesses',
-  description: 'Innovative web design and AI integration solutions for modern businesses. Custom websites, AI-powered features, e-commerce development, POS integration, and creative content services.',
+  title: 'Michigan Web Design & AI Integration | AIWebHub',
+  description: 'Custom websites with AI built in — chatbots, e-commerce, automation and SEO. AIWebHub is a Michigan web design studio serving clients across the United States.',
   authors: [{ name: 'AIWebHub' }],
   creator: 'AIWebHub',
   publisher: 'AIWebHub',
