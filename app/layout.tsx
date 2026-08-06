@@ -119,7 +119,7 @@ export default function RootLayout({
                 "url": ORG.authorUrl
               },
               "foundingDate": "2024",
-              "areaServed": "Worldwide",
+              "areaServed": "United States",
               "knowsAbout": [
                 "Web Design",
                 "AI Integration",

@@ -1,6 +1,6 @@
 # AIWebHub
 
-> AIWebHub is a web design and AI integration agency based in Michigan, USA. We build custom websites, integrate AI-powered features, develop e-commerce solutions, and connect POS systems for modern businesses. Founded in 2024, AIWebHub serves clients worldwide with a focus on innovative technology and measurable results.
+> AIWebHub is a web design and AI integration agency based in Michigan, USA. We build custom websites, integrate AI-powered features, develop e-commerce solutions, and connect POS systems for modern businesses. Founded in 2024, AIWebHub serves clients across the United States with a focus on innovative technology and measurable results.
 
 ## Services
 
@@ -40,6 +40,6 @@
 
 - Website: https://www.aiwebhub.io
 - Email: info@aiwebhub.io
-- Phone: +1 (734) 341-6746
+- Phone: (734) 341-6746
 - Facebook: https://www.facebook.com/profile.php?id=61574644971669
 - Founder: Cosmin Balaur (https://www.linkedin.com/in/cosminbalaur91)
