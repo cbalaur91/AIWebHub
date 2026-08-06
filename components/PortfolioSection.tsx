@@ -1,6 +1,7 @@
 "use client"
 
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Picture } from '@/components/ui/picture'
 import { Globe, Search, Cpu, ShoppingCart, CreditCard, Palette } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 import { getProjectCount } from '@/lib/portfolio-data'
@@ -96,9 +97,10 @@ export const PortfolioSection = () => {
             {/* Large featured */}
             <div className="md:col-span-2 relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
               <div className="aspect-[16/10] relative overflow-hidden">
-                <img
+                <Picture
                   src="/services/web.jpg"
                   alt="Website Development"
+                  sizes="(min-width: 1024px) 480px, (min-width: 768px) 66vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
@@ -118,9 +120,10 @@ export const PortfolioSection = () => {
             {/* Small cards */}
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 group hover:border-white/20 transition-all duration-300 hover-lift">
               <div className="aspect-square relative overflow-hidden">
-                <img
+                <Picture
                   src="/services/seonew.jpg"
                   alt="SEO"
+                  sizes="(min-width: 1024px) 240px, (min-width: 768px) 33vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
@@ -157,9 +160,10 @@ export const PortfolioSection = () => {
 
             <div className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift">
               <div className="aspect-square relative overflow-hidden">
-                <img
+                <Picture
                   src="/services/social.jpg"
                   alt="Creative Content"
+                  sizes="(min-width: 1024px) 240px, (min-width: 768px) 33vw, 50vw"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />

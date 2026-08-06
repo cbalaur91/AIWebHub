@@ -2,6 +2,7 @@
 
 import { Lightbulb, Award, Users, Eye, Zap, Target, Linkedin } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Picture } from '@/components/ui/picture'
 import { abs, SITE_URL } from '@/lib/site'
 
 const values = [
@@ -142,9 +143,10 @@ export default function AboutPage() {
           {/* Right visual */}
           <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
             <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60 relative group hover-lift">
-              <img
+              <Picture
                 src="/logo/AiWebHubLogo.jpg"
                 alt="AIWebHub Logo"
+                sizes="(min-width: 1024px) 500px, 100vw"
                 className="absolute inset-0 w-full h-full object-contain p-8 opacity-70 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
               />
             </div>
@@ -264,9 +266,10 @@ export default function AboutPage() {
           <article className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-zinc-900/60 border-white/10 border rounded-2xl hover-lift">
             <div className="p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start">
               <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-white/10 flex-shrink-0">
-                <img
+                <Picture
                   src="/CB.png"
                   alt="Cosmin Balaur - Founder & Lead Developer at AIWebHub"
+                  sizes="128px"
                   className="w-full h-full object-cover"
                 />
               </div>

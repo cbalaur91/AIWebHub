@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Globe, Search, Cpu, ShoppingCart, CreditCard, Palette } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Picture } from '@/components/ui/picture'
 import { Vortex } from '@/components/ui/vortex'
 
 const services = [
@@ -84,9 +85,10 @@ export const ServicesSection = () => {
                   <CardHeader>
                     {service.image ? (
                       <div className="mb-4 h-48 w-full rounded-lg overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900">
-                        <img
+                        <Picture
                           src={service.image}
                           alt={service.title}
+                          sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>

@@ -1,14 +1,16 @@
 import Link from 'next/link'
 import { Clock, User } from 'lucide-react'
+import { Picture } from '@/components/ui/picture'
 import type { BlogPost } from '@/lib/blog-posts'
 
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <article className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-zinc-900/60 border-white/10 border rounded-2xl hover-lift">
       <div className="aspect-[16/10] relative overflow-hidden">
-        <img
+        <Picture
           src={post.image}
           alt={post.title}
+          sizes="(min-width: 1280px) 616px, (min-width: 768px) 50vw, 100vw"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />
