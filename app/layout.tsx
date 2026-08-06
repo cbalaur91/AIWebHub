@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 import { AnimatedLines } from '@/components/AnimatedLines'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { Toaster } from '@/components/ui/sonner'
-import { OG_IMAGE, ORG, SITE_URL } from '@/lib/site'
+import { ogCardImages, ORG, SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,14 +30,7 @@ export const metadata: Metadata = {
     description: 'Transform your business with innovative web design and AI-powered solutions. Your technology partner for the digital future.',
     url: SITE_URL,
     siteName: 'AIWebHub',
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: 'AIWebHub - Web Design & AI Integration Solutions',
-      },
-    ],
+    images: ogCardImages('/'),
     locale: 'en_US',
     type: 'website',
   },
@@ -45,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AIWebHub - Web Design & AI Integration Solutions',
     description: 'Innovative web design and AI integration for modern businesses. Custom development, AI features, e-commerce, and more.',
-    images: [OG_IMAGE],
+    images: ogCardImages('/'),
     creator: '@aiwebhub',
   },
   robots: {
@@ -88,13 +81,12 @@ export default function RootLayout({
         {/* Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AIWebHub - Innovative Web Solutions" />
-        <meta property="og:image:type" content="image/png" />
-        <meta name="twitter:image" content={OG_IMAGE} />
-        <meta name="twitter:image:alt" content="AIWebHub - Innovative Web Solutions" />
+        {/*
+          Share images are declared in `metadata` above, never here. Raw og:image
+          / twitter:image tags in this <head> precede the Metadata API's own tags
+          rather than replacing them, so crawlers took these and ignored every
+          per-route card on the site (issue #20).
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

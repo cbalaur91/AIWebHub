@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     socialTitle: post.title,
-    images: [{ url: abs(post.image) }],
+    images: [{ url: abs(post.image), alt: post.title }],
     openGraph: {
       type: 'article',
       publishedTime: post.publishedDate,

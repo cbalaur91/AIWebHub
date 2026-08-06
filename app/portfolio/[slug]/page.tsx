@@ -1,5 +1,5 @@
 import { getAllProjects, getProjectBySlug } from '@/lib/portfolio-data'
-import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
+import { abs, ogCardImages, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
@@ -20,7 +20,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${project.title} - Case Study | AIWebHub`,
     description: project.caseStudy.overview.slice(0, 160),
     path: `/portfolio/${project.slug}`,
-    images: [{ url: abs(project.image) }],
+    // A generated 16:9 card, not `project.image`: the project artwork ranges
+    // from 0.75 to 2.04 aspect and up to 2.6 MB, so it crops badly in a
+    // summary_large_image slot. The artwork stays the Article schema's `image`.
+    images: ogCardImages(
+      `/portfolio/${project.slug}`,
+      `${project.title} — AIWebHub case study`,
+    ),
   })
 }
 
