@@ -3,6 +3,7 @@
 import { Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { Picture } from '@/components/ui/picture'
 import { abs, SITE_URL } from '@/lib/site'
 
 const stats = [
@@ -287,9 +288,10 @@ export default function ServicesPage() {
               className="relative overflow-hidden group hover:border-white/20 transition-all duration-300 bg-neutral-900 border-white/10 border rounded-2xl hover-lift"
             >
               <div className="aspect-[16/10] relative overflow-hidden">
-                <img
+                <Picture
                   src={service.image}
                   alt={service.title}
+                  sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/60" />

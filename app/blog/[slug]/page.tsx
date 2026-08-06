@@ -1,6 +1,7 @@
 import { getAllPosts, getPostBySlug } from '@/lib/blog-posts'
 import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Picture } from '@/components/ui/picture'
 import { ArrowLeft, Clock, User, Calendar } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -153,9 +154,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Featured Image */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 mt-8">
         <div className="aspect-[21/9] rounded-2xl overflow-hidden border border-white/10">
-          <img
+          <Picture
             src={post.image}
             alt={post.title}
+            sizes="(min-width: 1280px) 1232px, 100vw"
             className="w-full h-full object-cover"
           />
         </div>
@@ -195,9 +197,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="relative z-10 sm:p-8 animate-scaleIn bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-8 mx-auto px-6 py-6 backdrop-blur">
         <div className="max-w-3xl mx-auto flex items-start gap-4">
           <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/10 flex-shrink-0">
-            <img
+            <Picture
               src="/CB.png"
               alt={post.author}
+              sizes="64px"
               className="w-full h-full object-cover"
             />
           </div>

@@ -11,13 +11,7 @@ export const Hero = () => {
     >
       {/* Background layers */}
       <div className="absolute inset-0 overflow-hidden -z-10 rounded-3xl">
-        <div className="absolute inset-0 bg-gradient-to-tr from-neutral-950 via-neutral-900 to-neutral-950">
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: 'url(/AdobeStock_869902521.mp4)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }} />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-neutral-950 via-neutral-900 to-neutral-950" />
 
         {/* Brand watermark positioned at left */}
         <div

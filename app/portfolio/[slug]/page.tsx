@@ -1,6 +1,7 @@
 import { getAllProjects, getProjectBySlug } from '@/lib/portfolio-data'
 import { abs, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Picture } from '@/components/ui/picture'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -134,9 +135,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
           <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
             <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
-              <img
+              <Picture
                 src={project.image}
                 alt={`${project.title} project screenshot`}
+                sizes="(min-width: 1024px) 500px, 100vw"
                 className="w-full h-full object-cover"
               />
             </div>

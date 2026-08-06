@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun run generate:blog-images && next build",
+    "build": "bun run generate:blog-images && bun run generate:images && next build",
     "start": "next start",
     "lint": "next lint",
     "generate:blog-images": "bun run scripts/generate-blog-images.ts",
+    "generate:images": "bun run scripts/generate-images.ts",
     "generate:favicons": "bun run scripts/generate-favicons.ts",
     "generate:brand-images": "bun run scripts/generate-brand-images.ts",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "bun run generate:images && tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

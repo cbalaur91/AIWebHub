@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/gradient-button'
+import { Picture } from '@/components/ui/picture'
 import { Target, Filter, TrendingUp, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { getAllProjects, getAllCategories, getProjectsByCategory, getProjectCount } from '@/lib/portfolio-data'
@@ -188,11 +189,10 @@ export default function PortfolioPage() {
                 className="aspect-video w-full overflow-hidden cursor-pointer relative"
                 onClick={() => window.open(project.url, '_blank')}
               >
-                <img
+                <Picture
                   src={project.image}
                   alt={project.imageAlt}
-                  width={600}
-                  height={338}
+                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />

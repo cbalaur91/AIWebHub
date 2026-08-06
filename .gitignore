@@ -30,6 +30,9 @@ yarn-error.log*
 # cached fonts for blog image generation
 scripts/fonts/
 
+# build-time image derivatives + manifest (scripts/generate-images.ts)
+/public/_opt/
+
 # vercel
 .vercel
 
