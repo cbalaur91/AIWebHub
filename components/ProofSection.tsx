@@ -145,7 +145,14 @@ export const ProofSection = () => {
         </div>
 
         <p className="mt-8 max-w-[70ch] text-sm leading-relaxed text-zinc-400">
-          The Metro Detroit sites are the quickest way to check all of that at once, but they are
+          The{' '}
+          <Link
+            href="/web-design-detroit"
+            className="text-zinc-200 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white hover:decoration-zinc-300"
+          >
+            Metro Detroit sites
+          </Link>{' '}
+          are the quickest way to check all of that at once, but they are
           not the whole record. The portfolio also holds a driver-recruitment site for a Chicago car
           hauler, a hotel-search platform that runs in more than thirty languages, and a stone
           fabricator whose work had never been online before. Each entry links to its live site and
