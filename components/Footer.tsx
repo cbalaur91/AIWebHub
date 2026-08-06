@@ -105,6 +105,18 @@ export const Footer = () => {
         </a>
       </p>
 
+      {/* Name & phone */}
+      <p className="mt-2 flex items-center justify-center gap-3 text-sm text-neutral-400 animate-fadeInUp animation-delay-600">
+        <span>AIWebHub</span>
+        <span className="h-3 w-px bg-white/10" />
+        <a
+          href="tel:+17343416746"
+          className="hover:text-white transition-colors"
+        >
+          (734) 341-6746
+        </a>
+      </p>
+
       {/* Bottom bar */}
       <div className="mt-12 h-px bg-white/5 animate-fadeIn animation-delay-600" />
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 animate-fadeInUp animation-delay-600 gap-4">

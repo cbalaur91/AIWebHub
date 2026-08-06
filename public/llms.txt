@@ -1,31 +1,33 @@
 # AIWebHub
 
-> AIWebHub is a web design and AI integration agency based in Michigan, USA. We build custom websites, integrate AI-powered features, develop e-commerce solutions, and connect POS systems for modern businesses. Founded in 2024, AIWebHub serves clients worldwide with a focus on innovative technology and measurable results.
+> AIWebHub is a web design and AI integration agency based in Michigan, USA. We build custom websites, integrate AI-powered features, develop e-commerce solutions, and connect POS systems for modern businesses. Founded in 2024, AIWebHub serves clients across the United States with a focus on innovative technology and measurable results.
 
 ## Services
 
 - Custom Website Design & Development (landing pages, multi-page business sites, e-commerce stores)
 - AI Integration (chatbots, intelligent search, personalized recommendations, automated content)
+- Custom AI Agents (agent development, knowledge base training, API integrations)
 - E-commerce Solutions (online stores with secure payment processing and inventory management)
 - POS System Integration (connecting point-of-sale systems with web platforms)
 - SEO Optimization (search engine optimization and digital strategy)
 - Website Maintenance & Support (ongoing hosting, updates, and performance monitoring)
 
-## Pricing Plans
+## Pricing
 
-- Starter: from $499 one-time + $30/month (single-page website design, mobile-responsive, basic SEO, hosting & maintenance)
-- Essentials: from $999 one-time + $50/month (adds custom multi-page website, AI chatbot, CMS, GEO optimization)
-- Professional: from $1,999 one-time + $100/month (adds e-commerce, social media content creation, advanced AI, POS integration, custom apps, analytics, dedicated manager)
-- AI Agents: from $2,499 one-time + $150/month (custom AI agent development, knowledge base training, API integrations, multi-platform deployment, monthly tuning)
+AIWebHub does not sell fixed packages or publish price tiers. Every project is scoped to the client's goals and quoted individually, with a clear breakdown of what is included; most quotes go out within 24 hours. To get a quote, use the contact page: https://www.aiwebhub.io/contact
+
+For independent, survey-sourced industry cost ranges (not AIWebHub's prices), see the website cost calculator: https://www.aiwebhub.io/tools/website-cost-calculator
 
 ## Pages
 
 - Homepage: https://www.aiwebhub.io/
-- Services & Pricing: https://www.aiwebhub.io/services
+- Services: https://www.aiwebhub.io/services
 - Portfolio: https://www.aiwebhub.io/portfolio
+- Web Design Detroit: https://www.aiwebhub.io/web-design-detroit
 - About: https://www.aiwebhub.io/about
 - Contact: https://www.aiwebhub.io/contact
 - Blog: https://www.aiwebhub.io/blog
+- Website Cost Calculator: https://www.aiwebhub.io/tools/website-cost-calculator
 - Privacy Policy: https://www.aiwebhub.io/privacy-policy
 - Terms of Service: https://www.aiwebhub.io/terms-of-service
 
@@ -40,6 +42,6 @@
 
 - Website: https://www.aiwebhub.io
 - Email: info@aiwebhub.io
-- Phone: +1 (734) 341-6746
+- Phone: (734) 341-6746
 - Facebook: https://www.facebook.com/profile.php?id=61574644971669
 - Founder: Cosmin Balaur (https://www.linkedin.com/in/cosminbalaur91)

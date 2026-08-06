@@ -15,52 +15,73 @@ export interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     slug: "how-much-does-a-custom-website-cost-in-2026",
-    title: "How Much Does a Custom Website Cost in 2026?",
-    excerpt: "A comprehensive breakdown of custom website pricing in 2026, covering landing pages, business sites, and e-commerce stores with real cost ranges and what affects your final price.",
+    title: "How Much Does a Website Cost in 2026? Real Prices by Project Type",
+    excerpt: "Surveyed 2026 market rates for landing pages, business websites, e-commerce stores, and AI agents — and why the two best pricing surveys disagree by up to 5x.",
     author: "Cosmin Balaur",
     authorTitle: "Founder & Lead Developer at AIWebHub",
     publishedDate: "2026-01-15",
-    modifiedDate: "2026-02-16",
+    modifiedDate: "2026-08-05",
     tags: ["Web Design", "Pricing", "Business"],
-    readTime: "8 min read",
+    readTime: "7 min read",
     image: "/blog/how-much-does-a-custom-website-cost-in-2026.png",
-    content: `The cost of a custom website in 2026 varies significantly based on the type of site, the features you need, and the level of customization required. Whether you are a small business owner launching your first website or an established company looking to redesign, understanding the real costs involved helps you budget effectively and avoid surprises.
+    content: `How much does a website cost in 2026? For most business projects, somewhere between $1,000 and $50,000 — and the honest answer depends as much on who you ask as on what you build. The two best available pricing surveys disagree by up to 5x on the same project. GoodFirms, which surveyed more than 300 web development firms across 31 countries, found most agencies quote $1,000–$3,000 for a basic website. WebFX, which surveyed 250 US-based marketing professionals, found US buyers report actually paying $6,500–$15,000 for the same tier. Neither number is wrong. This guide breaks down what each project type really costs, why the estimates spread that far, and how to turn a market range into a number for your own project.
 
-## Landing Pages: $300 to $1,500
+## Website Costs at a Glance: 2026 Market Rates by Project Type
 
-A landing page is a single-page website designed to convert visitors into leads or customers. It typically includes a hero section, service or product overview, testimonials, and a contact form or call-to-action. Landing pages are ideal for businesses that need a focused online presence without the complexity of a multi-page site.
+The table below shows general market rates, not AIWebHub prices — we quote every project to its scope. Each band is a range one of the two surveys actually published, shown here for a typical small-business build of each type, roughly one to fifteen pages. For a larger scope, our free [website cost calculator](/tools/website-cost-calculator) adjusts these same survey bands to your project size and shows both sides of the market for your exact configuration.
 
-At the lower end, template-based landing pages with minimal customization cost between $300 and $500. Custom-designed landing pages with unique layouts, animations, and brand-specific visual elements range from $500 to $1,500. Factors that increase the cost include custom illustrations, video integration, A/B testing setups, and advanced form integrations with CRM systems.
+| Project type | GoodFirms 2026 (global agencies quote) | WebFX 2026 (US buyers report paying) |
+| --- | --- | --- |
+| Landing page (single page) | $1,000–$3,000 | $6,500–$15,000 |
+| Multi-page business website | $5,000–$20,000 | $6,500–$15,000 |
+| E-commerce store | $5,000–$50,000 | $6,500–$15,000 |
+| AI agent (custom web application) | $20,000–$50,000 | $15,000–$50,000 |
 
-## Multi-Page Business Websites: $800 to $5,000
+Two patterns are worth noticing before anything else. Reading down the GoodFirms column, price scales with complexity, from a single conversion-focused page up to a full application. Reading across any row, the US buy-side figure runs well above the global sell-side quote. WebFX's survey has only three tiers, and everything up to a mid-sized build lands in the first one — which is itself a finding: US buyers report paying $6,500–$15,000 even for projects that agencies worldwide quote at $1,000–$3,000.
 
-A multi-page business website typically includes a homepage, about page, services page, portfolio or gallery, contact page, and potentially a blog. These sites provide a comprehensive overview of your business and are suitable for service-based companies, professional practices, and local businesses.
+## Why Do Website Cost Estimates Disagree So Much?
 
-Template-based solutions with content management systems start around $800 to $1,500. Fully custom designs with unique page layouts, content strategy, and interactive elements range from $1,500 to $5,000. The price increases with the number of pages, custom functionality like booking systems or client portals, and the depth of SEO optimization included in the initial build.
+Website cost estimates disagree because the two sides of the market are answering different questions. GoodFirms 2026 surveyed more than 300 web development firms across 31 countries — sell-side data, the prices agencies say they quote. Its own hourly-rate table puts developers in India, Pakistan, and Vietnam at $10–$15 per hour against $50–$100 per hour in the US, so its global averages sit well below what a US buyer is actually quoted. WebFX 2026 surveyed 250 US-based marketing professionals — buy-side data, what people report having paid, which includes the revisions, content work, and scope creep a quote never mentions. That is how the same basic small-business website can be $1,000–$3,000 in one survey and $6,500–$15,000 in the other. Averaging the two would manufacture a precision neither source supports, so this guide keeps both bands visible and labeled by who published them.
 
-## E-commerce Stores: $1,500 to $15,000
+## How Much Does a Landing Page Cost?
 
-E-commerce websites require additional functionality including product catalogs, shopping cart systems, secure payment processing, inventory management, and order tracking. The complexity of your product offering and the integrations you need significantly affect the final cost.
+A landing page is a single-page website designed to convert visitors into leads or customers, typically with a hero section, a service or product overview, social proof, and one prominent call to action. In the GoodFirms 2026 survey, 59.9% of firms quote a basic website or MVP at $1,000–$3,000, and 71% deliver it in two to four weeks. US buy-side data runs higher: WebFX puts a basic small-business site at $6,500–$15,000.
 
-Basic e-commerce stores with standard product listings and payment processing start at $1,500 to $3,000. Mid-range stores with custom product configurators, subscription models, and multi-channel inventory sync range from $3,000 to $8,000. Enterprise-level e-commerce platforms with custom features, AI-powered recommendations, POS integration, and advanced analytics can cost $8,000 to $15,000 or more.
+The bottom of this range is compressing faster than any other. GoodFirms reports that 33.5% of firms now price AI-builder websites at $500–$1,500, another 23.7% below $500, and that simple websites which cost $5,000 three years ago are now being built for under $1,500. If you are weighing a single page against a full site, our guide on [landing pages versus multi-page websites](/blog/landing-page-vs-multi-page-website-which-does-your-business-need) covers when each is the right call.
 
-## What Affects the Final Price
+## How Much Does a Multi-Page Business Website Cost?
 
-Several factors influence the cost of a custom website beyond the basic type. Design complexity is a major factor—sites with custom animations, parallax effects, and unique interactive elements cost more than straightforward layouts. The amount of content creation involved matters too, as writing and optimizing copy, sourcing photography, and creating graphics all add to the project scope.
+A multi-page business website — homepage, about, services, portfolio, contact, usually a blog — is the standard build for service businesses and professional practices. GoodFirms 2026 puts a mid-sized website at $5,000–$20,000, the most common range for 53.9% of firms, typically delivered in four to eight weeks. A CMS-based build, one you can update yourself without a developer, lands in the same $5,000–$20,000 band for 45.4% of firms.
 
-Technical integrations such as CRM connections, payment gateways, booking systems, and third-party API connections increase both development time and cost. AI-powered features like chatbots, intelligent search, and personalized recommendations are becoming increasingly common but add a layer of development complexity. SEO strategy and implementation during the build phase is another cost factor that pays dividends in long-term organic traffic.
+On the US buy side, WebFX reports $6,500–$15,000 for a basic small-business site and $15,000–$50,000 once a project grows into its intermediate tier. Where your project lands inside those bands comes down mostly to page count, how much of the design is custom, and functionality like booking systems or client portals.
 
-## Ongoing Costs to Consider
+## How Much Does an E-commerce Store Cost?
 
-Beyond the initial build, websites require ongoing investment. Hosting typically costs $10 to $100 per month depending on traffic and performance requirements. Domain registration runs $10 to $50 per year. SSL certificates are often included with modern hosting but can be a separate cost. Content updates, security patches, and performance monitoring are ongoing needs that many businesses address through monthly maintenance plans.
+E-commerce carries the widest band in either survey, because an online store can mean twelve products with a standard checkout or thousands of SKUs with inventory sync and POS integration. In the GoodFirms 2026 data, 74% of firms place e-commerce projects at $5,000–$50,000 — the widest most-common range of any vertical the survey measured — with enterprise builds at $20,000–$50,000.
 
-At AIWebHub, our maintenance and support plans are scoped to each site and include hosting, updates, security monitoring, and content adjustments. This bundled approach is often more cost-effective than managing each service separately.
+WebFX prices the store functionality itself — catalog, cart, checkout, payments — at $5,000–$25,000 on top of the base build, and puts advanced enterprise websites at $50,000–$100,000. The spread inside these bands is driven by integrations: payment gateways, shipping and tax rules, inventory systems, and the product content work that most store budgets underestimate.
 
-## How to Get the Best Value
+## How Much Does an AI Agent Cost?
 
-The best approach is to start with a clear understanding of your goals and priorities. Define what your website needs to accomplish—whether that is generating leads, selling products, or establishing credibility. Share your budget range upfront with your developer so they can recommend the most impactful features within your means. Consider a phased approach where you launch with core functionality and add features over time as your business grows.
+Neither survey publishes an AI-agent-specific price band — the category is too new for the 2026 survey cycles. The closest surveyed category is the custom web application: $20,000–$50,000 in GoodFirms 2026, the most common range for 35.5% of firms with typical delivery in eight to sixteen weeks, and $15,000–$50,000 in WebFX's intermediate tier. An agent that answers customers, connects to your booking or ordering systems, and reports into a dashboard is structurally a web application, which is why that row is the honest proxy.
 
-At AIWebHub, every custom website is quoted to your scope and goals, with solutions that scale to match your business needs. We provide transparent quotes with detailed breakdowns so you know exactly what you are paying for and why. Contact us for a free consultation to discuss your project and receive a personalized estimate.`
+In practice, AI agent scope varies more than any other project type on this list. A single-workflow agent built on an existing platform is a very different project from a multi-system autonomous assistant, which is why agents are quoted per project rather than off a rate card. Our article on [what AI agents are and how they help businesses](/blog/what-are-ai-agents-and-how-they-help-businesses-in-2026) explains the build patterns behind that range.
+
+## What Moves a Real Quote Up or Down
+
+Four things reliably push quotes up. Custom design rather than a theme: GoodFirms' budget-split data puts design at 10–20% of a typical build. Integrations with software you already run, such as booking, POS, CRM, or inventory systems. Content you need written: WebFX puts copywriting at $60–$300 per page and a full SEO engagement at $2,000–$10,000. And compliance: healthcare and finance projects sit a full tier above comparable builds in the GoodFirms vertical data.
+
+The levers that pull a quote down are just as concrete. Having your copy and photography ready before design starts. Choosing fewer, better pages — page count is the clearest cost lever there is. Accepting a template where it will not be seen. And launching a core site first, then adding features once the site is earning.
+
+## Ongoing Costs: What a Website Costs After Launch
+
+The build price is not the whole bill. GoodFirms 2026 reports monthly retainers of $500–$3,000 for nearly 58% of the market, and estimates that the real cost of a professionally built website is 100–200% higher than the build price once hosting, maintenance, integrations, and post-launch updates are counted. WebFX's US respondents report most businesses spending $501–$5,000 per year on upkeep — a figure that reads low because it includes owners running DIY-builder sites themselves. For a professionally maintained business site, the retainer band is the more honest guide.
+
+## How to Get a Real Number for Your Project
+
+Market ranges tell you what the market charges; they cannot tell you what your project costs. Start by defining what the website needs to accomplish — leads, sales, credibility — and roughly how large it needs to be. Then run your project type and size through our free [website cost calculator](/tools/website-cost-calculator), which shows both survey bands for your exact configuration and explains why they differ.
+
+When you are ready for an actual number, at AIWebHub every website and AI agent is quoted to your scope and goals, with a transparent breakdown so you know exactly what you are paying for and why. See what we build on our [services page](/services), and [contact us](/contact) for a free consultation and a personalized quote.`
   },
   {
     slug: "what-is-ai-integration-and-why-your-business-needs-it",

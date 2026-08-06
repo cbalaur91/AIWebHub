@@ -1,49 +1,100 @@
 # Loop: work the wayfinder map (#6) tickets to completion
 
-Autonomous /loop session, 2026-08-05. Order chosen: #26 → #23 (share `llms.txt`;
-#23 rebases on #26), then the independent builds (#18, #15, #19, #20, #27) with
-sub-agents where the build is heavy, then decision ticket #14, terminal #21 last.
+Autonomous /loop session 2, 2026-08-06. Picked up from session 1 (2026-08-05),
+which left #26/#23/#18/#15 implemented as PRs #29–#32, all unmerged because
+`gh pr merge` is permission-blocked for the agent.
 
-## #26 — Publish contact details and service area sitewide
+## Every map ticket is now implemented. Nothing is left to build.
 
-DONE except merge — **PR #29 open; `gh pr merge` is permission-blocked for the
-agent, user must merge.** All ticket verifications passed on a clean build
-(0 address strings, 0 "Worldwide", areaServed + tel link on 26/26 pages).
+| Ticket | State | PR |
+|---|---|---|
+| #26 contact details sitewide | done, unmerged | #29 |
+| #23 scrub llms.txt price tiers | done, unmerged | #30 |
+| #15 /web-design-detroit | done, unmerged | #31 |
+| #18 blog retarget | done, unmerged | #32 |
+| #14 money-page titles & metas | done, unmerged | **#33** |
+| #20 per-route OG/Twitter images | done, unmerged | **#34** |
+| #19 deepen / and /services | done, unmerged | **#35** |
+| #27 image & asset pipeline | done, unmerged | **#37** |
+| #21 deploy + GSC baseline | **blocked on human** — needs the merges deployed, then Search Console | — |
 
-## #23 — Scrub retired price tiers from llms.txt
+## 🚫 The one blocker: merging
 
-DONE except merge — **PR #30 open, stacked on #29.** Zero price figures;
-inventory updated (calculator added); decision: file stays hand-maintained,
-drift guard = checklist comment posted on #21 (reconcile vs sitemap.ts).
+`gh pr merge` is denied by the permission classifier. **Eight PRs are ready and
+proven to compose.** Merge order (only #30 is stacked — its base is #29):
 
-## Queue after that
+```
+#29 → #30 → #31 → #32 → #33 → #34 → #35 → #37
+```
 
-- [x] #18 blog retarget — **PR #32** (sub-agent). Title/H1 retargeted to
-      "How Much Does a Website Cost in 2026?", slug kept, industry-only price
-      table matching calculator data, 2 calculator links, secondary retitle
-      skipped on live-SERP evidence. Typecheck + 19/19 tests + clean build.
-- [x] #15 /web-design-detroit — **PR #31** (sub-agent). Variant A "Receipts",
-      1,704 words, 4 real portfolio clients, LocalBusiness schema exactly per
-      spec (0 address/geo keys in out/), sitemap 0.9. Typecheck + clean build.
-- [ ] #19 deepen homepage + /services (sub-agent after #14 decision)
-- [ ] #20 per-route OG/Twitter images (sub-agent)
-- [ ] #27 image/asset pipeline (sub-agent)
-- [ ] #14 titles/meta decision (grilling ticket — decide + document, flag for user)
-- [ ] #21 deploy + Search Console baseline (terminal; needs user for GSC)
+Adding a Bash allow rule for `gh pr merge` would let a future session close the
+map end to end without stopping here.
 
-## Review (session end, 2026-08-05 — user asked to stop after the two agents)
+## This session's work
 
-4 tickets implemented, 4 PRs open, none merged (`gh pr merge` is
-permission-blocked for the agent — add an allow rule to change this):
+- **#14 decided and built (PR #33).** Live SERP evidence settled the geo
+  question: on `web design michigan`, 9 of 9 organic results carry the place
+  name in the title. Geo on `/` and `/about`, national on `/services` and
+  `/contact`. Recorded against interest: `michigan web design` is KD 61 on a
+  *fresh* backlink record (unlike #9's stale-cache case), and the top 3 slots
+  are a local pack needing the GBP ruled out in #7. Found `ai integration
+  services` — 590/mo, **KD 1**, $65.65 CPC, uncontested — now targeted by
+  `/services`.
+- **#20, #19, #27 built by sub-agents** in isolated worktrees, each with an
+  explicit do-not-touch list derived from the open PRs' file surfaces.
 
-- **PR #29** ← merge first (base for #30) — closes #26
-- **PR #30** ← stacked on #29 — closes #23
-- **PR #31** — closes #15 (/web-design-detroit)
-- **PR #32** — closes #18 (blog retarget)
+## Composition verification — the part no single agent could do
 
-#31/#32 are based on main; a trivial llms.txt/footer overlap with #29/#30 is
-not expected (agents were barred from llms.txt), but merge #29+#30 first anyway.
+Test-merged all eight branches into one, rebuilt, and swept the result. This
+found four defects invisible on any individual branch:
 
-Still open on the map: #27 image pipeline, #20 OG images, #19 deepen
-homepage//services, #14 titles/metas (grilling), #21 terminal baseline
-(needs GSC access + the llms.txt reconciliation checklist comment posted there).
+1. **`llms.txt` didn't list `/web-design-detroit`** — the exact drift #23
+   predicted and deferred to #21. Fixed on #31. (The other 16 sitemap URLs
+   absent from llms.txt are blog/portfolio entries, omitted by design.)
+2. **`/web-design-detroit` was orphaned** — zero internal links, reachable only
+   from sitemap.xml. Fixed on #35 by anchoring the homepage proof section's
+   existing "Metro Detroit sites" prose to it.
+3. **Import clash on `app/services/page.tsx`** between #27's `<Picture>` and
+   #19's `<FaqBlock>`. Resolved on #37.
+4. **An unsourced statistic promoted to a money page.** #19's accordion fix made
+   the `/services` GEO answer render; it cited "over 180 million ChatGPT users",
+   which OpenAI's own 900M weekly (Feb 2026) puts ~5x off and ~2 years stale, on
+   the page selling GEO expertise. Cut on #35 rather than restated — every
+   available replacement source is a stat-aggregator blog, not primary.
+
+Composed end state: typecheck clean, **54/54 tests**, clean build, 27 pages each
+with exactly 1 `og:image` / 1 `twitter:image` / 1 canonical, 26 unique cards,
+**79 JSON-LD blocks 0 invalid**, 0 `AdobeStock`, 0 `Worldwide`, 0
+`streetAddress`, 0 price figures in llms.txt.
+
+## Verified live in production (part of #21, done early)
+
+- **25/25 live URLs self-canonicalise**, exactly one tag each — technical-audit
+  only estimated ~17 of ~19. #8 shipped better than reported.
+- **The sitemap bug does not reproduce**: 200, 4,662 bytes, parses as valid XML.
+  Nothing to fix; submission in GSC is still required.
+
+## Opened this session
+
+- **#36** — source or cut the stale AI-adoption figures still in
+  `lib/blog-posts.ts:235` (same numbers, blog copy, left out of #19's scope).
+- **#38** — above-the-fold content is `opacity: 0` until its entry animation
+  runs. `.animation-delay-*` zeroes the element and the animation restores it,
+  so the homepage H1 can't paint before 300 ms and isn't opaque until 900 ms.
+  81 occurrences across 11 files. **This is why #27 could not measure LCP**
+  (Lighthouse `NO_FCP` on every Chrome/preset combination) and it blocks #21's
+  item 5. Also a trap: adding `prefers-reduced-motion` support naively would
+  ship a permanently blank site.
+
+## Next session
+
+1. Merge the eight PRs in the order above, let Vercel deploy.
+2. Re-run the live canonical sweep (26 URLs now) and reconcile
+   sitemap ↔ `app/sitemap.ts` ↔ `llms.txt`.
+3. **#38 before #21 item 5** — LCP is unmeasurable until the opacity pattern is
+   fixed, and #27's 11,715 KB → 54 KB image win can't be demonstrated without it.
+4. #21's remaining items need a human in Search Console: submit sitemap, request
+   indexing, record the true-zero baseline.
+5. Small cleanup: add `public/og/*.png` to `scripts/generate-images.ts`'s
+   exclusion list next to `public/blog/*.png` — the pipeline currently generates
+   51 pointless WebP derivatives of #34's OG cards. Non-breaking, just waste.
