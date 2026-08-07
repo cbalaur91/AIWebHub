@@ -115,10 +115,34 @@ advanced as far as it can go without Search Console access; #6 unchanged.
 
 | Ticket | State | PR | Verified by |
 |---|---|---|---|
-| #38 above-fold opacity | **PR open** | #40 | Lighthouse + CDP paint-timing + pixel diff |
-| #36 stale AI stats | **PR open** | #41 | `bun test` 54/54, whole-file sweep |
-| #21 deploy + GSC baseline | items 1-3 ✅, 5 blocked on #40, **4 & 6 need you** | — | live canonical/sitemap check, production Lighthouse |
+| #38 above-fold opacity | **merged & live** ✅ | #40 | Lighthouse + CDP paint-timing + pixel diff |
+| #36 stale AI stats | **merged & live** ✅ | #41 | `bun test` 54/54, whole-file sweep |
+| #21 deploy + GSC baseline | items 1-3 & **5 ✅**, **4 & 6 need you** | — | production Lighthouse post-deploy |
 | #6 wayfinder map | open — closes when #21 does | — | — |
+
+## ✅ ALL THREE MERGED AND DEPLOYED — 2026-08-06
+
+User authorised the merge; #40, #41, #42 all squash-merged to main and live.
+#38 and #36 auto-closed. Composition re-verified on merged main: clean build,
+54/54 tests, built CSS has 0 element-level `opacity:0`, 5 `animate-enter*`
+classes, 1 reduced-motion block, 0 files containing "180 million".
+
+### Item 5 result — the number that was unmeasurable
+
+| Page | Preset | Before | After |
+|---|---|---|---|
+| `/` | mobile | `NO_FCP`, unscoreable | **100** · LCP **1.5 s** |
+| `/` | desktop | `NO_FCP`, unscoreable | **100** · LCP 0.4 s |
+| `/web-design-detroit` | mobile | 96 · LCP 2.6 s | **100** · LCP **1.3 s** |
+| `/web-design-detroit` | desktop | 100 · LCP 0.4 s | **100** · LCP 0.4 s |
+
+Against the **3,741 ms baseline the homepage is now 1,500 ms — a 60% cut**, and
+**#27's sub-2,500 ms criterion is met** on both pages and both presets.
+
+⚠️ **Local builds are pessimistic about LCP.** I predicted mobile would stay
+above 2,500 ms because the local static server measured 3.0 s; production came
+in at 1.5 s. `bunx serve` doesn't reproduce Vercel's compression/HTTP2 — quote
+production numbers, not local ones, when a ticket's criterion is a threshold.
 
 ## #38: the ticket's own diagnosis was wrong, and it mattered
 
@@ -165,9 +189,9 @@ ticket.
 ## Still outstanding
 
 1. **#21 items 4 & 6** — Search Console UI, human-only. Click-by-click handoff
-   posted as a comment on #21. Do them *after* #40 deploys.
-2. **Re-run item 5** against production once #40 is merged and deployed.
-3. Carried over, still not done: add `public/og/*.png` to
+   posted as a comment on #21. #40 is deployed, so these are unblocked *now*.
+   **#6 closes when #21 does.**
+2. Carried over, still not done: add `public/og/*.png` to
    `scripts/generate-images.ts`'s exclusion list — 51 pointless WebP derivatives
    of #34's OG cards.
 4. Possible new ticket: the 8 unsourced figures in the other blog posts.

@@ -57,3 +57,7 @@
   the HTML so nothing contentful ever paints, while over a real network the
   brief unstyled render can fire FCP by itself. Measure animation-related paint
   metrics against production *and* a local build before concluding either way.
+- Local static-serve LCP is pessimistic. `bunx serve out` measured the homepage
+  at LCP 3.0 s mobile; the same commit on Vercel measured 1.5 s, because the
+  local server reproduces neither the CDN's compression nor HTTP/2. When a
+  ticket's criterion is a *threshold*, quote the production number.
