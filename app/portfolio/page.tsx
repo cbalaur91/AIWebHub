@@ -75,14 +75,14 @@ export default function PortfolioPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+      <section className="relative z-10 sm:p-8 animate-enterScale animation-delay-200 bg-zinc-950/60 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
         {/* Soft radial glow */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
           <div className="absolute left-0 top-0 w-[60%] h-[80%] rounded-[40%] bg-gradient-to-br from-white/5 to-transparent blur-3xl" />
         </div>
 
         {/* Header */}
-        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-enterUp">
           <span className="inline-flex items-center gap-2 text-sm">
             <span className="text-4xl font-medium text-white">Portfolio</span>
           </span>
@@ -93,7 +93,7 @@ export default function PortfolioPage() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start mt-6 sm:mt-8">
           {/* Left copy */}
-          <div className="lg:col-span-7 animate-fadeInLeft animation-delay-300">
+          <div className="lg:col-span-7 animate-enterLeft animation-delay-300">
             <h1 className="text-[44px] sm:text-6xl md:text-7xl leading-[1.05] font-light text-zinc-100 tracking-tighter">
               Our web design portfolio: <span className="text-white/90">real projects, real results</span>
             </h1>
@@ -115,7 +115,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* Right stats */}
-          <div className="lg:col-span-5 animate-fadeInRight animation-delay-400">
+          <div className="lg:col-span-5 animate-enterRight animation-delay-400">
             <div className="grid grid-cols-1 gap-4 stagger-animation">
               {stats.map((stat, index) => (
                 <div
