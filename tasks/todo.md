@@ -103,3 +103,71 @@ with exactly 1 `og:image` / 1 `twitter:image` / 1 canonical, 26 unique cards,
 3. Small cleanup: add `public/og/*.png` to `scripts/generate-images.ts`'s
    exclusion list next to `public/blog/*.png` — the pipeline currently generates
    51 pointless WebP derivatives of #34's OG cards. Non-breaking, just waste.
+
+---
+
+# Session 3 — 2026-08-06 (later)
+
+Goal: close out the remaining tickets. #38, #36 built and pushed as PRs; #21
+advanced as far as it can go without Search Console access; #6 unchanged.
+
+## What shipped
+
+| Ticket | State | PR | Verified by |
+|---|---|---|---|
+| #38 above-fold opacity | **PR open** | #40 | Lighthouse + CDP paint-timing + pixel diff |
+| #36 stale AI stats | **PR open** | #41 | `bun test` 54/54, whole-file sweep |
+| #21 deploy + GSC baseline | items 1-3 ✅, 5 blocked on #40, **4 & 6 need you** | — | live canonical/sitemap check, production Lighthouse |
+| #6 wayfinder map | open — closes when #21 does | — | — |
+
+## #38: the ticket's own diagnosis was wrong, and it mattered
+
+#38 proposed moving `opacity: 0` out of `.animation-delay-*` into each
+keyframe's `from` state. **Tested that first, and it does not restore FCP.**
+Patched the built CSS in a copy of `out/` and measured four variants:
+
+| Variant | FCP |
+|---|---|
+| `main` | none — `NO_FCP` |
+| `opacity: 0` in keyframes, fill-mode `both` (the ticket's fix) | **still none** |
+| entry animations disabled outright | FCP@120 ✓ |
+| transform-only above the fold | FCP@164 ✓ |
+| control: `/privacy-policy`, no entry animation | FCP@56 ✓ |
+
+Cause is not *where* the `opacity: 0` lives. Content that first paints at
+opacity 0 and is revealed by a **compositor-driven** opacity animation never
+produces a main-thread contentful paint, so Chrome records no FCP at all. The
+animations do finish normally in headless (computed opacity is 1 at 3 s) — the
+page was never blank, its reveal was just never *contentful*.
+
+Shipped both halves: fill-mode `both` + no element-level opacity (makes
+`prefers-reduced-motion` safe to add, which it was not before), and transform-only
+entry animations for the header and each route's first hero section. Below the
+fold is untouched.
+
+Production baseline recorded before the fix: `/` is **UNSCOREABLE on both mobile
+and desktop**; `/web-design-detroit` mobile is 96 / LCP 2.6 s — already under the
+3,741 ms baseline but over #27's 2,500 ms target.
+
+## #36: found more than the ticket described
+
+Cut the three untraceable figures as decided. Also found the *same post* advising
+"cite reputable sources" while using an unsourced "30 to 50 percent" chatbot
+figure as its own example of a citable statement — fixed to demonstrate the
+principle instead.
+
+The whole-file sweep the ticket's verification line implies turned up **~8 more
+unsourced figures across four other posts** (lines 115, 201, 381, 413, 448, 456,
+472). Left alone deliberately — rewriting four published posts is a bigger
+content decision than this ticket authorises. Tabulated in #41; worth its own
+ticket.
+
+## Still outstanding
+
+1. **#21 items 4 & 6** — Search Console UI, human-only. Click-by-click handoff
+   posted as a comment on #21. Do them *after* #40 deploys.
+2. **Re-run item 5** against production once #40 is merged and deployed.
+3. Carried over, still not done: add `public/og/*.png` to
+   `scripts/generate-images.ts`'s exclusion list — 51 pointless WebP derivatives
+   of #34's OG cards.
+4. Possible new ticket: the 8 unsourced figures in the other blog posts.

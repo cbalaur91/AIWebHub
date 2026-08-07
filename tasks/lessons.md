@@ -3,6 +3,10 @@
 - Before calling a UI state mismatch a bug, re-screenshot with
   `--virtual-time-budget=4000`: headless Chromium captures mid-CSS-transition and
   will show stale colours next to fresh text, which looks exactly like a state bug.
+  But `--virtual-time-budget` does *not* reliably advance CSS **animation**
+  clocks — a 4 s budget still caught the hero mid-fade and showed it as blank.
+  For animated content, drive CDP (`Page.navigate`, real `sleep`,
+  `Page.captureScreenshot`) instead of trusting virtual time.
 - Snap-confined Chromium cannot write `--screenshot` to `/tmp` (it silently
   redirects to a private mount and reports success). Write to `$HOME` instead.
 - When a source is paraphrased by search results, fetch the primary page before
@@ -30,3 +34,26 @@
   `.next/types` for routes that don't exist on the new branch fail the build with
   phantom `TS2307`s. `rm -rf .next out tsconfig.tsbuildinfo` first — the same
   clear the build already needs to avoid silently emitting no CSS.
+- Chrome records **no FCP at all** for content that first paints at `opacity: 0`
+  and is revealed by a compositor-driven opacity animation — the reveal never
+  produces a main-thread *contentful* paint. Moving the `opacity: 0` from the
+  element into the keyframes' `from` state does not help; only making the
+  content contentful on its first paint does. Animating `transform` alone keeps
+  the motion without the cost.
+- Verify a ticket's *proposed fix* against its own acceptance criterion before
+  building it. #38 specified "move `opacity: 0` into the keyframes"; patching
+  the built CSS and re-measuring took ~2 minutes and showed that fix still
+  returns `NO_FCP`. Patch `out/_next/static/css/*.css` in a copy of the build
+  directory to test a CSS hypothesis without a 2-minute rebuild.
+- A screenshot diff needs a same-build control. Infinite animations (`.line-anim`
+  drop sweep) make byte-identical captures impossible, so "differs" is
+  meaningless alone — main-vs-main noise was 0.005-0.083% of pixels, *larger*
+  than the 0.006-0.040% main-vs-branch signal.
+- `aiwebhub.io` 308-redirects to `www.aiwebhub.io`. A fetcher that doesn't follow
+  redirects gets the string `Redirecting...`, not XML — that is what made
+  `/sitemap.xml` look unparseable in the technical audit. Use `curl -L` and the
+  `www` host; it is the canonical one.
+- Localhost hides `NO_FCP` inconsistently: with zero latency the CSS lands with
+  the HTML so nothing contentful ever paints, while over a real network the
+  brief unstyled render can fire FCP by itself. Measure animation-related paint
+  metrics against production *and* a local build before concluding either way.
