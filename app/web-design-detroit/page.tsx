@@ -111,7 +111,7 @@ export default function WebDesignDetroitPage() {
       />
 
       {/* Hero — deliberately compact. It hands off to the proof fast. */}
-      <section className="relative z-10 mt-24 rounded-3xl border border-white/10 bg-zinc-950/60 px-6 py-10 sm:p-12 backdrop-blur animate-scaleIn">
+      <section className="relative z-10 mt-24 rounded-3xl border border-white/10 bg-zinc-950/60 px-6 py-10 sm:p-12 backdrop-blur animate-enterScale">
         <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">
           {detroit.city}, {detroit.state} <span className="text-zinc-700">/</span> {countyLine}
         </p>

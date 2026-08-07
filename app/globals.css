@@ -147,60 +147,110 @@
   100% { top: 110%; }
 }
 
-/* Animation Classes */
+/* Transform-only entry animations, for above-the-fold content.
+   These never take opacity below 1, so the element is contentful on its very
+   first paint. An element that fades up from opacity 0 is revealed by the
+   compositor and never produces a main-thread contentful paint, which stops
+   Chrome recording FCP at all — Lighthouse then reports NO_FCP and can score
+   nothing. Below the fold that doesn't matter, so those keep the fades above. */
+@keyframes enterDown {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes enterUp {
+  from { transform: translateY(30px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes enterLeft {
+  from { transform: translateX(-30px); }
+  to { transform: translateX(0); }
+}
+
+@keyframes enterRight {
+  from { transform: translateX(30px); }
+  to { transform: translateX(0); }
+}
+
+@keyframes enterScale {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+/* Animation Classes
+   `both` rather than `forwards` so the `from` keyframe covers the
+   animation-delay window. That keeps the delay classes free of opacity, so an
+   element whose animation never runs renders at its natural opacity instead of
+   staying invisible forever. */
 .animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out both;
 }
 
 .animate-fadeInLeft {
-  animation: fadeInLeft 0.6s ease-out forwards;
+  animation: fadeInLeft 0.6s ease-out both;
 }
 
 .animate-fadeInRight {
-  animation: fadeInRight 0.6s ease-out forwards;
+  animation: fadeInRight 0.6s ease-out both;
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.6s ease-out both;
 }
 
 .animate-scaleIn {
-  animation: scaleIn 0.6s ease-out forwards;
+  animation: scaleIn 0.6s ease-out both;
 }
 
 .animate-slideDown {
-  animation: slideDown 0.4s ease-out forwards;
+  animation: slideDown 0.4s ease-out both;
 }
 
-/* Animation Delays */
+.animate-enterDown {
+  animation: enterDown 0.4s ease-out both;
+}
+
+.animate-enterUp {
+  animation: enterUp 0.6s ease-out both;
+}
+
+.animate-enterLeft {
+  animation: enterLeft 0.6s ease-out both;
+}
+
+.animate-enterRight {
+  animation: enterRight 0.6s ease-out both;
+}
+
+.animate-enterScale {
+  animation: enterScale 0.6s ease-out both;
+}
+
+/* Animation Delays — must stay after the animation classes so the longhand
+   wins over their shorthand's implicit animation-delay: 0s. */
 .animation-delay-100 {
   animation-delay: 0.1s;
-  opacity: 0;
 }
 
 .animation-delay-200 {
   animation-delay: 0.2s;
-  opacity: 0;
 }
 
 .animation-delay-300 {
   animation-delay: 0.3s;
-  opacity: 0;
 }
 
 .animation-delay-400 {
   animation-delay: 0.4s;
-  opacity: 0;
 }
 
 .animation-delay-500 {
   animation-delay: 0.5s;
-  opacity: 0;
 }
 
 .animation-delay-600 {
   animation-delay: 0.6s;
-  opacity: 0;
 }
 
 /* Hover Effects */
@@ -215,8 +265,7 @@
 
 /* Stagger Animations */
 .stagger-animation > * {
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out both;
 }
 
 .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
@@ -243,3 +292,25 @@
 
 .line-1::after { animation-delay: 2s; }
 .line-3::after { animation-delay: 2.5s; }
+
+/* Reduced Motion
+   Only safe because no element above carries opacity: 0 of its own — with
+   `animation: none` each one falls back to its natural opacity rather than
+   staying hidden. The `drop` sweep is included because it loops forever. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeInUp,
+  .animate-fadeInLeft,
+  .animate-fadeInRight,
+  .animate-fadeIn,
+  .animate-scaleIn,
+  .animate-slideDown,
+  .animate-enterDown,
+  .animate-enterUp,
+  .animate-enterLeft,
+  .animate-enterRight,
+  .animate-enterScale,
+  .stagger-animation > *,
+  .line-anim::after {
+    animation: none;
+  }
+}
