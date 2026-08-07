@@ -197,3 +197,66 @@ ticket.
 3. Possible new ticket: the 8 unsourced figures in the other blog posts
    (lines 115, 201, 381, 413, 448, 456, 472 of `lib/blog-posts.ts`), tabulated
    in #41.
+
+---
+
+# Session 4 — 2026-08-06 (final)
+
+Goal: close #21. **Done — and #6, the map, closed with it. All 15 child tickets
+resolved. Zero open issues on the repo.**
+
+## What happened
+
+#21 was down to items 4 & 6, both Search Console UI. The handoff assumed the
+property was already verified. **It wasn't** — a live DNS query showed only an
+SPF record on `aiwebhub.io`; no `google-site-verification` TXT existed. The
+ticket's "verified via DNS TXT (2026-03-04) — no setup needed" was simply wrong.
+
+Verified for real as a **Domain property**, TXT added at **Hostinger**
+(`ns1/ns2.dns-parking.com` — DNS is *not* at Vercel), alongside the SPF record
+rather than replacing it. Confirmed through Google's own resolver before the
+user clicked Verify; Cloudflare's cache still showed the old answer at that
+point, which would have read as a false "not propagated".
+
+## The baseline — and the map's biggest error
+
+| Metric | Value |
+|---|---|
+| Clicks | 0 |
+| Impressions | **40** |
+| CTR | 0% |
+| Avg position | **10.3** |
+
+Window: GSC Last-7-days as of 2026-08-06, closing ~2026-08-04 — **before** the
+2026-08-06 deploy. Clean pre-change baseline.
+
+**The map asserted "the domain ranks for zero keywords — a true zero baseline."
+It does not.** That figure came from DataForSEO. Rank trackers only report
+keywords in their own database; GSC reports what Google actually served. The
+success criterion is *"move 40 impressions at position 10.3 upward and convert
+them to clicks"*, not *"go from nothing to something"* — a materially different
+measurement problem, and reading it as zero would overstate any later gain.
+Expect average position to **worsen** first as new pages index at low positions.
+
+## Re-verified live before closing
+
+- **26/26** pages: 200 + exactly one self-referencing canonical
+- `sitemap.xml`: 200, valid XML, 26 `<loc>`
+- `robots.txt`: allows Googlebot, declares the sitemap on the `www` host
+- **#23 drift guard passes**: `llms.txt` lists all 10 core URLs incl.
+  `/web-design-detroit` (blog/portfolio omitted by design)
+
+⚠️ The first canonical sweep reported `PASS=25 FAIL=0` on a 26-URL list —
+`while read` dropped the last line because the file had no trailing newline.
+The missing URL passed when checked separately. Check input line count against
+the expected count before trusting a sweep total.
+
+## Still outstanding (no ticket, carried forward)
+
+1. Add `public/og/*.png` to `scripts/generate-images.ts`'s exclusion list — 51
+   pointless WebP derivatives of #34's OG cards. Non-breaking, just waste.
+2. ~8 unsourced figures across four blog posts (lines 115, 201, 381, 413, 448,
+   456, 472 of `lib/blog-posts.ts`), tabulated in #41. Worth its own ticket.
+3. **Re-measure at 4 and 8 weeks** against 0 / 40 / 0% / 10.3 — same 7-day
+   window, same Domain property. Then decide whether the deferred `/services/*`
+   programme is justified. This belongs to a follow-on effort, not this map.

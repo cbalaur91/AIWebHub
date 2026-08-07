@@ -61,3 +61,21 @@
   at LCP 3.0 s mobile; the same commit on Vercel measured 1.5 s, because the
   local server reproduces neither the CDN's compression nor HTTP/2. When a
   ticket's criterion is a *threshold*, quote the production number.
+- A ticket's stated access/setup facts are claims, not state. #21 said "Search
+  Console is already verified via DNS TXT (2026-03-04) — no setup needed"; there
+  was no `google-site-verification` TXT on the domain at all. Verify prerequisites
+  before handing a human a click-list that assumes them.
+- Third-party rank data is not a baseline. DataForSEO reported aiwebhub.io ranking
+  for *zero* keywords, and the whole map was framed as a "true zero baseline";
+  Search Console showed **40 impressions at average position 10.3**. Rank trackers
+  only report keywords in their own database — GSC reports what Google served.
+  Where they disagree, GSC is ground truth.
+- No `dig` on this WSL box. Query DNS over HTTPS:
+  `curl -s -H 'accept: application/dns-json' "https://dns.google/resolve?name=D&type=TXT"`.
+  Use Google's resolver to predict what Search Console sees — Cloudflare's cache
+  can lag a new record by 10+ minutes and produce a false "not propagated".
+- DNS for aiwebhub.io is at **Hostinger** (`ns1/ns2.dns-parking.com`), not Vercel.
+  Records are edited in hPanel → Domains → DNS Zone.
+- `while read` over a file with no trailing newline silently drops the last line.
+  A 26-URL sweep reported `PASS=25 FAIL=0` and looked clean. Check the input's
+  line count against the expected count before trusting a sweep's total.
