@@ -79,3 +79,12 @@
 - `while read` over a file with no trailing newline silently drops the last line.
   A 26-URL sweep reported `PASS=25 FAIL=0` and looked clean. Check the input's
   line count against the expected count before trusting a sweep's total.
+- Audit the *result* of a cleanup, not just the fix. Excluding `og/*.png` from the
+  image pipeline removed 51 dead derivatives; diffing the derivatives on disk
+  against every `/_opt/*.webp` referenced in built HTML then found 4 more from the
+  same cause (`logo/logo.png`, `thumbnails/logo-thumbnail.png` — consumed as
+  absolute URLs in JSON-LD/metadata, never through `<Picture>`). The invariant
+  worth asserting is 1:1 generated-to-requested, not "the known offender is gone".
+- Group build rules by how a file is *consumed*, not where it lives.
+  `logo/logo.png` is metadata-only but `logo/AiWebHubLogo.jpg` renders through
+  `<Picture>` — a `logo/` prefix exclusion would have silently broken /about.
