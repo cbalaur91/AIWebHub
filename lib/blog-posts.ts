@@ -253,7 +253,7 @@ This guide covers what AI search engines are, how they differ from traditional s
 
 AI search engines are tools that use large language models to understand questions and generate direct, conversational answers rather than returning a list of links. The most prominent examples in 2026 include ChatGPT with web browsing, Perplexity AI, Google AI Overviews (formerly Search Generative Experience), and Microsoft Copilot integrated into Bing.
 
-The adoption numbers are significant. Over 180 million people use ChatGPT monthly, and Perplexity processes more than 10 million queries per day. Google AI Overviews now appear in roughly 30 percent of search results for informational queries. These are not niche tools anymore — they are mainstream channels that your potential customers are using right now to research products, services, and businesses like yours.
+These are not niche tools anymore. AI answers now sit inside the places people already search — the Google results page, the browser sidebar, the phone's assistant — and asking one has become a normal first step in researching a purchase. Your potential customers are using them right now to research products, services, and businesses like yours.
 
 For business owners, this shift means that ranking on page one of Google is no longer the only game in town. When someone asks ChatGPT "What is the best web design agency for small businesses?" or asks Perplexity "How much does a custom website cost?", the AI pulls information from across the web, synthesizes it, and delivers a direct answer. If your website provides clear, authoritative, well-structured content, it can become one of the sources that AI cites in its responses. If it does not, your competitors will fill that space instead.
 
@@ -289,7 +289,7 @@ Adding schema markup is one of the highest-impact technical optimizations you ca
 
 AI search engines prefer content that contains specific, citable facts, statistics, and clear statements. When your content includes concrete data points, definitions, and direct answers, AI models are more likely to quote or reference it. Vague, generic content gets passed over in favor of sources that provide specific value.
 
-Include original data where possible — survey results, case study outcomes, pricing benchmarks, or performance metrics from your own work. When referencing external statistics, cite reputable sources and provide the specific numbers. Statements like "businesses that implement AI chatbots typically see a 30 to 50 percent reduction in routine customer service inquiries" are far more citable than "AI chatbots can help reduce customer service workload."
+Include original data where possible — survey results, case study outcomes, pricing benchmarks, or performance metrics from your own work. When referencing external statistics, name the source alongside the number, and drop any figure you cannot trace back to whoever published it. A statement like "the Baymard Institute puts the average online cart abandonment rate at 70.19 percent" is far more citable than "most shoppers abandon their carts" — and unlike an unattributed number, a reader or an AI model can check it.
 
 Write with the assumption that AI will extract individual sentences or short paragraphs from your content. Each key point should stand on its own as a clear, accurate, self-contained statement.
 
