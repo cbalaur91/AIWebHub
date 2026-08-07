@@ -37,7 +37,6 @@ const MAX_BYTES = 500 * 1024;
  */
 const BUDGET_ALLOWLIST = new Map<string, string>([
   ["video/Website_Mission_Video_Creation.mp4", "real <video> element on /about"],
-  ["logo/logo.svg", "SVG (outside the raster pipeline); unreferenced, flagged in #11"],
 ]);
 
 interface ManifestEntry {
@@ -55,12 +54,16 @@ interface ManifestEntry {
  * Sources the pipeline deliberately skips:
  *  - `_opt/` itself (its own output)
  *  - `blog/*.png` — Satori OG cards, already emitted at their display size
+ *  - `og/*.png` — per-route Satori cards (#20), same reason: social crawlers
+ *    fetch the exact `og:image` URL and never read a srcSet, so derivatives of
+ *    these are never requested by anything
  *  - `favicons/` — fixed-size icons referenced by exact path in <head>
  *  - anything that is not a raster (SVG, video, text, .ico)
  */
 function isPipelineSource(relPath: string): boolean {
   if (relPath.startsWith("_opt/")) return false;
   if (relPath.startsWith("blog/") && relPath.endsWith(".png")) return false;
+  if (relPath.startsWith("og/") && relPath.endsWith(".png")) return false;
   if (relPath.startsWith("favicons/")) return false;
   return RASTER_EXT.test(relPath);
 }
