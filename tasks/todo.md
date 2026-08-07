@@ -194,4 +194,6 @@ ticket.
 2. Carried over, still not done: add `public/og/*.png` to
    `scripts/generate-images.ts`'s exclusion list — 51 pointless WebP derivatives
    of #34's OG cards.
-4. Possible new ticket: the 8 unsourced figures in the other blog posts.
+3. Possible new ticket: the 8 unsourced figures in the other blog posts
+   (lines 115, 201, 381, 413, 448, 456, 472 of `lib/blog-posts.ts`), tabulated
+   in #41.
