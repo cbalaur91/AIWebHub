@@ -57,6 +57,12 @@ export const OG_CARDS: OgCard[] = [
     alt: "AIWebHub services — web design, AI integration, e-commerce and SEO",
   },
   {
+    route: "/ai-consulting",
+    title: "AI Consulting, Training & Automation Audits",
+    tags: ["AI Training", "Automation Audit", "Agentic Builds"],
+    alt: "AIWebHub AI consulting — training, automation audits and agentic workflow builds",
+  },
+  {
     route: "/portfolio",
     title: "Portfolio & Client Case Studies",
     tags: ["Case Studies", "Client Work"],

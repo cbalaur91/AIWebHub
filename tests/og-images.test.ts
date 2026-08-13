@@ -100,6 +100,7 @@ describe("OG_CARDS table", () => {
       "/",
       "/about",
       "/services",
+      "/ai-consulting",
       "/portfolio",
       "/blog",
       "/contact",

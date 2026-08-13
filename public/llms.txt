@@ -7,6 +7,9 @@
 - Custom Website Design & Development (landing pages, multi-page business sites, e-commerce stores)
 - AI Integration (chatbots, intelligent search, personalized recommendations, automated content)
 - Custom AI Agents (agent development, knowledge base training, API integrations)
+- AI Training (hands-on sessions teaching client teams to build and operate AI agents on their own processes)
+- Automation Audits (process mapping and a written assessment of which business tasks are worth automating)
+- Agentic Workflow Implementation (end-to-end AI agent workflows built into a client's existing systems)
 - E-commerce Solutions (online stores with secure payment processing and inventory management)
 - POS System Integration (connecting point-of-sale systems with web platforms)
 - SEO Optimization (search engine optimization and digital strategy)
@@ -22,6 +25,7 @@ For independent, survey-sourced industry cost ranges (not AIWebHub's prices), se
 
 - Homepage: https://www.aiwebhub.io/
 - Services: https://www.aiwebhub.io/services
+- AI Consulting: https://www.aiwebhub.io/ai-consulting
 - Portfolio: https://www.aiwebhub.io/portfolio
 - Web Design Detroit: https://www.aiwebhub.io/web-design-detroit
 - About: https://www.aiwebhub.io/about
