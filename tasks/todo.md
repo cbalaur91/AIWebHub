@@ -260,3 +260,80 @@ the expected count before trusting a sweep total.
 3. **Re-measure at 4 and 8 weeks** against 0 / 40 / 0% / 10.3 — same 7-day
    window, same Domain property. Then decide whether the deferred `/services/*`
    programme is justified. This belongs to a follow-on effort, not this map.
+
+---
+
+# Session 5 — AI Consulting service line (2026-08-12)
+
+## Goal
+
+Add a second business line to the site: AI consultancy, with three pillars —
+**Training** (teach a client's team to build and use AI agents), **Automation
+audit** (map their processes, report on what is worth automating) and **Agentic
+builds** (implement the workflows end to end). Nothing on the site said any of
+this, so there was no page to land on and no words to match.
+
+Owner decisions taken up front: **one page, not a hub-and-spokes**, and **its
+own top-nav link**.
+
+## What shipped
+
+1. `app/ai-consulting/page.tsx` + `layout.tsx` → verify: static route in build
+   output at 921 B, identical profile to `/services` — server-rendered, only
+   the `GradientButton` client leaf. ✅
+2. Nav link, `/services` pointer band (3 cards → deep links), `hasOfferCatalog`
+   extended with the 3 consulting Services → verify: `href="/ai-consulting"`
+   present in `out/services.html`. ✅
+3. Sitemap entry, `OG_CARDS` row, `knowsAbout` additions, `llms.txt` under both
+   `## Services` and `## Pages` → verify: `<loc>` in `sitemap.xml`, generated
+   card on disk. ✅
+4. `tests/og-images.test.ts` money-page list extended → verify: 55 pass
+   (was 54), 0 fail. ✅
+
+## Verified
+
+- `typecheck` clean, `test` 55/55, `build` compiles, all after
+  `rm -rf .next out tsconfig.tsbuildinfo`.
+- `out/ai-consulting.html`: exactly one self-referencing canonical, exactly one
+  `og:image`, 4 JSON-LD script tags (root Organization + WebPage/Breadcrumb/
+  FAQPage) — same count as `/services`.
+- Schema types present: 6 Question + 6 Answer, 3 Offer/Service, 1 OfferCatalog,
+  1 FAQPage, 1 BreadcrumbList.
+- All 6 FAQ answers and the pillar prose are in the exported HTML, not injected
+  — the failure mode `FaqBlock` exists to prevent.
+- `lint` output is byte-identical to `main` apart from line-number shifts; the
+  3 errors on `/services` are pre-existing, and `app/ai-consulting/page.tsx`
+  produces none.
+
+## Two judgement calls made without the owner
+
+1. **Hero stat tiles.** The plan flagged `Half-day` / `1–2 wk` as needing
+   confirmation. Both are turnaround promises we cannot verify, so they were
+   replaced with three facts that are true by construction — `3` ways to start,
+   `Quote-only`, `Your stack`. No numbers to be held to.
+2. **Contact-form service dropdown.** Left out. The form still captures only
+   `{name, email, company?, message}`, so nothing records which of the two
+   business lines a lead came for. This is now a real gap, but it was marked
+   owner's-call in the plan and is beyond the literal ask. Worth a ticket.
+
+## Nav wrapping — caught by arithmetic, not by eye
+
+The seventh link pushed the desktop row (logo + 7 links + "Get Started") to an
+estimated ~793 px against the 768 px `md` breakpoint. Fixed at the source of the
+regression: `gap-6` → `gap-4 lg:gap-6`, plus `whitespace-nowrap` so
+"AI Consulting" cannot break across two lines. **Not visually confirmed** — this
+box has no Playwright/Puppeteer and `bunx serve` does not resolve here.
+
+## Still outstanding (carried forward, plus new)
+
+1. Add `public/og/*.png` to `scripts/generate-images.ts`'s exclusion list.
+2. ~8 unsourced figures across four blog posts (tabulated in #41).
+3. Re-measure at 4 and 8 weeks against 0 / 40 / 0% / 10.3, then decide on the
+   deferred `/services/*` programme.
+4. **New — services data is duplicated seven ways.** There is no
+   `lib/services-data.ts` and no `Service` type; every list is declared inline
+   where it renders, and no two agree. This session added a seventh. Extract
+   using `lib/portfolio-data.ts` + `tests/portfolio-data.test.ts` as the model.
+5. **New — `components/ServicesSection.tsx` is dead code**: zero importers and
+   three image paths that do not exist on disk. Flagged, not deleted.
+6. **New — contact form has no service field** (see judgement call 2).

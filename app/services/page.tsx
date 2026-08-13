@@ -2,7 +2,20 @@
 // leaf; the words are all server-rendered, which is what an SEO page needs
 // under `output: 'export'` (learned on #12).
 
-import { Code, Globe, Monitor, TrendingUp, Zap, Target, Bot, Brain } from 'lucide-react'
+import Link from 'next/link'
+import {
+  Code,
+  Globe,
+  Monitor,
+  TrendingUp,
+  Zap,
+  Target,
+  Bot,
+  Brain,
+  GraduationCap,
+  ClipboardCheck,
+  Workflow,
+} from 'lucide-react'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Picture } from '@/components/ui/picture'
 import { FaqBlock } from '@/components/FaqBlock'
@@ -108,6 +121,30 @@ export default function ServicesPage() {
               "@type": "Service",
               "name": "AI Agents",
               "description": "Custom AI agents trained on your business data to automate support and workflows."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Training",
+              "description": "Hands-on training that teaches your team to build and run AI agents on their own processes."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automation Audit",
+              "description": "Process mapping and a written report on which parts of your business are worth automating."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Agentic Workflow Implementation",
+              "description": "End-to-end implementation of AI agent workflows, integrated with the tools you already use."
             }
           }
         ]
@@ -311,6 +348,76 @@ export default function ServicesPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* AI Consulting — the second business line. Summarised here and carried
+          in full on /ai-consulting, so this page keeps its focus on builds. */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn animation-delay-400 bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-24 mx-auto px-6 py-6 backdrop-blur">
+        {/* Header */}
+        <div className="flex gap-6 sm:px-0 px-1 items-center animate-fadeInUp">
+          <span className="inline-flex items-center gap-2 text-sm">
+            <span className="text-4xl font-medium text-white">AI Consulting</span>
+          </span>
+          <span aria-hidden="true" role="separator" className="w-px h-10 bg-white/10" />
+          <span className="text-sm text-neutral-300">beyond the website</span>
+        </div>
+        <div className="h-px bg-white/10 mt-4 animate-fadeIn animation-delay-100" />
+
+        <div className="mt-8">
+          <h2 className="text-[32px] sm:text-4xl md:text-5xl leading-[1.05] font-light text-zinc-100 tracking-tighter animate-fadeInUp animation-delay-200 max-w-[22ch]">
+            We also train teams and automate the work behind the site
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-[70ch] animate-fadeInUp animation-delay-300">
+            Not every problem is a website. If the cost is in how the work gets done rather than how
+            it looks online, we run three separate engagements — teaching your team to build AI
+            agents, auditing your processes to find what is worth automating, and implementing the
+            workflows end to end.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 stagger-animation">
+          {[
+            {
+              title: "Training",
+              description: "Hands-on sessions that teach your team to build and run AI agents on the work they already do.",
+              icon: GraduationCap,
+              iconColor: "text-blue-400",
+              href: "/ai-consulting#training",
+            },
+            {
+              title: "Automation audit",
+              description: "We map how your business actually runs, then hand back a written view of what is worth automating and what is not.",
+              icon: ClipboardCheck,
+              iconColor: "text-emerald-400",
+              href: "/ai-consulting#audit",
+            },
+            {
+              title: "Agentic builds",
+              description: "End-to-end workflows implemented into the systems you already use, piloted first and handed over documented.",
+              icon: Workflow,
+              iconColor: "text-cyan-400",
+              href: "/ai-consulting#implementation",
+            },
+          ].map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="block rounded-2xl border border-white/10 bg-zinc-900/60 p-6 hover-lift hover:border-white/20 transition-colors duration-300"
+            >
+              <span className="inline-flex p-2.5 rounded-xl bg-white/5">
+                <item.icon className={`w-5 h-5 ${item.iconColor}`} strokeWidth={1.5} />
+              </span>
+              <h3 className="mt-4 text-lg font-medium text-white tracking-tight">{item.title}</h3>
+              <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{item.description}</p>
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex mt-8">
+          <GradientButton href="/ai-consulting" variant="secondary">
+            Explore AI consulting
+          </GradientButton>
         </div>
       </section>
 

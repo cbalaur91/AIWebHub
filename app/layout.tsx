@@ -115,6 +115,9 @@ export default function RootLayout({
               "knowsAbout": [
                 "Web Design",
                 "AI Integration",
+                "AI Consulting",
+                "AI Agent Training",
+                "Process Automation Audit",
                 "Custom Website Development",
                 "E-commerce Solutions",
                 "POS System Integration",

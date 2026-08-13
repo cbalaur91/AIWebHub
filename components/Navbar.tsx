@@ -9,6 +9,7 @@ import { Logo } from '@/components/Logo'
 const NavLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/ai-consulting', label: 'AI Consulting' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
@@ -58,12 +59,14 @@ export const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-neutral-300">
+        {/* gap tightens at md so the seventh link ("AI Consulting") still fits
+            on one row beside the logo and the CTA; full gap returns at lg. */}
+        <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-neutral-300">
           {NavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="hover:text-white transition-colors hover:scale-105 duration-200 font-medium"
+              className="whitespace-nowrap hover:text-white transition-colors hover:scale-105 duration-200 font-medium"
             >
               {link.label}
             </Link>

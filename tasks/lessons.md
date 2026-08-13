@@ -88,3 +88,6 @@
 - Group build rules by how a file is *consumed*, not where it lives.
   `logo/logo.png` is metadata-only but `logo/AiWebHubLogo.jpg` renders through
   `<Picture>` — a `logo/` prefix exclusion would have silently broken /about.
+- Adding a nav link is a layout change: count the row's width against the breakpoint before shipping, since a 7th item can overflow `md` while looking fine at `lg`.
+- Verify a new page's rendered HTML against a known-good page's, not against expectations — App Router embeds the RSC flight payload, so every string legitimately appears twice.
+- When a plan flags a marketing number as "confirm before shipping" and the owner is not available, replace it with a fact that is true by construction rather than guessing a turnaround.
