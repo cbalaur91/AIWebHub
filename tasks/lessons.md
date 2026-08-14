@@ -91,3 +91,6 @@
 - Adding a nav link is a layout change: count the row's width against the breakpoint before shipping, since a 7th item can overflow `md` while looking fine at `lg`.
 - Verify a new page's rendered HTML against a known-good page's, not against expectations — App Router embeds the RSC flight payload, so every string legitimately appears twice.
 - When a plan flags a marketing number as "confirm before shipping" and the owner is not available, replace it with a fact that is true by construction rather than guessing a turnaround.
+- `bun` installed as a snap cannot spawn `/usr/bin/git` — `spawnSync`/`Bun.spawnSync` both fail with ENOENT no matter how the path is written, and `bun run <cmd>` propagates that confinement to child processes. A build step that shells out to git must be invoked with `node` directly, not through `bun run`.
+- Sitemap `lastmod` is a recrawl signal, not decoration. Hard-coded dates on 20 of 27 URLs told Google nothing had changed since February while those pages were being rewritten. Derive it from git, and have any route table fail loudly rather than carry a literal.
+- Search Console's per-reason CSVs export counts, not URLs. To name the affected pages, click into the reason row and export from there — or correlate the not-indexed step change against `git log`, which is what identified the canonical fix as the cause.

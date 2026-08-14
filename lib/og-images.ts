@@ -63,6 +63,12 @@ export const OG_CARDS: OgCard[] = [
     alt: "AIWebHub AI consulting — training, automation audits and agentic workflow builds",
   },
   {
+    route: "/web-design-detroit",
+    title: "Web Design in Metro Detroit",
+    tags: ["Warren", "Rochester Hills", "Utica"],
+    alt: "AIWebHub web design in Metro Detroit — Warren, Rochester Hills and Utica clients",
+  },
+  {
     route: "/portfolio",
     title: "Portfolio & Client Case Studies",
     tags: ["Case Studies", "Client Work"],
