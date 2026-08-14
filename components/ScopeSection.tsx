@@ -157,6 +157,19 @@ export const ScopeSection = () => {
           Open the cost calculator
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>
+
+        <p className="mt-10 max-w-[72ch] text-sm leading-relaxed text-zinc-400">
+          We work with clients across the country, and a good share of them are within driving
+          distance — Warren, Rochester Hills, Utica. If that is where you are, the Metro Detroit
+          page covers what working with us locally looks like.
+        </p>
+        <Link
+          href="/web-design-detroit"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm text-zinc-200 hover:text-white transition-colors duration-200"
+        >
+          Web design in Metro Detroit
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
       </div>
     </section>
   )

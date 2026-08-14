@@ -2,7 +2,7 @@ import { getAllProjects, getProjectBySlug } from '@/lib/portfolio-data'
 import { abs, ogCardImages, ORG, SITE_URL, pageMetadata } from '@/lib/site'
 import { GradientButton } from '@/components/ui/gradient-button'
 import { Picture } from '@/components/ui/picture'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -77,6 +77,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       { "@type": "ListItem", "position": 3, "name": project.title, "item": abs(`/portfolio/${project.slug}`) }
     ]
   }
+
+  // The three case studies that follow this one, wrapping past the end. Half the
+  // case studies used to have exactly one inbound link — their card on
+  // /portfolio — which left them as crawl dead ends. Positional rather than
+  // "related", so it stays deterministic across static builds and every project
+  // is linked from three others without a similarity rule to maintain.
+  const projects = getAllProjects()
+  const start = projects.findIndex((p) => p.slug === project.slug)
+  const siblings = [1, 2, 3].map((offset) => projects[(start + offset) % projects.length])
 
   const sections = [
     { title: "Project Overview", content: project.caseStudy.overview },
@@ -182,6 +191,34 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </span>
           ))}
         </div>
+      </section>
+
+      {/* More work */}
+      <section className="relative z-10 sm:p-8 animate-scaleIn bg-zinc-950/10 w-full max-w-7xl border-white/10 border rounded-3xl mt-12 mx-auto px-6 py-6 backdrop-blur">
+        <h2 className="text-2xl sm:text-3xl font-light text-zinc-100 tracking-tight">
+          More client work
+        </h2>
+        <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {siblings.map((sibling) => (
+            <li key={sibling.slug}>
+              <Link
+                href={`/portfolio/${sibling.slug}`}
+                className="flex h-full flex-col rounded-2xl border border-white/10 bg-zinc-900/60 p-5 hover-lift transition-colors hover:border-white/20"
+              >
+                <p className="text-sm font-medium text-zinc-100 tracking-tight">
+                  {sibling.title}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400 line-clamp-3">
+                  {sibling.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-zinc-300">
+                  Read the case study
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* CTA Section */}

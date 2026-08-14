@@ -14,6 +14,26 @@ const XIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+/**
+ * Every indexable page that is not already reachable from the navbar or the
+ * bottom bar. Before this existed the footer linked only /contact, /privacy-policy
+ * and /terms-of-service, which left /web-design-detroit on a single inbound link
+ * sitewide and the cost calculator on none outside body prose — both of them
+ * sitting in Search Console as "Discovered - currently not indexed".
+ *
+ * Ordered the way someone actually moves through the site: what we do, then the
+ * tool, then the proof.
+ */
+const FOOTER_LINKS = [
+  { href: '/services', label: 'Services' },
+  { href: '/ai-consulting', label: 'AI Consulting' },
+  { href: '/web-design-detroit', label: 'Detroit Web Design' },
+  { href: '/tools/website-cost-calculator', label: 'Cost Calculator' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/about', label: 'About' },
+]
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
@@ -117,8 +137,20 @@ export const Footer = () => {
         </a>
       </p>
 
+      {/* Wayfinding — puts every page one click from anywhere on the site */}
+      <nav
+        aria-label="Site"
+        className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-neutral-400 animate-fadeInUp animation-delay-600"
+      >
+        {FOOTER_LINKS.map(({ href, label }) => (
+          <Link key={href} href={href} className="hover:text-white transition-colors">
+            {label}
+          </Link>
+        ))}
+      </nav>
+
       {/* Bottom bar */}
-      <div className="mt-12 h-px bg-white/5 animate-fadeIn animation-delay-600" />
+      <div className="mt-10 h-px bg-white/5 animate-fadeIn animation-delay-600" />
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 animate-fadeInUp animation-delay-600 gap-4">
         <p>© {currentYear} AIWebHub. All rights reserved.</p>
         <div className="flex gap-6">

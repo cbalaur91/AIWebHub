@@ -9,6 +9,11 @@
       "has": [{ "type": "host", "value": "aiwebhub.io" }],
       "destination": "https://www.aiwebhub.io/$1",
       "permanent": true
+    },
+    {
+      "source": "/prototype/cost-calculator",
+      "destination": "/tools/website-cost-calculator",
+      "permanent": true
     }
   ],
   "rewrites": [
